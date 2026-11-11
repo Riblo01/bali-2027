@@ -1,0 +1,1106 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Itinerario de 10 días en Bali para 6 desde Quito: Ubud, Canggu, Nusa Penida y Uluwatu, villas, requisitos de entrada, comida típica, mapas, costos y plan de ahorro.">
+<meta property="og:title" content="Bali 2027 · Ruta de los seis">
+<meta property="og:description" content="Itinerario de 10 días en Bali para 6 desde Quito: Ubud, Canggu, Nusa Penida y Uluwatu, villas, requisitos de entrada, comida típica, mapas, costos y plan de ahorro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://riblo01.github.io/bali-2027/">
+<meta property="og:image" content="https://riblo01.github.io/bali-2027/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2E7D4F">
+<title>Bali 2027 · Ruta de los seis</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap">
+<style>
+/* Layout: a rail timetable. Ticket header, month and lodging switches, line map, route maps, lodging cards, then one timetable card per day with photos and its station stamp. */
+:root{
+  --paper:#F5F7F5; --card:#FFFFFF; --ink:#17201C; --muted:#5B6863; --rule:#D8DFDB; --soft:#EBF0ED;
+  --ubud:#2E7D4F; --canggu:#B5651A; --uluwatu:#B03A5B; --penida:#1B73A3; --air:#3F6688;
+  --ok:#2B7A57; --ok-bg:#E3F2EA; --est:#8F6210; --est-bg:#F7EDD9; --pin-ink:#FFFFFF;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#111614; --card:#18201D; --ink:#E4EBE7; --muted:#97A59F; --rule:#2A3430; --soft:#1F2925;
+  --ubud:#6FCF9F; --canggu:#F0A85A; --uluwatu:#F08AA3; --penida:#62C3E8; --air:#7FA6C9;
+  --ok:#6FCF9F; --ok-bg:#183328; --est:#E5B45C; --est-bg:#352812; --pin-ink:#0E1311; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#111614; --card:#18201D; --ink:#E4EBE7; --muted:#97A59F; --rule:#2A3430; --soft:#1F2925;
+  --ubud:#6FCF9F; --canggu:#F0A85A; --uluwatu:#F08AA3; --penida:#62C3E8; --air:#7FA6C9;
+  --ok:#6FCF9F; --ok-bg:#183328; --est:#E5B45C; --est-bg:#352812; --pin-ink:#0E1311; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.wrap{max-width:1000px;margin:0 auto;display:grid;gap:44px}
+h1,h2,h3{text-wrap:balance;margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible,label:focus-within{outline:2px solid var(--air);outline-offset:2px}
+img{display:block;max-width:100%}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+section{display:grid;gap:16px;min-width:0}
+.sec-head{display:grid;gap:6px;max-width:70ch}
+.sec-head h2{font-family:var(--display);font-weight:400;font-size:26px}
+.sec-head p{margin:0;color:var(--muted)}
+
+/* Ticket header */
+.ticket{background:var(--card);border:1px solid var(--rule);border-radius:14px;display:grid;grid-template-columns:1fr auto;overflow:hidden}
+.ticket-main{padding:24px 26px;display:grid;gap:14px;min-width:0}
+.route{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.route .city{font-family:var(--display);font-size:clamp(28px,6vw,46px);line-height:1}
+.route .arrow{font-family:var(--mono);color:var(--muted);font-size:20px}
+.route .kanji{font-family:var(--display);font-size:clamp(28px,6vw,46px);color:var(--ubud);line-height:1}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--muted)}
+.meta b{color:var(--ink);font-weight:500}
+.ticket-stub{border-left:2px dashed var(--rule);padding:24px 26px;display:grid;align-content:center;gap:4px;min-width:220px;background:var(--soft)}
+.stub-total{font-family:var(--mono);font-size:34px;font-weight:500;line-height:1.1;font-variant-numeric:tabular-nums}
+.stub-sub{font-size:13px;color:var(--muted)}
+@media (max-width:640px){.ticket{grid-template-columns:1fr}.ticket-stub{border-left:0;border-top:2px dashed var(--rule)}}
+
+/* Controls */
+.controls{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+.ctl{display:grid;gap:6px}
+.ctl > span{font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden;background:var(--card);flex-wrap:wrap}
+.seg label{cursor:pointer;position:relative}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:block;padding:7px 14px;font-size:14px;color:var(--muted)}
+.seg input:checked+span{background:var(--ink);color:var(--paper)}
+.check{display:inline-flex;gap:8px;align-items:center;font-size:14px;cursor:pointer;align-self:end;padding-bottom:6px}
+.check input{width:18px;height:18px;accent-color:var(--penida)}
+.legend{display:flex;gap:10px 14px;flex-wrap:wrap;font-size:13px;color:var(--muted);align-items:center}
+.chip{display:inline-block;font-size:11px;letter-spacing:.04em;padding:1px 7px;border-radius:999px;font-weight:500;white-space:nowrap;vertical-align:1px}
+.chip.v{background:var(--ok-bg);color:var(--ok)}
+.chip.e{background:var(--est-bg);color:var(--est)}
+.chip.o{border:1px dashed var(--muted);color:var(--muted)}
+.month-note{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--penida);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px}
+.month-note b{font-weight:700}
+
+/* Line map */
+.linemap{overflow-x:auto}
+.line{list-style:none;margin:0;padding:8px 0 0;display:grid;grid-template-columns:repeat(5,minmax(96px,1fr));min-width:520px}
+.line li{position:relative;display:grid;justify-items:center;text-align:center;gap:4px;padding-top:26px}
+.line li::before{content:"";position:absolute;top:10px;left:0;right:0;height:6px;background:var(--c)}
+.line li:first-child::before{left:50%}
+.line li:last-child::before{right:50%}
+.line li::after{content:"";position:absolute;top:3px;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:var(--card);border:4px solid var(--c)}
+.line .st{font-family:var(--display);font-size:20px;line-height:1.1}
+.line .lat{font-weight:500;font-size:14px}
+.line .n{font-size:12px;color:var(--muted)}
+
+/* Maps */
+.maps{display:grid;gap:22px}
+.map{margin:0;background:var(--card);border:1px solid var(--rule);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:minmax(0,3fr) minmax(220px,2fr)}
+.map.wide{grid-template-columns:1fr}
+.map-frame{position:relative;min-width:0;align-self:start}
+.map-frame img{width:100%;height:auto}
+.pin{position:absolute;transform:translate(-50%,-50%);min-width:24px;height:24px;padding:0 5px;border-radius:12px;border:2px solid var(--card);background:var(--c);color:var(--pin-ink);font:500 12px/20px var(--mono);cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.35)}
+.pin.bnb{border-radius:5px;background:var(--ink);color:var(--paper)}
+.pin.bnb.dim{opacity:.45}
+.pin.city{min-width:16px;height:16px;padding:0;border-radius:50%;background:var(--card);border:4px solid var(--c)}
+.pin:hover,.pin:focus-visible{z-index:5}
+.pin[data-label]:hover::after,.pin[data-label]:focus::after{content:attr(data-label);position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);white-space:nowrap;background:var(--ink);color:var(--paper);font:400 12px/1.4 var(--body);padding:4px 8px;border-radius:6px;pointer-events:none}
+.citylabel{position:absolute;transform:translate(-50%,10px);font:400 15px/1.1 var(--display);color:#17201C;text-shadow:0 0 3px #fff,0 0 3px #fff;pointer-events:none;white-space:nowrap}
+.map-legend{padding:16px 18px;display:grid;gap:8px;align-content:start;font-size:13px;border-left:1px solid var(--rule);min-width:0}
+.map-legend ol{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.map-legend h3{font-size:15px;font-weight:700}
+.map-legend li{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start}
+.map-legend .k{font:500 12px/20px var(--mono);text-align:center;border-radius:10px;color:var(--pin-ink);background:var(--c);height:20px}
+.map-legend .k.bnb{border-radius:4px;background:var(--ink);color:var(--paper)}
+.map-legend li.sub{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.attrib{font-size:11px;color:var(--muted);padding:6px 10px}
+@media (max-width:720px){.map{grid-template-columns:1fr}.map-legend{border-left:0;border-top:1px solid var(--rule)}}
+
+/* Lodging */
+.stays{display:grid;gap:26px}
+.stay-block{display:grid;gap:12px}
+.stay-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.stay-head h3{font-size:18px;font-weight:700;display:flex;gap:10px;align-items:baseline}
+.stay-head h3 span{font-family:var(--display);font-weight:400;color:var(--c)}
+.stay-head .mkt{font-size:13px;color:var(--muted)}
+.bnbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.bnbs{grid-template-columns:1fr}}
+.bnb-card{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;position:relative}
+.bnb-card.sel{border:2px solid var(--c)}
+.bnb-card img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.bnb-body{padding:12px 14px;display:grid;gap:6px;align-content:start}
+.bnb-lvl{position:absolute;top:10px;left:10px;background:var(--card);color:var(--ink);font-size:12px;font-weight:500;padding:2px 9px;border-radius:999px}
+.bnb-card.sel .bnb-lvl{background:var(--c);color:var(--pin-ink)}
+.bnb-title{font-weight:700;font-size:15px;line-height:1.3}
+.bnb-sub{font-size:13px;color:var(--muted);line-height:1.4}
+.bnb-meta{font-size:13px;display:flex;gap:6px 12px;flex-wrap:wrap}
+.bnb-price{display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-top:1px solid var(--rule);padding-top:8px;margin-top:2px;flex-wrap:wrap}
+.bnb-price b{font-family:var(--mono);font-size:18px;font-weight:500}
+.bnb-price small{font-size:12px;color:var(--muted)}
+.bnb-link{font-size:13px}
+
+/* Day cards */
+.days{display:grid;gap:22px}
+.day{background:var(--card);border:1px solid var(--rule);border-radius:14px;display:grid;grid-template-columns:168px 1fr;overflow:hidden}
+.day-side{padding:20px 18px;border-right:1px solid var(--rule);display:grid;align-content:start;gap:10px;justify-items:start;background:var(--soft)}
+.day-date{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.day-num{font-family:var(--display);font-size:30px;line-height:1;color:var(--c)}
+.stamp{width:124px;height:124px;color:var(--c);transform:rotate(-4deg)}
+.day-main{padding:20px 22px;display:grid;gap:14px;min-width:0}
+.gallery{display:grid;grid-template-columns:2fr 1fr;grid-auto-rows:1fr;gap:6px;border-radius:10px;overflow:hidden}
+.gallery.one{grid-template-columns:1fr}
+.gallery figure{margin:0;position:relative;min-width:0}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery .big{grid-row:span 2;aspect-ratio:16/10}
+.gallery.one .big{aspect-ratio:21/9}
+.gallery.two .small{grid-row:span 2;aspect-ratio:auto}
+.gallery .small{aspect-ratio:16/10}
+.gallery figcaption{position:absolute;left:0;bottom:0;right:0;padding:14px 10px 6px;font-size:12px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+.day-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.day-head h3{font-size:21px;font-weight:700}
+.day-head .base{font-size:13px;color:var(--muted)}
+.tt{width:100%;border-collapse:collapse;font-size:14px}
+.tt td{padding:8px 6px;border-top:1px solid var(--rule);vertical-align:top}
+.tt tr:first-child td{border-top:0}
+.tt .h{font-family:var(--mono);white-space:nowrap;color:var(--c);font-weight:500;width:74px}
+.tt .what b{font-weight:700}
+.tt .what small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.tt .cost{text-align:right;white-space:nowrap;font-family:var(--mono);font-variant-numeric:tabular-nums;width:1%}
+.tt .cost .y{display:block;color:var(--muted);font-size:12px}
+.tt tr.opt td{opacity:.6}
+.tt tr.opt.on td{opacity:1}
+.tt-wrap{overflow-x:auto}
+.day-foot{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;align-items:baseline;border-top:2px solid var(--c);padding-top:12px}
+.day-foot .stay{font-size:13px;color:var(--muted);min-width:0}
+.day-foot .stay b{color:var(--ink);font-weight:500}
+.day-total{font-family:var(--mono);font-size:20px;font-weight:500}
+.day-total small{font-size:12px;color:var(--muted);font-weight:400;margin-left:6px}
+.note{font-size:13px;background:var(--soft);border-radius:8px;padding:10px 12px}
+.note b{font-weight:700}
+@media (max-width:700px){
+  .day{grid-template-columns:1fr}
+  .day-side{border-right:0;border-bottom:1px solid var(--rule);grid-template-columns:auto 1fr;align-items:center;column-gap:16px}
+  .stamp{width:88px;height:88px}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gallery .big{grid-column:1/-1;grid-row:auto}
+  .gallery.two .small{grid-column:1/-1;grid-row:auto;aspect-ratio:16/10}
+}
+
+/* Tables */
+.box{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:6px 8px;overflow-x:auto}
+.sum{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+.sum th,.sum td{padding:9px 10px;border-bottom:1px solid var(--rule);text-align:right}
+.sum th:first-child,.sum td:first-child{text-align:left}
+.sum th{font-weight:500;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.sum td{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.sum td:first-child{font-family:var(--body)}
+.sum td small{display:block;font-size:11px;color:var(--muted)}
+.sum tr.tot td{font-weight:500;border-bottom:2px solid var(--ink)}
+.sum th.cur,.sum td.cur{background:var(--soft)}
+
+/* Food + bookings */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.food{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--c);border-radius:0 0 12px 12px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.food h3{font-size:17px;font-weight:700;display:flex;gap:10px;align-items:baseline}
+.food h3 span{font-family:var(--display);font-weight:400;color:var(--c)}
+.food ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:14px}
+.food li{display:flex;justify-content:space-between;gap:10px}
+.food li .p{font-family:var(--mono);color:var(--muted);white-space:nowrap;font-size:13px}
+.book{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.book li{display:grid;grid-template-columns:170px 1fr;gap:14px;padding:12px 18px;border-top:1px solid var(--rule)}
+.book li:first-child{border-top:0}
+.book .when{font-family:var(--mono);font-size:13px;color:var(--penida);font-weight:500}
+@media (max-width:560px){.book li{grid-template-columns:1fr;gap:2px}}
+.fine{font-size:13px;color:var(--muted);display:grid;gap:8px;max-width:76ch}
+.fine p{margin:0}
+.fine ul{margin:0;padding-left:18px;display:grid;gap:3px}
+.map-frame svg.route{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.pin.dim{opacity:.35}
+.daychips{display:flex;flex-wrap:wrap;gap:6px}
+.daychips button{font:500 12px/1 var(--body);padding:6px 10px;border-radius:999px;border:1px solid var(--rule);background:var(--card);color:var(--muted);cursor:pointer}
+.daychips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.routetxt{margin:0;font-size:12px;color:var(--muted);line-height:1.5}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;align-items:start}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:16px 18px;display:grid;gap:4px}
+.tile b{font-family:var(--mono);font-size:30px;font-weight:500;line-height:1.1;font-variant-numeric:tabular-nums}
+.tile small{font-size:12px;color:var(--muted)}
+.num{font:500 16px var(--mono);padding:8px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--card);color:var(--ink);width:100%}
+.err{color:#B3261E;font-size:13px;min-height:1em}
+.foodgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.dish{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--c);border-radius:0 0 12px 12px;overflow:hidden;display:grid}
+.dish img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.dish div{padding:10px 12px;display:grid;gap:2px}
+.dish b{font-size:15px}
+.dish span{font-size:12px;color:var(--muted)}
+.dish em{font-style:normal;font-family:var(--mono);font-size:13px}
+.sum tr.txt td{font-family:var(--body)}
+.sum.compact{min-width:0}
+.sum.compact td:nth-child(2),.sum.compact th:nth-child(2){text-align:left;font-family:var(--body)}
+.vote-box{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;display:grid;gap:12px;align-content:start;min-width:0}
+.vote-h{font-size:16px;font-weight:700}
+.vote-mine{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.vote-mine div{display:grid;gap:2px;background:var(--soft);border-radius:8px;padding:8px 10px}
+.vote-mine span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.vote-mine b{font-size:15px}
+.vote-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{font:500 14px var(--body);padding:9px 16px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;text-decoration:none;display:inline-block}
+.btn.alt{background:var(--card);color:var(--ink);border-color:var(--rule)}
+.btn:disabled{opacity:.5;cursor:default}
+.vote-status{font-size:13px;color:var(--muted);margin:0}
+textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
+.tally{display:grid;gap:6px;margin-bottom:10px}
+.bar{display:grid;grid-template-columns:100px 1fr 24px;gap:8px;align-items:center;font-size:13px}
+.bar i{display:block;height:10px;border-radius:5px;background:var(--soft);position:relative;overflow:hidden}
+.bar i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--penida);border-radius:5px}
+.bar b{font-family:var(--mono);text-align:right}
+.vote-list{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px}
+@media (prefers-reduced-motion:no-preference){.stamp{transition:transform .2s}.day:hover .stamp{transform:rotate(0deg)}}
+.chip.s{background:color-mix(in srgb,var(--uluwatu) 14%,transparent);color:var(--uluwatu)}
+.map.wide .map-frame{max-width:560px;width:100%;margin-inline:auto}
+#med-list li b{color:var(--uluwatu)}
+.clinics{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:16px}
+.clinic{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--c);border-radius:14px;padding:16px;display:grid;gap:8px;align-content:start;min-width:0}
+.clinic h3{margin:0;font-size:18px}
+.clinic p{margin:0;font-size:14px;line-height:1.5}
+.bnb-card.nophoto{grid-template-rows:1fr}.bnb-card.nophoto .bnb-body{padding-top:44px}
+.spotgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.spot{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--c);border-radius:0 0 14px 14px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0}
+.spot img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.spot>div{padding:12px 14px 14px;display:grid;gap:6px;align-content:start}
+.spot h3{font-size:18px;margin:0}.spot p{margin:0;font-size:14px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="ticket" aria-label="Resumen del viaje">
+ <div class="ticket-main">
+  <div class="eyebrow">Viaje grupal · propuesta · villas, templos, volcán e islas</div>
+  <div class="route"><span class="city">Quito</span><span class="arrow">→</span><span class="kanji">Bali</span><span class="city">Denpasar</span></div>
+  <div class="meta">
+   <span>Salida <b id="m-dep">vie 10 sep 2027</b></span>
+   <span>En Bali <b id="m-jp">12 sep al 21 sep</b></span>
+   <span>Regreso a Quito <b id="m-ret">mié 22 sep</b></span>
+   <span>Viajeros <b>6</b></span>
+   <span>Tipo de cambio <b>Rp 18.100 = US$1</b></span>
+  </div>
+ </div>
+ <div class="ticket-stub" aria-live="polite">
+  <div class="eyebrow">Total por persona</div>
+  <div class="stub-total" id="t-pp">–</div>
+  <div class="stub-sub" id="t-grp"></div>
+  <div class="stub-sub" id="t-split"></div>
+ </div>
+</header>
+
+<section class="controls" aria-label="Ajustes del presupuesto">
+ <div class="ctl"><span>Mes del viaje</span>
+  <div class="seg" role="radiogroup" aria-label="Mes del viaje">
+   <label><input type="radio" name="mon" id="mon-jul" value="jul"><span>Julio</span></label>
+   <label><input type="radio" name="mon" id="mon-ago" value="ago"><span>Agosto</span></label>
+   <label><input type="radio" name="mon" id="mon-sep" value="sep" checked><span>Septiembre</span></label>
+  </div></div>
+ <div class="ctl"><span>Villas</span>
+  <div class="seg" role="radiogroup" aria-label="Nivel de villa">
+   <label><input type="radio" name="lvl" id="lvl-0" value="0"><span>Económico</span></label>
+   <label><input type="radio" name="lvl" id="lvl-1" value="1" checked><span>Medio</span></label>
+   <label><input type="radio" name="lvl" id="lvl-2" value="2"><span>Alto</span></label>
+  </div></div>
+ <div class="ctl"><span>Traslados</span>
+  <div class="seg" role="radiogroup" aria-label="Tipo de traslado">
+   <label><input type="radio" name="mode" id="mode-chofer" value="chofer" checked><span>Chofer con van</span></label>
+   <label><input type="radio" name="mode" id="mode-app" value="app"><span>2 autos de app</span></label>
+  </div></div>
+ <label class="check"><input type="checkbox" id="opt"> Incluir opcionales</label>
+</section>
+<div class="legend" style="margin-top:-30px"><span class="chip e">estimado</span> referencia a confirmar <span class="chip e">consultado 11 nov · 1 adulto</span> vuelo cotizado en Google Flights <span class="chip v">consultado 11 nov</span> villa cotizada en Airbnb <span class="chip o">opcional</span> <span class="chip v">fuente oficial</span> <span class="chip e">fuente secundaria</span> <span class="chip o">a confirmar</span> consultado el 11 nov 2026</div>
+<div class="month-note" id="month-note" style="margin-top:-24px"></div>
+
+<section id="votar">
+ <div class="sec-head"><h2>Votá tus opciones</h2><p>Elegí arriba el mes, las villas y los traslados, escribí tu nombre y mandá tu elección al grupo por WhatsApp.</p></div>
+ <div class="grid2">
+  <div class="vote-box">
+   <div class="vote-mine" id="vote-mine"></div>
+   <div class="vote-actions">
+    <button type="button" class="btn" id="vote-save" hidden>Guardar mi voto</button>
+    <span class="vote-status" id="vote-status" aria-live="polite">El mensaje se arma con lo que elegiste arriba.</span>
+   </div>
+   <div class="ctl"><span>Tu nombre (para el mensaje)</span><input type="text" id="vote-name" class="num" maxlength="40" placeholder="Ej.: Pablo"></div>
+   <div class="vote-actions">
+    <a class="btn alt" id="vote-wa" href="https://wa.me/" target="_blank" rel="noopener">Enviar por WhatsApp ↗</a>
+    <button type="button" class="btn alt" id="vote-copy">Copiar texto</button>
+   </div>
+   <textarea id="vote-text" class="num" rows="4" readonly aria-label="Texto para enviar al grupo"></textarea>
+  </div>
+  <div class="vote-box" id="vote-tally"><p class="vote-status">Todavía nadie guardó su voto en la página.</p></div>
+ </div>
+ <ul class="vote-list" id="vote-list"></ul>
+</section>
+
+<section class="linemap" aria-label="Ruta por Bali">
+ <ol class="line" style="grid-template-columns:repeat(4,minmax(96px,1fr))">
+  <li style="--c:var(--ubud)"><span class="st">Ubud</span><span class="lat">Arrozales y templos</span><span class="n" id="ln-0"></span></li>
+  <li style="--c:var(--canggu)"><span class="st">Canggu</span><span class="lat">Tanah Lot</span><span class="n" id="ln-1"></span></li>
+  <li style="--c:var(--penida)"><span class="st">Penida</span><span class="lat">Nusa Penida</span><span class="n" id="ln-2"></span></li>
+  <li style="--c:var(--uluwatu)"><span class="st">Uluwatu</span><span class="lat">Kecak y playas</span><span class="n" id="ln-3"></span></li>
+ </ol>
+</section>
+
+<section>
+ <div class="sec-head"><h2>Mapas de la ruta</h2><p>Los círculos numerados son los lugares en el orden en que se visitan; el cuadrado oscuro con una V marca la zona de la villa. Las posiciones son aproximadas. Elegí un día para ver su recorrido.</p></div>
+ <div class="fine" style="max-width:none"><p><b>Cómo se armó la ruta.</b> Ubud → Canggu → Nusa Penida → Uluwatu, entrando y saliendo por Denpasar. Cuatro decisiones:</p><ul>
+  <li><b>Ubud primero y cuatro noches</b>: ahí están el Batur, Tirta Empul, Tegallalang, Lempuyang y las cascadas, todos a 1–2 h de distancia con el mismo chofer. Así se duerme una vez y se vuelve a la misma villa.</li>
+  <li><b>Una noche en Canggu</b> corta el viaje largo hasta la costa y deja Jatiluwih y Tanah Lot (que están camino) en un solo día.</li>
+  <li><b>Una noche en Nusa Penida</b>: el oeste (Kelingking, Broken Beach, Crystal Bay) y el este (Diamond Beach) no se ven bien en un solo día y los caminos son angostos. Se sale del puerto de Sanur.</li>
+  <li><b>Uluwatu al final</b>, con la danza Kecak al atardecer y tres noches de playa y piscina antes del vuelo, a 45 minutos del aeropuerto.</li>
+ </ul></div>
+ <div class="maps" id="maps"></div>
+</section>
+
+<section>
+ <div class="sec-head"><h2>Dónde dormir: villas</h2><p>Casas enteras con piscina para 6, de 3 habitaciones o más. Los precios son <b>reales de Airbnb</b>, consultados el 11 nov 2026 para las fechas exactas de cada mes: son totales por noche de toda la villa, con tarifas y limpieza. Cada nivel sale de los primeros resultados de la búsqueda (18 a 24 anuncios por zona): <b>bajo</b> es el 20% más barato, <b>medio</b> la mediana y <b>alto</b> el 15% más caro. No son anuncios puntuales: el botón de cada zona abre la misma búsqueda en Airbnb, con las fechas y 6 adultos.</p></div>
+ <div class="stays" id="stays"></div>
+ <p class="fine">Las estancias de una sola noche (Canggu y Nusa Penida) salen más caras por noche porque la tarifa de limpieza se reparte en un solo día. En Nusa Penida la búsqueda mezcla casas sencillas con villas, por eso el rango es muy abierto. Las fechas de reserva todavía no abren del todo: los precios pueden cambiar cuando el anfitrión publique su calendario <span class="chip v">consultado 11 nov</span> <span class="chip o">a confirmar</span>.</p>
+</section>
+
+<section>
+ <div class="sec-head"><h2>Cómo moverse: chofer o apps</h2><p>En Bali casi no hay transporte público útil. Lo habitual es contratar un chofer con van por día, que lleva a los 6 con valijas y espera en cada parada.</p></div>
+ <div class="grid2">
+  <div class="fine">
+   <p><b>Chofer con van.</b> Una van de 6–8 plazas con chofer cuesta ~IDR 800.000–1.100.000 por día de 8–10 horas para todo el grupo <span class="chip e">estimado</span>. Conviene reservarlo desde Quito con un operador con reseñas, o por WhatsApp con el anfitrión de la villa.</p>
+   <p><b>Apps (Grab, Gojek).</b> Sirven para trayectos cortos, pero un auto no lleva a 6: hacen falta dos. Algunas zonas de Bali tienen restricciones de recogida de apps. El precio de comparación del cuadro usa dos autos por tramo.</p>
+   <p><b>Moto.</b> Se alquila sin trámites, pero hay que tener licencia internacional de moto y seguro; no está en el plan.</p>
+   <p><b>Nusa Penida.</b> La isla tiene caminos angostos: una van no pasa, así que hacen falta 2 autos con chofer.</p>
+  </div>
+  <div style="display:grid;gap:10px;min-width:0">
+   <div class="box"><table class="sum compact" id="moves"></table></div>
+   <p class="fine">Diferencia: <b id="moves-diff"></b></p>
+  </div>
+ </div>
+</section>
+
+<section id="entrada">
+ <div class="sec-head"><h2>Requisitos de entrada para ecuatorianos</h2><p>Lo que hay que resolver antes de volar. Los datos vienen de guías de viaje y notas de 2026; <b>confirmar siempre en los sitios oficiales</b> antes de pagar. <span class="chip v">fuente oficial</span> <span class="chip e">fuente secundaria</span> <span class="chip o">a confirmar</span></p></div>
+ <div class="clinics">
+  <article class="clinic" style="--c:var(--ubud)">
+   <span class="eyebrow">Visa</span><h3>Visa a la llegada o e-VOA</h3>
+   <p>Ecuador figura en la lista de 97 países elegibles para la <b>Visa on Arrival</b> de Indonesia (una empresa de trámites la publica con actualizaciones hasta 2025), también disponible como <b>e-VOA</b> en línea. Cuesta <b>IDR 500.000</b> (~$28), vale 30 días y se puede prorrogar una vez por otros 30. El pasaporte debe tener 6 meses de vigencia desde la llegada. Con tarjeta puede sumarse una comisión de ~IDR 19.500 <span class="chip e">fuente secundaria</span></p>
+   <p>Las fuentes no coinciden en cuántos países incluye la lista actual (87 o 97), así que <b>hay que confirmar que Ecuador siga en la lista</b> <span class="chip o">a confirmar</span> en el sitio oficial de Inmigración de Indonesia (evisa.imigrasi.go.id).</p>
+   <a class="bnb-link" href="https://evisa.imigrasi.go.id" target="_blank" rel="noopener">Sitio de e-Visa de Indonesia ↗</a>
+  </article>
+  <article class="clinic" style="--c:var(--canggu)">
+   <span class="eyebrow">Tasa turística de Bali</span><h3>IDR 150.000 por persona</h3>
+   <p>Cada turista extranjero paga <b>IDR 150.000</b> (~$8) a la provincia de Bali, aparte de la visa. Se paga en línea en el portal <b>lovebali.baliprov.go.id</b> con nombre, pasaporte, correo y fecha de llegada; el sistema manda un <b>código QR</b> que se muestra en el aeropuerto. Se puede pagar al llegar, con fila <span class="chip e">fuente secundaria</span></p>
+   <p>Dos guías de 2026 dicen que se paga una vez por visita, no por cada entrada <span class="chip e">fuente secundaria</span>; confirmarlo en el portal antes de pagar <span class="chip o">a confirmar</span>. Existen sitios falsos: pagar solo en el portal oficial.</p>
+   <a class="bnb-link" href="https://lovebali.baliprov.go.id" target="_blank" rel="noopener">Portal LoveBali ↗</a>
+  </article>
+  <article class="clinic" style="--c:var(--penida)">
+   <span class="eyebrow">Formulario de llegada</span><h3>All Indonesia</h3>
+   <p>Un formulario digital único (migración, aduana y salud) que reemplazó a los formularios por separado. Se llena hasta 72 horas antes de llegar, uno por persona, y se guarda el código <span class="chip e">fuente secundaria</span></p>
+   <p>Algunas guías todavía mencionan SATUSEHAT como paso aparte; otras dicen que ya quedó dentro del formulario <span class="chip o">a confirmar</span></p>
+  </article>
+  <article class="clinic" style="--c:var(--uluwatu)">
+   <span class="eyebrow">Salud</span><h3>Certificado de fiebre amarilla</h3>
+   <p>Indonesia no tiene fiebre amarilla, pero según TravelHealthPro (agencia de salud del Reino Unido) exige el certificado a quienes tienen 9 meses o más y llegan desde países con riesgo de transmisión; el certificado vale de por vida <span class="chip e">fuente secundaria</span>. Ecuador tiene zonas de riesgo, y ninguna fuente aclara si se aplica a quien sale de Quito y pasa por Bogotá y Europa <span class="chip o">a confirmar</span></p>
+   <p>Antes de comprar los vuelos, preguntar al consulado de Indonesia y a un centro de vacunación. La vacuna se pone con 10 días de anticipación y el certificado internacional lo emite el Ministerio de Salud.</p>
+  </article>
+  <article class="clinic" style="--c:var(--air)">
+   <span class="eyebrow">Tránsito</span><h3>Escalas sin visa de Estados Unidos</h3>
+   <p>Pasar por Estados Unidos exige visa para ecuatorianos, así que la ruta usa escalas en Bogotá o Panamá y luego Europa, Doha o Dubái. Si la escala es larga y sale del aeropuerto, puede pedir visa de tránsito o de ingreso <span class="chip o">a confirmar</span> con cada aerolínea.</p>
+   <p>Google Flights (11 nov 2026): Quito–Bali entre $1.823 y $2.366 la tarifa más baja según el mes, con 2 o 3 escalas y entre 34 y 56 h de viaje <span class="chip v">consultado 11 nov</span></p>
+  </article>
+  <article class="clinic" style="--c:var(--ubud)">
+   <span class="eyebrow">Dinero y seguro</span><h3>Rupias, tarjetas y seguro</h3>
+   <p>Rupia al 29 oct 2026: ~IDR 18.150 por dólar <span class="chip e">fuente secundaria</span>. Los cajeros del aeropuerto dan rupias; en las casas de cambio, contar los billetes. El seguro de viaje con cobertura médica y de motos o excursiones está en el presupuesto (~$70).</p>
+  </article>
+ </div>
+</section>
+
+<section id="imperdibles">
+ <div class="sec-head"><h2>Los imperdibles</h2><p>Lo que no puede faltar, con el día en que entra en el plan. Los precios de entrada cambian y varias subieron en abril de 2026: son referencias a confirmar en el lugar.</p></div>
+ <div class="spotgrid">
+  <article class="spot" style="--c:var(--ubud)"><img src="img/ubud.jpg" alt="Ubud" loading="lazy"><div><h3>Ubud</h3><span class="eyebrow">Días 1–4</span>
+   <p>El corazón cultural de Bali: palacio, mercado de arte, Campuhan Ridge y el Sacred Monkey Forest. La entrada al bosque de monos subió en abril de 2026, a ~IDR 130.000 <span class="chip e">fuente secundaria</span></p></div></article>
+  <article class="spot" style="--c:var(--ubud)"><img src="img/tegallalang.jpg" alt="Terrazas de Tegallalang" loading="lazy"><div><h3>Terrazas de Tegallalang</h3><span class="eyebrow">Día 3</span>
+   <p>Escalones de arroz a 20 min al norte de Ubud, con columpios y nidos con vista. Ir temprano o al final de la tarde; en la mitad del día hay fila y calor. Entrada de IDR 25.000–50.000 <span class="chip e">fuente secundaria</span></p></div></article>
+  <article class="spot" style="--c:var(--canggu)"><img src="img/jatiluwih.jpg" alt="Terrazas de Jatiluwih" loading="lazy"><div><h3>Terrazas de Jatiluwih</h3><span class="eyebrow">Día 5</span>
+   <p>Patrimonio de la Unesco, con 600 hectáreas de arroz en terrazas y muchos menos turistas que Tegallalang. Entrada para extranjeros adultos: IDR 75.000 en una guía y 100.000 en otra <span class="chip e">fuente secundaria</span></p></div></article>
+  <article class="spot" style="--c:var(--ubud)"><img src="img/tirtaempul.jpg" alt="Tirta Empul" loading="lazy"><div><h3>Tirta Empul</h3><span class="eyebrow">Día 3</span>
+   <p>Templo con un manantial sagrado donde se hace el ritual de purificación (melukat). Es un lugar de culto: respetar la fila, el sarong y las reglas. Entrada de ~IDR 75.000 <span class="chip e">fuente secundaria</span></p></div></article>
+  <article class="spot" style="--c:var(--ubud)"><img src="img/lempuyang.jpg" alt="Pura Lempuyang" loading="lazy"><div><h3>Lempuyang y la Puerta del Cielo</h3><span class="eyebrow">Día 4</span>
+   <p>El templo de los portales con el volcán Agung detrás. La fila para la foto pasa de la hora de espera después de las 09:00. El efecto del lago es un espejo. La entrada de ~IDR 150.000 incluye el traslado obligatorio <span class="chip e">fuente secundaria</span></p></div></article>
+  <article class="spot" style="--c:var(--ubud)"><img src="img/batur.jpg" alt="Monte Batur" loading="lazy"><div><h3>Amanecer en el Batur</h3><span class="eyebrow">Día 3</span>
+   <p>Subida de ~2 h con guía a un volcán de 1.717 m para ver el amanecer. Con traslado y desayuno cuesta entre $30 y $60 por persona según el operador; el permiso de la zona es ~IDR 100.000 y el guía ~IDR 300.000–600.000 por grupo; además Kintamani cobra ~IDR 50.000 de tarifa de área <span class="chip e">fuente secundaria</span> <span class="chip o">a confirmar</span> si ya va incluida en el precio</p></div></article>
+  <article class="spot" style="--c:var(--penida)"><img src="img/kelingking.jpg" alt="Kelingking, Nusa Penida" loading="lazy"><div><h3>Nusa Penida</h3><span class="eyebrow">Días 6–7</span>
+   <p>Kelingking (el T-Rex), Broken Beach, Angel's Billabong, Crystal Bay y Diamond Beach. Lancha rápida desde Sanur, 45 min: ~$15–25 ida y vuelta según la guía <span class="chip e">fuente secundaria</span>. Los caminos son angostos y el oleaje es peligroso: obedecer los carteles.</p></div></article>
+  <article class="spot" style="--c:var(--canggu)"><img src="img/tanahlot.jpg" alt="Tanah Lot" loading="lazy"><div><h3>Tanah Lot</h3><span class="eyebrow">Día 5</span>
+   <p>Templo sobre una roca en el mar, con el atardecer como atractivo. Entrada de ~IDR 75.000, que subió desde abril de 2026 <span class="chip e">fuente secundaria</span>. Hay mucha gente: llegar 1 hora antes.</p></div></article>
+  <article class="spot" style="--c:var(--uluwatu)"><img src="img/uluwatu.jpg" alt="Templo de Uluwatu" loading="lazy"><div><h3>Uluwatu y la danza Kecak</h3><span class="eyebrow">Día 8</span>
+   <p>Templo sobre un acantilado y, a las 18:00, la danza Kecak con el sol cayendo al mar. La entrada a la danza es aparte: ~IDR 150.000 por adulto según el operador <span class="chip e">fuente secundaria</span>. El templo se paga aparte y su precio subió en 2026 <span class="chip o">a confirmar</span></p></div></article>
+  <article class="spot" style="--c:var(--ubud)"><img src="img/tegenungan.jpg" alt="Cascada Tegenungan" loading="lazy"><div><h3>Cascadas</h3><span class="eyebrow">Día 2 y día 4</span>
+   <p><b>Tegenungan</b> y <b>Kanto Lampo</b> están a 30 min de Ubud; <b>Tukad Cepung</b> es una cascada dentro de una cueva, con rayos de luz al mediodía. <b>Sekumpul</b>, en el norte, es la más espectacular pero queda a 2 h 30 min: cambiaría el día 4. Entradas: Tegenungan IDR 30.000, Kanto Lampo 25.000 y Tukad Cepung 35.000 <span class="chip e">fuente secundaria</span></p></div></article>
+ </div>
+</section>
+
+<section id="viral">
+ <div class="sec-head"><h2>Lo viral en redes</h2><p>Lo que más aparece en guías y listas de 2025–2026 para Instagram y TikTok. La fama cambia rápido y la mayoría de estos lugares tienen fila: el truco es ir temprano. Sin cifras de vistas: son lugares que repiten las guías <span class="chip e">fuente secundaria</span></p></div>
+ <div class="clinics">
+  <article class="clinic" style="--c:var(--ubud)"><span class="eyebrow">Ya en el plan · día 4</span><h3>La Puerta del Cielo, Lempuyang</h3><p>La foto del portal con el volcán Agung reflejado. Es un efecto con espejo y lleva 1 hora o más de fila. Ir a las 07:30 reduce la espera.</p></article>
+  <article class="clinic" style="--c:var(--penida)"><span class="eyebrow">Ya en el plan · día 6</span><h3>Kelingking Beach</h3><p>El acantilado en forma de dinosaurio. Las guías lo ponen como parada obligada. El camino de bajada es peligroso: se fotografía desde el mirador.</p></article>
+  <article class="clinic" style="--c:var(--ubud)"><span class="eyebrow">Ya en el plan · días 3 y 5</span><h3>Terrazas y columpios</h3><p>Los columpios de Tegallalang y las terrazas de Jatiluwih son de las más compartidas. Los columpios cobran por foto o por columpio; el precio varía.</p></article>
+  <article class="clinic" style="--c:var(--ubud)"><span class="eyebrow">Ya en el plan · día 4 opcional</span><h3>Tukad Cepung</h3><p>Cascada en una cueva con un rayo de luz. Ir entre 10:00 y 13:00; el sendero tiene agua hasta los tobillos.</p></article>
+  <article class="clinic" style="--c:var(--canggu)"><span class="eyebrow">Fuera del plan · Bedugul</span><h3>Handara Gate</h3><p>Portal blanco entre la niebla de las tierras altas, con fila para la foto. Queda a 1 h 30 min de Ubud: se puede sumar al camino a Jatiluwih <span class="chip o">a confirmar</span></p></article>
+  <article class="clinic" style="--c:var(--ubud)"><span class="eyebrow">Fuera del plan · cerca de Ubud</span><h3>Taman Beji Griya y Wanagiri Hidden Hills</h3><p>Una cascada y un mirador con columpios y nidos que las guías de 2025–2026 mencionan como los de más crecimiento. Datos de entrada <span class="chip o">a confirmar</span></p></article>
+  <article class="clinic" style="--c:var(--uluwatu)"><span class="eyebrow">Opcional · día 9</span><h3>Beach clubs de Uluwatu y Canggu</h3><p>Camas de playa con mínimo de consumo, piscina infinita y atardecer. El plan incluye un día opcional con ~IDR 300.000 por persona.</p></article>
+ </div>
+</section>
+
+<section>
+ <div class="sec-head"><h2>Día por día</h2><p>Horarios sugeridos y costo por persona de cada actividad. El total del día incluye la noche de villa.</p></div>
+ <div class="days" id="days"></div>
+</section>
+
+<section>
+ <div class="sec-head"><h2>Julio, agosto o septiembre</h2><p>Mismo itinerario y mismos días de la semana, en la temporada seca de Bali. Cambia el vuelo, las villas y lo que pasa en Bali esas fechas.</p></div>
+ <div class="box"><table class="sum" id="months"></table></div>
+ <div class="fine"><p><b>Vuelos consultados el 11 nov 2026 en Google Flights, para un adulto, ida y vuelta Quito–Denpasar.</b> Julio (9–20): desde $2.366, precios que Google marca como altos. Agosto (13–24): desde $2.126, precios normales. Septiembre (10–21): desde $1.823; las opciones de 40–47 h con 2 o 3 escalas cuestan $2.112–2.338 y la de 34 h 30 min, $2.925. La tarifa "desde" es la más baja y suele tener 3 escalas y 45–56 h. El total grupal es una multiplicación, no una cotización para seis. No se reservó nada.</p>
+ <p><b>Villas:</b> precios de Airbnb consultados el 11 nov 2026 para las fechas exactas de cada mes; julio sube sobre todo en Ubud y Uluwatu.</p></div>
+</section>
+
+<section>
+ <div class="sec-head"><h2>Presupuesto por persona</h2><p id="sum-sub"></p></div>
+ <div class="box"><table class="sum" id="sum"></table></div>
+</section>
+
+<section>
+ <div class="sec-head"><h2>Cuánto ahorrar por mes</h2><p>Plan por persona desde noviembre de 2026, en el orden en que hay que pagar: primero el vuelo (en febrero), después e-VOA, tasa, villas y reservas con fecha, y al final el efectivo del viaje. Incluye 10% de imprevistos.</p></div>
+ <div class="ctl" style="max-width:320px"><span>Ya ahorrado por persona (USD)</span><input type="number" id="saved" min="0" step="50" value="0" inputmode="decimal" class="num"><small id="saved-err" class="err" aria-live="polite"></small></div>
+ <div id="savings" style="display:grid;gap:14px"></div>
+</section>
+
+<section>
+ <div class="sec-head"><h2>Qué completa la proyección</h2><p>Lo que ya se agregó al total y lo que todavía conviene confirmar.</p></div>
+ <div class="grid2">
+  <div class="fine"><p><b>Agregado al total</b> (estimado):</p><ul>
+   <li>Seguro de viaje para 14 días: ~$70</li>
+   <li>eSIM de Indonesia: ~$15</li>
+   <li>Propinas y efectivo suelto: ~$30</li>
+   <li>Comisión de tarjeta y cambio: ~2,5% de lo que se gasta en Bali</li>
+   <li>e-VOA: IDR 500.000 (~$28) y tasa de Bali IDR 150.000 (~$8), dentro del rubro de vuelo</li>
+   <li>Fondo de imprevistos del 10% en el plan de ahorro</li>
+  </ul></div>
+  <div class="fine"><p><b>Pendiente de confirmar</b>:</p><ul>
+   <li><b>Vuelos:</b> cotizados para un adulto; falta precio de grupo, escalas, equipaje y horarios (definen el día de llegada)</li>
+   <li><b>Visa:</b> que Ecuador siga en la lista de Visa on Arrival y e-VOA</li>
+   <li><b>Fiebre amarilla:</b> si el certificado es obligatorio para quien sale de Ecuador</li>
+   <li><b>Villas:</b> elegir anuncios puntuales; los niveles salen de las primeras páginas de resultados</li>
+   <li><b>Entradas:</b> las cifras salen de una lista de 2026 de una guía; varias subieron en abril (Monkey Forest, Tanah Lot, Uluwatu) y Jatiluwih aparece con 75.000 en una fuente y 100.000 en otra. Confirmar en cada puerta</li>
+   <li>Tipo de cambio: la rupia bajó de ~16.700 a ~18.150 por dólar en 2026. Si se mueve 10%, el gasto en Bali cambia ~$55 por persona</li>
+   <li>Precio de la Kecak, la lancha y el Batur con operadores reales</li>
+   <li>No incluye compras ni recuerdos</li>
+  </ul></div>
+ </div>
+</section>
+
+<section>
+ <div class="sec-head"><h2>Qué comer en Bali</h2><p>Precios orientativos por plato, en rupias, en un warung o restaurante de turistas. Son estimados a confirmar en cada lugar.</p></div>
+ <div class="foodgrid">
+  <article class="dish" style="--c:var(--ubud)"><img src="img/food/babiguling.jpg" alt="Babi guling" loading="lazy"><div><b>Babi guling</b><span>Cerdo lechón asado, el plato festivo · Ubud, día 2</span><em>Rp 60.000–90.000</em></div></article>
+  <article class="dish" style="--c:var(--ubud)"><img src="img/food/bebek.jpg" alt="Bebek betutu" loading="lazy"><div><b>Bebek betutu</b><span>Pato cocido lento en hojas · Ubud, día 2</span><em>Rp 100.000–180.000</em></div></article>
+  <article class="dish" style="--c:var(--ubud)"><img src="img/food/satelilit.jpg" alt="Sate lilit" loading="lazy"><div><b>Sate lilit</b><span>Brochetas de pescado o carne picada en palo de caña</span><em>Rp 25.000–45.000</em></div></article>
+  <article class="dish" style="--c:var(--ubud)"><img src="img/food/nasicampur.jpg" alt="Nasi campur" loading="lazy"><div><b>Nasi campur</b><span>Arroz con porciones de carne, verduras y sambal · warungs</span><em>Rp 30.000–50.000</em></div></article>
+  <article class="dish" style="--c:var(--ubud)"><img src="img/food/nasigoreng.jpg" alt="Nasi goreng" loading="lazy"><div><b>Nasi goreng</b><span>Arroz frito con huevo, el desayuno de todos los días</span><em>Rp 25.000–45.000</em></div></article>
+  <article class="dish" style="--c:var(--ubud)"><img src="img/food/miegoreng.jpg" alt="Mie goreng" loading="lazy"><div><b>Mie goreng</b><span>Fideos fritos</span><em>Rp 25.000–45.000</em></div></article>
+  <article class="dish" style="--c:var(--ubud)"><img src="img/food/lawar.jpg" alt="Lawar" loading="lazy"><div><b>Lawar</b><span>Verduras con coco y carne, plato tradicional balinés</span><em>Rp 20.000–40.000</em></div></article>
+  <article class="dish" style="--c:var(--ubud)"><img src="img/food/soto.jpg" alt="Soto ayam" loading="lazy"><div><b>Soto ayam</b><span>Sopa de pollo con cúrcuma · después del Batur, día 3</span><em>Rp 25.000–40.000</em></div></article>
+  <article class="dish" style="--c:var(--canggu)"><img src="img/food/gadogado.jpg" alt="Gado-gado" loading="lazy"><div><b>Gado-gado</b><span>Verduras con salsa de maní · Canggu</span><em>Rp 25.000–40.000</em></div></article>
+  <article class="dish" style="--c:var(--canggu)"><img src="img/food/satay.jpg" alt="Satay" loading="lazy"><div><b>Satay</b><span>Brochetas a la parrilla con salsa de maní</span><em>Rp 25.000–50.000</em></div></article>
+  <article class="dish" style="--c:var(--penida)"><img src="img/food/bakso.jpg" alt="Bakso" loading="lazy"><div><b>Bakso</b><span>Sopa de albóndigas · puestos de calle</span><em>Rp 20.000–35.000</em></div></article>
+  <article class="dish" style="--c:var(--penida)"><img src="img/food/tempeh.jpg" alt="Tempeh" loading="lazy"><div><b>Tempeh</b><span>Soja fermentada, frita o en sambal</span><em>Rp 15.000–30.000</em></div></article>
+  <article class="dish" style="--c:var(--uluwatu)"><img src="img/food/pisang.jpg" alt="Pisang goreng" loading="lazy"><div><b>Pisang goreng</b><span>Banana frita, merienda</span><em>Rp 15.000–25.000</em></div></article>
+  <article class="dish" style="--c:var(--ubud)"><img src="img/food/bubur.jpg" alt="Bubur ketan hitam" loading="lazy"><div><b>Bubur ketan hitam</b><span>Postre de arroz negro con coco · desayuno de Ubud</span><em>Rp 20.000–35.000</em></div></article>
+  <article class="dish" style="--c:var(--ubud)"><img src="img/food/klepon.jpg" alt="Klepon" loading="lazy"><div><b>Klepon</b><span>Bolitas de arroz con azúcar de palma y coco rallado</span><em>Rp 10.000–20.000</em></div></article>
+  <article class="dish" style="--c:var(--uluwatu)"><img src="img/food/escampur.jpg" alt="Es campur" loading="lazy"><div><b>Es campur</b><span>Hielo raspado con frutas y jarabe</span><em>Rp 15.000–30.000</em></div></article>
+  <article class="dish" style="--c:var(--uluwatu)"><img src="img/food/esteler.jpg" alt="Es teler" loading="lazy"><div><b>Es teler</b><span>Postre helado de aguacate, coco y jaca</span><em>Rp 20.000–35.000</em></div></article>
+ </div>
+ <p class="fine"><b>Cuidado con el agua.</b> No tomar agua de la canilla ni hielo de procedencia dudosa; comer en lugares con mucha rotación. El "Bali belly" (diarrea del viajero) es común: llevar sales de rehidratación y un antidiarreico. Comer cerdo (babi guling) es común en Bali, que es mayormente hindú, pero casi todos los platos tienen versión de pollo o vegetariana.</p>
+</section>
+
+<section>
+ <div class="sec-head"><h2>Qué reservar y cuándo</h2><p>Las fechas son referencias habituales; confirmen en cada sitio oficial.</p></div>
+ <ol class="book">
+  <li><span class="when">Ya</span><span>Pasaportes con al menos 6 meses de vigencia a la fecha de llegada a Bali. Consultar el certificado de fiebre amarilla y las escalas.</span></li>
+  <li><span class="when">5–6 meses antes</span><span>Vuelos Quito–Denpasar. Revisar que las escalas no exijan visa y que el tiempo de conexión alcance.</span></li>
+  <li><span class="when">3–4 meses antes</span><span>Las villas en Airbnb, con cancelación gratuita si es posible. En julio y agosto se agotan las de Ubud y Uluwatu.</span></li>
+  <li><span class="when">1–2 meses antes</span><span>Chofer con van para los días 1–5 y 8–10, y la lancha rápida Sanur–Nusa Penida con operador registrado. Los 2 autos de Nusa Penida.</span></li>
+  <li><span class="when">2–4 semanas antes</span><span>Excursión al Batur y la danza Kecak. En agosto, reservar el horario de la lancha de regreso de Nusa Penida con tiempo.</span></li>
+  <li><span class="when">1 mes antes</span><span>Pagar la tasa turística de Bali en lovebali.baliprov.go.id y tramitar la e-VOA en evisa.imigrasi.go.id.</span></li>
+  <li><span class="when">72 h antes</span><span>Formulario All Indonesia, con el código guardado en el teléfono. eSIM instalada.</span></li>
+ </ol>
+</section>
+
+<section class="fine" aria-label="Supuestos y créditos">
+ <p><b>Supuestos.</b> Precios por persona en USD con Rp 18.100 por dólar (el cierre del 29 oct 2026 fue ~18.150). Vuelos (Google Flights, 1 adulto) y villas (Airbnb, 3 o más habitaciones, 6 adultos) consultados el 11 nov 2026; entradas y excursiones, referencias de guías de 2026 a confirmar. Horarios en hora local de Bali (13 horas adelante de Quito). Todo lo marcado como estimado es una referencia a confirmar. Datos consultados entre el 10 y el 11 nov 2026.</p>
+ <p><b>No incluye</b> compras, recuerdos ni los opcionales no tildados.</p>
+ <p><b>Fotos de lugares y comida</b> de Wikimedia Commons:</p>
+ <ul id="credits"></ul>
+ <p><b>Mapas</b> © colaboradores de OpenStreetMap (openstreetmap.org/copyright).</p>
+</section>
+</div>
+
+<script>
+(function(){
+  var DATA = {"maps": {"ruta": {"w": 835, "h": 641, "pts": [{"id": "dps", "label": "Denpasar (aeropuerto)", "x": 24.28, "y": 68.13, "k": "air"}, {"id": "ubud", "label": "Ubud", "x": 40.97, "y": 13.02, "k": "ubud"}, {"id": "cg", "label": "Canggu", "x": 19.26, "y": 47.28, "k": "canggu"}, {"id": "sanur", "label": "Sanur (puerto)", "x": 41.24, "y": 52.39, "k": "air"}, {"id": "penida", "label": "Nusa Penida", "x": 90.07, "y": 63.6, "k": "penida"}, {"id": "ul", "label": "Uluwatu", "x": 10.0, "y": 87.07, "k": "uluwatu"}]}, "ubud": {"w": 481, "h": 903, "pts": [{"id": "dps", "label": "Aeropuerto", "x": 18.33, "y": 90.31, "k": "p"}, {"id": "campuhan", "label": "Campuhan Ridge", "x": 43.62, "y": 50.83, "k": "p"}, {"id": "monkey", "label": "Sacred Monkey Forest", "x": 46.16, "y": 53.13, "k": "p"}, {"id": "palace", "label": "Palacio y mercado de Ubud", "x": 47.31, "y": 51.19, "k": "p"}, {"id": "kanto", "label": "Kanto Lampo", "x": 54.97, "y": 64.19, "k": "p"}, {"id": "tegenungan", "label": "Cascada Tegenungan", "x": 55.21, "y": 62.36, "k": "p"}, {"id": "batur", "label": "Monte Batur (sendero)", "x": 81.76, "y": 9.77, "k": "p"}, {"id": "tirtaempul", "label": "Tirta Empul", "x": 63.3, "y": 36.29, "k": "p"}, {"id": "tegallalang", "label": "Terrazas de Tegallalang", "x": 52.4, "y": 38.85, "k": "p"}, {"id": "villa:ub", "label": "Villa en Ubud", "x": 43.52, "y": 51.69, "k": "b"}]}, "este": {"w": 725, "h": 333, "pts": [{"id": "lempuyang", "label": "Pura Lempuyang", "x": 89.55, "y": 22.78, "k": "p"}, {"id": "tirtagangga", "label": "Tirta Gangga", "x": 78.3, "y": 31.58, "k": "p"}, {"id": "tukad", "label": "Tukad Cepung", "x": 39.73, "y": 77.48, "k": "p"}, {"id": "villa:ub", "label": "Villa en Ubud", "x": 10.46, "y": 75.0, "k": "b"}]}, "oeste": {"w": 665, "h": 1003, "pts": [{"id": "jatiluwih", "label": "Jatiluwih", "x": 32.6, "y": 9.48, "k": "p"}, {"id": "tanahlot", "label": "Tanah Lot", "x": 14.29, "y": 82.68, "k": "p"}, {"id": "villa:ub", "label": "Villa en Ubud", "x": 85.78, "y": 50.02, "k": "b"}, {"id": "villa:cg", "label": "Villa en Canggu", "x": 33.65, "y": 90.55, "k": "b"}]}, "penida": {"w": 1104, "h": 436, "pts": [{"id": "sanur", "label": "Puerto de Sanur", "x": 9.24, "y": 26.37, "k": "p"}, {"id": "buyuk", "label": "Puerto de Nusa Penida (Buyuk)", "x": 75.99, "y": 28.6, "k": "p"}, {"id": "kelingking", "label": "Kelingking Beach", "x": 64.59, "y": 76.72, "k": "p"}, {"id": "broken", "label": "Broken Beach y Angel's Billabong", "x": 59.05, "y": 63.13, "k": "p"}, {"id": "crystal", "label": "Crystal Bay", "x": 57.52, "y": 51.91, "k": "p"}, {"id": "diamond", "label": "Diamond Beach y Atuh", "x": 90.76, "y": 74.49, "k": "p"}, {"id": "villa:np", "label": "Villa en Nusa Penida", "x": 59.9, "y": 23.4, "k": "b"}]}, "uluwatu": {"w": 665, "h": 641, "pts": [{"id": "sanur", "label": "Puerto de Sanur", "x": 89.23, "y": 11.19, "k": "p"}, {"id": "padang", "label": "Padang Padang", "x": 17.75, "y": 72.34, "k": "p"}, {"id": "singlefin", "label": "Single Fin y Bingin", "x": 12.14, "y": 74.54, "k": "p"}, {"id": "ulutemple", "label": "Templo de Uluwatu y Kecak", "x": 10.79, "y": 80.57, "k": "p"}, {"id": "melasti", "label": "Melasti Beach", "x": 28.0, "y": 88.94, "k": "p"}, {"id": "jimbaran", "label": "Jimbaran (mariscos)", "x": 46.09, "y": 60.61, "k": "p"}, {"id": "villa:ul", "label": "Villa en Uluwatu", "x": 15.65, "y": 76.38, "k": "b"}]}}, "credits": {"airport": {"title": "Ngurah Rai Internasional Airport Welcome Sign.jpg", "page": "https://commons.wikimedia.org/wiki/File:Ngurah_Rai_Internasional_Airport_Welcome_Sign.jpg", "artist": "Softwarestatistik", "lic": "CC BY-SA 4.0"}, "campuhan": {"title": "Campuhan Ridge Walk, Ubud, Bali, 20220822 1422 0140.jpg", "page": "https://commons.wikimedia.org/wiki/File:Campuhan_Ridge_Walk,_Ubud,_Bali,_20220822_1422_0140.jpg", "artist": "Jakub Hałun", "lic": "CC BY-SA 4.0"}, "monkey": {"title": "Macaca fascicularis, Ubud Monkey Forest, Bali, 20220822 1014 9940.jpg", "page": "https://commons.wikimedia.org/wiki/File:Macaca_fascicularis,_Ubud_Monkey_Forest,_Bali,_20220822_1014_9940.jpg", "artist": "Jakub Hałun", "lic": "CC BY-SA 4.0"}, "ubud": {"title": "Ubud (49818456887).jpg", "page": "https://commons.wikimedia.org/wiki/File:Ubud_(49818456887).jpg", "artist": "Jorge Franganillo", "lic": "CC BY 2.0"}, "tegallalang": {"title": "Rice terraces, Bali.jpg", "page": "https://commons.wikimedia.org/wiki/File:Rice_terraces,_Bali.jpg", "artist": "Vyacheslav Argenberg", "lic": "CC BY 4.0"}, "tirtaempul": {"title": "Bali - bathing (Melukat) at Pura Tirta Empul (2025) - img 07.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bali_-_bathing_(Melukat)_at_Pura_Tirta_Empul_(2025)_-_img_07.jpg", "artist": "Chainwit.", "lic": "CC BY 4.0"}, "batur": {"title": "View Of Mt.Batur on April 8th 2026.jpg", "page": "https://commons.wikimedia.org/wiki/File:View_Of_Mt.Batur_on_April_8th_2026.jpg", "artist": "WikiSantaClaus", "lic": "CC BY 4.0"}, "lempuyang": {"title": "Bali Pura Lempuyang Luhur.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bali_Pura_Lempuyang_Luhur.jpg", "artist": "Flickr user: yeowatzup https://www.flickr.com/photos/yeowatzup/", "lic": "CC BY 2.0"}, "tirtagangga": {"title": "Tirta Gangga water palace, Bali, Indonesia.JPG", "page": "https://commons.wikimedia.org/wiki/File:Tirta_Gangga_water_palace,_Bali,_Indonesia.JPG", "artist": "Bair175", "lic": "CC BY-SA 3.0"}, "jatiluwih": {"title": "Jatiluwih rice terraces SF0002.jpg", "page": "https://commons.wikimedia.org/wiki/File:Jatiluwih_rice_terraces_SF0002.jpg", "artist": "Stefan Fussan", "lic": "CC BY-SA 3.0"}, "tanahlot": {"title": "TanahLot 2014.JPG", "page": "https://commons.wikimedia.org/wiki/File:TanahLot_2014.JPG", "artist": "Grayswoodsurrey", "lic": "CC BY-SA 4.0"}, "kelingking": {"title": "Kelingking Beach (T-Rex Bay) of Nusa Penida, Bali (2025) - img 08.jpg", "page": "https://commons.wikimedia.org/wiki/File:Kelingking_Beach_(T-Rex_Bay)_of_Nusa_Penida,_Bali_(2025)_-_img_08.jpg", "artist": "Chainwit.", "lic": "CC BY 4.0"}, "brokenbeach": {"title": "Broken Beach.jpg", "page": "https://commons.wikimedia.org/wiki/File:Broken_Beach.jpg", "artist": "Aaron Rentfrew", "lic": "CC BY-SA 4.0"}, "diamond": {"title": "Diamond Beach in Nusa Penida, Bali.jpg", "page": "https://commons.wikimedia.org/wiki/File:Diamond_Beach_in_Nusa_Penida,_Bali.jpg", "artist": "Stryn", "lic": "CC BY-SA 4.0"}, "crystalbay": {"title": "Crystal Bay, Nusa Penida 2017-08-20 (12).jpg", "page": "https://commons.wikimedia.org/wiki/File:Crystal_Bay,_Nusa_Penida_2017-08-20_(12).jpg", "artist": "Panina Manina", "lic": "CC BY-SA 4.0"}, "uluwatu": {"title": "Pura Luhur Uluwatu 2017-08-17 (34).jpg", "page": "https://commons.wikimedia.org/wiki/File:Pura_Luhur_Uluwatu_2017-08-17_(34).jpg", "artist": "Paskuu", "lic": "CC BY-SA 4.0"}, "kecak": {"title": "Kecak dancers cliffside Uluwatu.jpg", "page": "https://commons.wikimedia.org/wiki/File:Kecak_dancers_cliffside_Uluwatu.jpg", "artist": "Rollan Budi from Kuta, Bali,, Indonesia", "lic": "CC BY-SA 2.0"}, "padang": {"title": "Padang Padang Beach Bali.jpg", "page": "https://commons.wikimedia.org/wiki/File:Padang_Padang_Beach_Bali.jpg", "artist": "TMFalkner", "lic": "CC BY-SA 4.0"}, "jimbaran": {"title": "Jimbaran200507-1.jpg", "page": "https://commons.wikimedia.org/wiki/File:Jimbaran200507-1.jpg", "artist": "autor en Commons", "lic": "CC BY-SA 3.0"}, "tegenungan": {"title": "Tegenungan Waterfall sideview.jpg", "page": "https://commons.wikimedia.org/wiki/File:Tegenungan_Waterfall_sideview.jpg", "artist": "Karter873", "lic": "CC BY-SA 4.0"}, "nusapenida": {"title": "Broken Bay, Nusa Penida.jpg", "page": "https://commons.wikimedia.org/wiki/File:Broken_Bay,_Nusa_Penida.jpg", "artist": "Georgi Kovachev", "lic": "CC BY-SA 4.0"}, "bingin": {"title": "The Perfect Sunset.jpg", "page": "https://commons.wikimedia.org/wiki/File:The_Perfect_Sunset.jpg", "artist": "Tuwuh", "lic": "CC BY-SA 4.0"}}, "foodCredits": {"nasigoreng": {"title": "Nasi Goreng Kampung (11967588375).jpg", "page": "https://commons.wikimedia.org/wiki/File:Nasi_Goreng_Kampung_(11967588375).jpg", "artist": "shankar s. from Dubai, united arab emirates", "lic": "CC BY 2.0"}, "babiguling": {"title": "Panggang 1.JPG", "page": "https://commons.wikimedia.org/wiki/File:Panggang_1.JPG", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}, "bebek": {"title": "Bebek Betutu.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bebek_Betutu.jpg", "artist": "The man from Gianyar", "lic": "CC BY-SA 4.0"}, "satelilit": {"title": "Sate lilit.jpg", "page": "https://commons.wikimedia.org/wiki/File:Sate_lilit.jpg", "artist": "lifestyle.okezone.com", "lic": "CC BY-SA 4.0"}, "nasicampur": {"title": "Plate of nasi campur (Mandarin Oriental Hotel Mahapahit, Surabaya, Indonesia).png", "page": "https://commons.wikimedia.org/wiki/File:Plate_of_nasi_campur_(Mandarin_Oriental_Hotel_Mahapahit,_Surabaya,_Indonesia).png", "artist": "autor en Commons", "lic": "Public domain"}, "miegoreng": {"title": "Mi Goreng GM.jpg", "page": "https://commons.wikimedia.org/wiki/File:Mi_Goreng_GM.jpg", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}, "lawar": {"title": "Lawar babi guling.jpg", "page": "https://commons.wikimedia.org/wiki/File:Lawar_babi_guling.jpg", "artist": "ybs from Jakarta, Indonesia", "lic": "CC BY 2.0"}, "klepon": {"title": "Klepon Khas Tulungagung.jpg", "page": "https://commons.wikimedia.org/wiki/File:Klepon_Khas_Tulungagung.jpg", "artist": "Robijuniarta", "lic": "CC BY-SA 4.0"}, "escampur": {"title": "Es Campur 2.JPG", "page": "https://commons.wikimedia.org/wiki/File:Es_Campur_2.JPG", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}, "soto": {"title": "Soto Ayam home-made.JPG", "page": "https://commons.wikimedia.org/wiki/File:Soto_Ayam_home-made.JPG", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}, "gadogado": {"title": "Gado gado jakarta.jpg", "page": "https://commons.wikimedia.org/wiki/File:Gado_gado_jakarta.jpg", "artist": "Piknikdong", "lic": "CC BY-SA 4.0"}, "pisang": {"title": "Banana Fritters and tea.jpg", "page": "https://commons.wikimedia.org/wiki/File:Banana_Fritters_and_tea.jpg", "artist": "Iloveporotta", "lic": "CC BY-SA 4.0"}, "satay": {"title": "Sate Udang.JPG", "page": "https://commons.wikimedia.org/wiki/File:Sate_Udang.JPG", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 4.0"}, "bakso": {"title": "Bakso mi bihun.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bakso_mi_bihun.jpg", "artist": "christian r from Singapore", "lic": "CC BY-SA 2.0"}, "tempeh": {"title": "Tempeh (8681605421).jpg", "page": "https://commons.wikimedia.org/wiki/File:Tempeh_(8681605421).jpg", "artist": "Veganbaking.net from USA", "lic": "CC BY-SA 2.0"}, "bubur": {"title": "Bubuh Injin Bali 1.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bubuh_Injin_Bali_1.jpg", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 4.0"}, "esteler": {"title": "Es Teller 77.jpg", "page": "https://commons.wikimedia.org/wiki/File:Es_Teller_77.jpg", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}}};
+  var RATE = 18100;
+  var MONTHS = {
+    jul:{name:"Julio", start:[2027,6,9], flight:{v:2366, src:"r"},
+      out:["Vie · confirmar","Sáb · confirmar"],
+      fdesc:"Google Flights, consulta del 11 nov 2026, 1 adulto, ida y vuelta Quito–Denpasar del 9 al 20 jul: desde $2.366 (la tarifa más baja, con varias escalas). Las opciones de ~34 h cuestan ~$3.350 · e-VOA ~$28 · tasa turística de Bali ~$8",
+      note:"<b>Julio:</b> temporada seca y alta (~27 °C, noches más frescas en Ubud), con mucha gente en Lempuyang, Nusa Penida y los beach clubs. Google Flights marca los precios de julio como altos: es el vuelo más caro de los tres meses. Vuelo cotizado el 11 nov 2026 para un adulto."},
+    ago:{name:"Agosto", start:[2027,7,13], flight:{v:2126, src:"r"},
+      out:["Vie · confirmar","Sáb · confirmar"],
+      fdesc:"Google Flights, consulta del 11 nov 2026, 1 adulto, ida y vuelta Quito–Denpasar del 13 al 24 ago: desde $2.126 (la tarifa más baja, con varias escalas), con precios que Google marca como normales · e-VOA ~$28 · tasa turística de Bali ~$8",
+      note:"<b>Agosto:</b> el pico de la temporada alta, con más gente; el vuelo cotizado salió más barato que el de julio. El 17 de agosto (día 3) es el Día de la Independencia y el sábado 21 (día 7) cae Kuningan, el cierre de Galungan (Galungan es el 11 de agosto): hay ceremonias en los templos y los penjor, los mástiles de bambú, siguen en las calles. Fechas del calendario balinés de 210 días, a confirmar."},
+    sep:{name:"Septiembre", start:[2027,8,10], flight:{v:1823, src:"r"},
+      out:["Vie · confirmar","Sáb · confirmar"],
+      fdesc:"Google Flights, consulta del 11 nov 2026, 1 adulto, ida y vuelta Quito–Denpasar del 10 al 21 sep: desde $1.823 (la más baja); opciones de 40–47 h con 2–3 escalas, $2.112–2.338; la de 34 h 30 min, $2.925 · e-VOA ~$28 · tasa turística de Bali ~$8",
+      note:"<b>Septiembre:</b> sigue la temporada seca (~28 °C) pero con menos turistas que en julio y agosto, y villas y vuelos algo más baratos. Es el mes con el vuelo más barato y menos gente. Vuelo cotizado el 11 nov 2026 para un adulto."}
+  };
+  var VISAS = 36;
+  var STAYKEYS = {ub:"Ubud", cg:"Canggu", np:"Nusa Penida", ul:"Uluwatu"};
+  var STAYCOL = {ub:"--ubud", cg:"--canggu", np:"--penida", ul:"--uluwatu"};
+  var STAYNIGHTS = {ub:[1,5], cg:[5,6], np:[6,7], ul:[7,10]};
+  var STAYSUB = {ub:"Aldea balinesa entre arrozales", cg:"Surf, cafés y atardeceres", np:"La isla de los miradores", ul:"Acantilados y playas de surf"};
+  var STAYS = {
+    ub:{nights:4, area:"Ubud y alrededores (Penestanan, Sayan, Pengosekan)", list:[
+      {title:"Villa de 3 habitaciones, rango bajo", sub:"20% más baratas de los resultados de Airbnb, con piscina privada o compartida", beds:"3 hab o más · casa entera", m:{jul:162, ago:148, sep:149}},
+      {title:"Villa de 3 habitaciones, precio medio", sub:"La mediana de los resultados: la mayoría con piscina privada", beds:"3 hab o más · casa entera", m:{jul:237, ago:190, sep:189}},
+      {title:"Villa de 3–4 habitaciones, rango alto", sub:"El 15% más caro de los resultados: piscina privada, diseño y vistas", beds:"3 hab o más · casa entera", m:{jul:359, ago:322, sep:277}}]},
+    cg:{nights:1, area:"Canggu, Berawa y Pererenan", list:[
+      {title:"Villa de 3 habitaciones, rango bajo", sub:"20% más baratas de los resultados de Airbnb", beds:"3 hab o más · casa entera", m:{jul:127, ago:138, sep:131}},
+      {title:"Villa de 3 habitaciones, precio medio", sub:"La mediana de los resultados", beds:"3 hab o más · casa entera", m:{jul:159, ago:159, sep:164}},
+      {title:"Villa de 3–4 habitaciones, rango alto", sub:"El 15% más caro de los resultados", beds:"3 hab o más · casa entera", m:{jul:238, ago:253, sep:234}}]},
+    np:{nights:1, area:"Nusa Penida", list:[
+      {title:"Casa de 3 habitaciones, rango bajo", sub:"20% más baratas de los resultados; algunas sin piscina", beds:"3 hab o más · casa entera", m:{jul:93, ago:96, sep:96}},
+      {title:"Villa de 3 habitaciones, precio medio", sub:"La mediana de los resultados", beds:"3 hab o más · casa entera", m:{jul:235, ago:212, sep:221}},
+      {title:"Villa de 3–4 habitaciones, rango alto", sub:"El 15% más caro de los resultados", beds:"3 hab o más · casa entera", m:{jul:290, ago:290, sep:249}}]},
+    ul:{nights:3, area:"Uluwatu, Pecatu y Bingin", list:[
+      {title:"Villa de 3 habitaciones, rango bajo", sub:"20% más baratas de los resultados de Airbnb", beds:"3 hab o más · casa entera", m:{jul:164, ago:145, sep:161}},
+      {title:"Villa de 3 habitaciones, precio medio", sub:"La mediana de los resultados", beds:"3 hab o más · casa entera", m:{jul:310, ago:288, sep:241}},
+      {title:"Villa de 3–4 habitaciones, rango alto", sub:"El 15% más caro de los resultados", beds:"3 hab o más · casa entera", m:{jul:497, ago:413, sep:302}}]}
+  };
+  var LV = ["Económico","Medio","Alto"], LVK = ["E","M","A"];
+  var PHOTOS = {
+    airport:"Aeropuerto Ngurah Rai", campuhan:"Campuhan Ridge", monkey:"Sacred Monkey Forest, Ubud", ubudpalace:"Palacio de Ubud", ubud:"Ubud",
+    tegallalang:"Terrazas de arroz de Tegallalang", tirtaempul:"Tirta Empul", batur:"Monte Batur", lempuyang:"Pura Lempuyang",
+    tirtagangga:"Tirta Gangga", jatiluwih:"Terrazas de Jatiluwih", tanahlot:"Tanah Lot", kelingking:"Kelingking, Nusa Penida",
+    brokenbeach:"Broken Beach, Nusa Penida", diamond:"Diamond Beach, Nusa Penida", crystalbay:"Crystal Bay, Nusa Penida",
+    uluwatu:"Templo de Uluwatu", kecak:"Danza Kecak", padang:"Playa Padang Padang", jimbaran:"Bahía de Jimbaran",
+    tegenungan:"Cascada Tegenungan", sekumpul:"Cascada Sekumpul", canggu:"Canggu", sanur:"Sanur", legong:"Danza Legong",
+    bratan:"Templo Ulun Danu Beratan", nusapenida:"Nusa Penida", bingin:"Playa Bingin", seminyak:"Seminyak", kintamani:"Kintamani", gwk:"GWK"
+  };
+  var DAYS = [
+    {n:"0", title:"De Quito a Bali", base:"En tránsito", c:"--air", stamp:"plane", kanji:"Berangkat", photos:[], stay:null, items:[
+      {h:"Vie · confirmar", t:"Quito → Bogotá o Panamá", d:"Primer tramo, con conexión a Europa o Medio Oriente. No pasar por Estados Unidos: los ecuatorianos necesitan visa", k:"vuelo"},
+      {h:"Sáb · confirmar", t:"Europa, Doha o Dubái → Denpasar (DPS)", d:"Segundo tramo largo. Llegan a Bali el domingo: Bali va 13 horas adelante de Quito. Revisar si la escala exige visa de tránsito", k:"vuelo"},
+      {h:"Total", t:"Vuelo ida y vuelta, e-VOA y tasa turística", d:"", flight:1, k:"vuelo"}
+    ]},
+    {n:"1", title:"Llegada a Bali y primera noche en Ubud", base:"Base: Ubud", c:"--ubud", stamp:"plane", kanji:"Datang", photos:["airport","ubud"], stay:"ub", items:[
+      {h:"Tarde", t:"Aterrizaje en Denpasar", d:"Migración con la e-VOA aprobada, el QR de la tasa turística (LoveBali) y el formulario All Indonesia. Retirar rupias en cajeros del aeropuerto o casas de cambio autorizadas"},
+      {h:"+1 h", t:"Aeropuerto → Ubud con valijas", d:"~1 h 30 min en van privada de 6 plazas (el tráfico del sur manda). Conviene dejar el chofer reservado desde Quito", idr:75000, taxi:133000, k:"transporte", leg:"Aeropuerto → Ubud"},
+      {h:"Noche", t:"Check-in en la villa", d:""},
+      {h:"Noche", t:"Cena en un warung", d:"Nasi campur o mie goreng, algo liviano después del vuelo", idr:120000, k:"comida"}
+    ]},
+    {n:"2", title:"Ubud: crestas, monos y cascadas", base:"Base: Ubud", c:"--ubud", stamp:"terrace", kanji:"Ubud", photos:["campuhan","monkey","tegenungan"], stay:"ub", items:[
+      {h:"07:00", t:"Campuhan Ridge Walk", d:"Sendero entre pastizales, ~40 min. Gratis y más fresco temprano"},
+      {h:"08:30", t:"Desayuno en un café de Ubud", d:"Bubur ketan hitam, jugos y café balinés", idr:70000, k:"comida"},
+      {h:"10:00", t:"Sacred Monkey Forest", d:"Bosque con templos y macacos. No llevar comida a la vista ni objetos sueltos", idr:130000, k:"entradas"},
+      {h:"12:00", t:"Almuerzo: babi guling", d:"Cerdo lechón asado con especias balinesas. Hay opciones sin cerdo (ayam o bebek)", idr:80000, k:"comida"},
+      {h:"13:30", t:"Palacio de Ubud y mercado de arte", d:"Patios abiertos gratis. En el mercado se regatea: arrancar en 50% del precio"},
+      {h:"15:30", t:"Kanto Lampo y cascada Tegenungan", d:"Dos cascadas cerca de Ubud. Kanto Lampo es la de las rocas lisas y lámina de agua, muy fotografiada. Zapatos para mojar. Entradas de ~IDR 25.000 y 30.000", idr:55000, k:"entradas"},
+      {h:"18:30", t:"Danza Legong en el Palacio de Ubud", d:"Danza clásica con gamelán, ~1 h 30 min", idr:150000, k:"entradas", o:1},
+      {h:"20:30", t:"Cena en Ubud", d:"Bebek betutu (pato) o sate lilit", idr:130000, k:"comida"},
+      {h:"Día", t:"Chofer privado del día (van para 6)", d:"Reservado por 8 h. Entre las cascadas y el centro hacen falta ruedas", idr:150000, taxi:130000, k:"transporte", leg:"Ubud: día de cascadas"}
+    ]},
+    {n:"3", title:"Amanecer en el Batur, Tirta Empul y Tegallalang", base:"Base: Ubud", c:"--ubud", stamp:"mountain", kanji:"Batur", photos:["batur","tirtaempul","tegallalang"], stay:"ub",
+      note:"<b>Día largo:</b> salida a las 02:00. Si alguien no quiere subir, queda la excursión de Tirta Empul y Tegallalang desde las 10:00 con el mismo chofer. En agosto, el 17 es el Día de la Independencia: más gente en los templos.", items:[
+      {h:"02:00", t:"Salida hacia el Batur", d:"El operador pasa por la villa. Llevar abrigo (~15 °C arriba), linterna y calzado cerrado"},
+      {h:"04:00", t:"Ascenso al Monte Batur con guía", d:"~2 h de subida, nivel medio. Incluye traslado, guía, linterna y desayuno. Reservar con 1–2 semanas. El permiso de la zona se paga con la excursión", idr:650000, k:"entradas", pre:1},
+      {h:"06:00", t:"Amanecer en el cráter", d:"Con el volcán Agung de fondo. Desayuno de huevos cocinados con vapor volcánico"},
+      {h:"09:30", t:"Regreso a la villa", d:"Piscina y siesta antes de la tarde"},
+      {h:"13:00", t:"Almuerzo en la ruta", d:"Nasi campur o soto ayam", idr:90000, k:"comida"},
+      {h:"14:30", t:"Tirta Empul", d:"Templo de manantial sagrado; la gente se purifica bajo los chorros. Sarong prestado en la entrada. Si no se entra al agua, no hace falta ropa de baño", idr:75000, k:"entradas"},
+      {h:"16:30", t:"Terrazas de arroz de Tegallalang", d:"Sendero entre escalones de arroz. Columpios y nidos con vista, opcionales y con fila. Entrada de IDR 25.000–50.000 según la fuente", idr:40000, k:"entradas"},
+      {h:"16:45", t:"Columpio sobre las terrazas", d:"El clásico de las redes. Precio según el columpio y las fotos incluidas", idr:350000, k:"entradas", o:1},
+      {h:"20:00", t:"Cena y descanso", d:"", idr:120000, k:"comida"},
+      {h:"Día", t:"Chofer privado del día (van para 6)", d:"Reservado por 8 h, de 09:30 a 18:00", idr:150000, taxi:200000, k:"transporte", leg:"Tirta Empul y Tegallalang"}
+    ]},
+    {n:"4", title:"Este de Bali: la Puerta del Cielo y Tirta Gangga", base:"Base: Ubud", c:"--ubud", stamp:"torii", kanji:"Pura", photos:["lempuyang","tirtagangga"], stay:"ub",
+      note:"<b>Salir a las 05:30:</b> la fila para la foto de la Puerta del Cielo supera la hora de espera después de las 09:00. El efecto del lago en la foto lo hace una persona del templo con un espejo o un teléfono; es un efecto, no un lago.", items:[
+      {h:"05:30", t:"Salida hacia Lempuyang", d:"~2 h de viaje por Ubud–Klungkung–Karangasem"},
+      {h:"07:30", t:"Pura Lempuyang: la Puerta del Cielo", d:"La entrada de ~IDR 150.000 incluye el traslado obligatorio hasta el portal. Falda o sarong y cubrirse hombros. La foto: ~15 min por grupo", idr:150000, k:"entradas"},
+      {h:"10:30", t:"Tirta Gangga", d:"Palacio de agua con estanques, fuentes y pasos de piedra", idr:90000, k:"entradas"},
+      {h:"12:30", t:"Almuerzo con vista a los arrozales", d:"Cerca de Tirta Gangga", idr:100000, k:"comida"},
+      {h:"15:00", t:"Tukad Cepung", d:"Cascada dentro de una cueva, con rayos de luz al mediodía; mejor entre 10:00 y 13:00, así que puede quedar fuera según la fila de Lempuyang. Camino corto con agua en los tobillos", idr:35000, k:"entradas", o:1},
+      {h:"18:00", t:"Cena en Ubud", d:"", idr:130000, k:"comida"},
+      {h:"Día", t:"Chofer privado del día (van para 6)", d:"10–11 h de reserva", idr:183000, taxi:233000, k:"transporte", leg:"Este de Bali"}
+    ]},
+    {n:"5", title:"Jatiluwih, Tanah Lot y a Canggu", base:"Base: Canggu", c:"--canggu", stamp:"terrace", kanji:"Sawah", photos:["jatiluwih","tanahlot"], stay:"cg", items:[
+      {h:"08:00", t:"Check-out y salida con valijas", d:"El chofer carga todo en la van"},
+      {h:"10:30", t:"Terrazas de arroz de Jatiluwih", d:"Patrimonio de la Unesco. Caminata de 1 a 2 h entre campos casi sin turistas. Entrada para extranjeros ~IDR 75.000–100.000", idr:100000, k:"entradas"},
+      {h:"12:30", t:"Almuerzo en las terrazas", d:"Nasi campur de arroz rojo, la variedad de la zona", idr:90000, k:"comida"},
+      {h:"16:00", t:"Tanah Lot", d:"Templo sobre una roca en el mar. Se ve desde la costa; entrada de ~IDR 75.000 (subió en abril de 2026)", idr:75000, k:"entradas"},
+      {h:"17:45", t:"Atardecer en Tanah Lot", d:"Llegar con 1 h de anticipación para ganar sitio"},
+      {h:"19:30", t:"Check-in en Canggu y cena", d:"Cafés y restaurantes caminando desde la villa", idr:150000, k:"comida"},
+      {h:"Día", t:"Chofer privado del día (van para 6)", d:"Traslado completo desde Ubud, con valijas", idr:183000, taxi:233000, k:"transporte", leg:"Ubud → Jatiluwih → Tanah Lot → Canggu"}
+    ]},
+    {n:"6", title:"Lancha a Nusa Penida: el oeste", base:"Base: Nusa Penida", c:"--penida", stamp:"boat", kanji:"Penida", photos:["kelingking","brokenbeach","crystalbay"], stay:"np",
+      note:"<b>Sábado en agosto (Kuningan):</b> los barcos van llenos. <b>Seguridad:</b> en Angel's Billabong y Broken Beach no se entra al agua con oleaje; hubo muertes. La bajada de Kelingking es peligrosa: alcanza con mirarla desde el mirador.", noteMonths:["ago"], items:[
+      {h:"07:00", t:"Canggu → puerto de Sanur con valijas", d:"~1 h. Dejar las valijas grandes en la villa del retorno o llevar solo mochilas", idr:58000, taxi:100000, k:"transporte", leg:"Canggu → Sanur"},
+      {h:"08:30", t:"Lancha rápida Sanur → Nusa Penida", d:"~45 min. Precio por persona de ida y vuelta. Reservar con anticipación y con operador registrado", idr:350000, k:"transporte", pre:1},
+      {h:"10:30", t:"Llegada y almuerzo", d:"Dejar el equipaje en la villa y salir con los 2 autos y chofer", idr:90000, k:"comida"},
+      {h:"11:30", t:"Kelingking Beach", d:"El \"T-Rex\" de los acantilados, el mirador más fotografiado de la isla. Mejor temprano o al caer el sol", idr:100000, k:"entradas"},
+      {h:"14:00", t:"Broken Beach y Angel's Billabong", d:"Arco de roca sobre el mar y piscina natural. Mirar desde arriba con oleaje"},
+      {h:"16:30", t:"Crystal Bay al atardecer", d:"Playa de arena clara, buena para ver el sol caer sobre Nusa Lembongan"},
+      {h:"19:00", t:"Cena en la isla", d:"", idr:140000, k:"comida"},
+      {h:"Día", t:"2 autos con chofer en la isla", d:"Los caminos del oeste son angostos: una van no pasa", idr:250000, k:"transporte"}
+    ]},
+    {n:"7", title:"Este de Nusa Penida y a Uluwatu", base:"Base: Uluwatu", c:"--uluwatu", stamp:"boat", kanji:"Atuh", photos:["diamond","nusapenida"], stay:"ul",
+      note:"<b>Domingo en agosto (Kuningan es el sábado):</b> sigue el cierre de Galungan; la lancha de vuelta suele ir llena. Reservar el horario con el operador.", noteMonths:["ago"], items:[
+      {h:"07:30", t:"Diamond Beach y Atuh Beach", d:"Escaleras talladas en el acantilado hasta una playa de arena blanca. Subida con calor; llevar agua"},
+      {h:"09:30", t:"Mirador de Raja Lima o Thousand Islands", d:"Peñascos en el mar, ideal con luz de mañana"},
+      {h:"11:00", t:"Nadar con mantarrayas en Manta Bay", d:"Excursión opcional de ~2 h en barco con equipo. Conviene reservarla desde Bali", idr:450000, k:"entradas", o:1, pre:1},
+      {h:"13:00", t:"Almuerzo y regreso al puerto", d:"", idr:90000, k:"comida"},
+      {h:"14:30", t:"Lancha Nusa Penida → Sanur", d:"Incluida en el pasaje de ida y vuelta"},
+      {h:"16:30", t:"Sanur → Uluwatu con valijas", d:"~1 h 30 min", idr:117000, taxi:167000, k:"transporte", leg:"Sanur → Uluwatu"},
+      {h:"19:00", t:"Check-in y cena", d:"Pescado a la parrilla cerca de la villa", idr:160000, k:"comida"},
+      {h:"Día", t:"2 autos con chofer en la isla", d:"", idr:250000, k:"transporte"}
+    ]},
+    {n:"8", title:"Uluwatu: playas, templo y danza Kecak", base:"Base: Uluwatu", c:"--uluwatu", stamp:"wave", kanji:"Kecak", photos:["padang","uluwatu","kecak"], stay:"ul", items:[
+      {h:"08:30", t:"Desayuno en la villa", d:"", idr:70000, k:"comida"},
+      {h:"09:30", t:"Playa Padang Padang y Bingin", d:"Bajada por escaleras a calas entre rocas. Surf y buena fotografía. Con marea baja se camina mejor", idr:25000, k:"entradas"},
+      {h:"12:30", t:"Almuerzo con vista al mar", d:"Single Fin o un warung sobre el acantilado", idr:170000, k:"comida"},
+      {h:"15:30", t:"Piscina y descanso", d:""},
+      {h:"16:30", t:"Templo de Uluwatu", d:"Templo sobre un acantilado de 70 m. Sarong prestado. Cuidado con los monos: no llevar gafas ni celulares sueltos", idr:60000, k:"entradas"},
+      {h:"18:00", t:"Danza Kecak al atardecer", d:"Coro de ~70 hombres sin música, con fuego y el sol cayendo al océano. Dura 1 h; comprar con anticipación", idr:150000, k:"entradas", pre:1},
+      {h:"20:00", t:"Cena en Uluwatu", d:"", idr:150000, k:"comida"},
+      {h:"Día", t:"Chofer privado del día (van para 6)", d:"Medio día de 6 h", idr:100000, taxi:133000, k:"transporte", leg:"Uluwatu: playas y templo"}
+    ]},
+    {n:"9", title:"Último día: playa, masaje y mariscos en Jimbaran", base:"Base: Uluwatu", c:"--uluwatu", stamp:"wave", kanji:"Pantai", photos:["jimbaran","bingin"], stay:"ul", items:[
+      {h:"09:30", t:"Melasti Beach o Blue Point", d:"Playas con acantilado y arena clara, buenas para la última mañana"},
+      {h:"12:00", t:"Beach club frente al mar", d:"Día en una cama de playa con mínimo de consumo. Hay opciones para todo presupuesto", idr:300000, k:"entradas", o:1},
+      {h:"14:30", t:"Masaje balinés de 1 hora", d:"En un spa local, más barato que en Ubud o Seminyak", idr:180000, k:"entradas", o:1},
+      {h:"18:30", t:"Cena de despedida en Jimbaran", d:"Mariscos a la parrilla en la playa, con las mesas sobre la arena y vista al atardecer", idr:300000, k:"comida"},
+      {h:"Día", t:"Chofer privado del día (van para 6)", d:"Medio día de 6 h", idr:100000, taxi:133000, k:"transporte", leg:"Uluwatu y Jimbaran"}
+    ]},
+    {n:"10", title:"Regreso", base:"En tránsito", c:"--air", stamp:"plane2", kanji:"Pulang", photos:[], stay:null, items:[
+      {h:"Mañana", t:"Uluwatu → aeropuerto con valijas", d:"~45 min. Salir 4 h antes del vuelo internacional", idr:67000, taxi:100000, k:"transporte", leg:"Uluwatu → aeropuerto"},
+      {h:"Mar · confirmar", t:"Denpasar → Europa, Doha o Dubái", d:"Primer tramo del regreso", k:"vuelo"},
+      {h:"Mié · confirmar", t:"Conexión → Bogotá o Panamá → Quito", d:"Llegan a Quito el miércoles", k:"vuelo"}
+    ]}
+  ];
+  var EXTRAS = [
+    {t:"Seguro de viaje (14 días)", usd:70},
+    {t:"eSIM de Indonesia", usd:15},
+    {t:"Propinas y efectivo suelto", usd:30},
+    {t:"Comisión de tarjeta y cambio (~2,5% del gasto en Bali)", pct:0.025}
+  ];
+  var ROUTES = {
+    ruta:[{d:"Ruta", seq:["dps","ubud","cg","sanur","penida","ul","dps"]}],
+    ubud:[{d:"1", seq:["dps","villa:ub"]},{d:"2", seq:["villa:ub","campuhan","monkey","palace","kanto","tegenungan","villa:ub"]},{d:"3", seq:["villa:ub","batur","tirtaempul","tegallalang","villa:ub"]}],
+    este:[{d:"4", seq:["villa:ub","lempuyang","tirtagangga","tukad","villa:ub"]}],
+    oeste:[{d:"5", seq:["villa:ub","jatiluwih","tanahlot","villa:cg"]}],
+    penida:[{d:"6", seq:["sanur","buyuk","villa:np","kelingking","broken","crystal","villa:np"]},{d:"7", seq:["villa:np","diamond","buyuk","sanur"]}],
+    uluwatu:[{d:"7", seq:["sanur","villa:ul"]},{d:"8", seq:["villa:ul","padang","singlefin","ulutemple","villa:ul"]},{d:"9", seq:["villa:ul","melasti","jimbaran","villa:ul"]}]
+  };
+  var CAT = {vuelo:"Vuelo, e-VOA y tasa turística", transporte:"Chofer, lanchas y traslados", entradas:"Entradas y actividades", comida:"Comidas", hotel:"Villas (hospedaje)", extras:"Seguro, eSIM, propinas y comisiones"};
+  var FOODNAMES = {nasigoreng:"Nasi goreng", babiguling:"Babi guling", bebek:"Bebek betutu", satelilit:"Sate lilit", nasicampur:"Nasi campur", miegoreng:"Mie goreng", lawar:"Lawar", klepon:"Klepon", escampur:"Es campur", soto:"Soto ayam", gadogado:"Gado-gado", pisang:"Pisang goreng", satay:"Satay", bakso:"Bakso", tempeh:"Tempeh", bubur:"Bubur ketan hitam", esteler:"Es teler"};
+  var WD = ["dom","lun","mar","mié","jue","vie","sáb"], MO = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+  function fmt(n){ return "$" + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+  function ifmt(n){ return "Rp " + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+  function dt(off){ var s = MONTHS[mon].start; return new Date(Date.UTC(s[0], s[1], s[2] + off)); }
+  function dl(d, wd){ return (wd ? WD[d.getUTCDay()] + " " : "") + d.getUTCDate() + " " + MO[d.getUTCMonth()]; }
+  function iso(d){ return d.toISOString().slice(0,10); }
+  function flightTotal(){ return MONTHS[mon].flight.v + VISAS; }
+  function villaNight(stay){ return STAYS[stay].list[lvl].m[mon]; }
+  function nightPP(stay){ return villaNight(stay) / 6; }
+  function active(it){ return !it.months || it.months.indexOf(mon) > -1; }
+
+  var S = 'fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"';
+  var PLANE = '<path d="M28 62 L92 52 Q99 52 98 57 Q97 61 90 62 L28 66 Z" fill="currentColor"/><path d="M58 58 L46 36 L54 36 L74 56 Z M62 62 L52 82 L60 82 L76 61 Z M32 62 L26 50 L32 50 L40 61 Z" fill="currentColor"/>';
+  var ICONS = {
+    plane: PLANE,
+    plane2:'<g transform="rotate(-18 60 60)">'+PLANE+'</g><path d="M22 86 H98" '+S+'/>',
+    terrace:'<path d="M16 50 Q60 30 104 50 M16 66 Q60 46 104 66 M16 82 Q60 62 104 82" '+S+'/><circle cx="88" cy="30" r="8" '+S+'/>',
+    mountain:'<path d="M14 86 L46 36 L60 58 L72 44 L106 86 Z" '+S+'/><circle cx="90" cy="28" r="8" '+S+'/>',
+    torii:'<path d="M26 34 Q60 26 94 34" '+S+' stroke-width="5"/><path d="M32 46 H88 M40 34 V86 M80 34 V86" '+S+' stroke-width="5"/><path d="M60 34 V46" '+S+'/>',
+    boat:'<path d="M18 68 H102 L90 86 H30 Z M60 66 V28 L86 60 H60 M60 36 L38 60 H60" '+S+'/>',
+    wave:'<path d="M14 70 Q26 58 38 70 T62 70 T86 70 T110 70 M14 86 Q26 74 38 86 T62 86 T86 86 T110 86" '+S+'/><circle cx="82" cy="40" r="11" '+S+'/>'
+  };
+  function stamp(d){
+    var fs = d.kanji.length > 6 ? 11 : d.kanji.length > 4 ? 13 : 16;
+    return '<svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día '+d.n+'"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"/><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"/><g transform="translate(0,-6)">'+ICONS[d.stamp]+'</g><text x="60" y="103" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="'+fs+'" fill="currentColor">'+d.kanji+'</text></svg>';
+  }
+  function gallery(keys){
+    if (!keys.length) return "";
+    var cls = keys.length === 1 ? "gallery one" : keys.length === 2 ? "gallery two" : "gallery";
+    return '<div class="'+cls+'">' + keys.map(function(k,i){
+      return '<figure class="'+(i===0?'big':'small')+'"><img src="img/'+k+'.jpg" alt="'+PHOTOS[k]+'" loading="'+(i===0?'eager':'lazy')+'"><figcaption>'+PHOTOS[k]+'</figcaption></figure>';
+    }).join("") + '</div>';
+  }
+  function flightLabel(m){ return "consultado 11 nov · 1 adulto"; }
+  function chip(it){
+    if (it.o) return '<span class="chip o">opcional</span>';
+    if (it.flight) return '<span class="chip e">' + flightLabel(mon) + '</span>';
+    if (!it.idr) return '';
+    return '<span class="chip e">estimado</span>';
+  }
+
+  var mon = "sep", lvl = 1, withOpt = false, mode = "chofer", saved = 0, mapDay = {};
+  try { var st = JSON.parse(localStorage.getItem("bl27c") || "null"); if (st) { mon = MONTHS[st.mon] ? st.mon : mon; lvl = st.lvl == null ? lvl : st.lvl; withOpt = !!st.opt; mode = st.mode || mode; } } catch(e){}
+  document.getElementById("mode-" + mode).checked = true;
+  document.getElementById("mon-"+mon).checked = true;
+  document.getElementById("lvl-"+lvl).checked = true;
+  document.getElementById("opt").checked = withOpt;
+
+  function amountOf(it){ if (it.flight) return flightTotal(); if (mode === "app" && it.taxi != null) return it.taxi / RATE; return (it.idr || 0) / RATE; }
+  function costs(m){
+    var save = mon; mon = m;
+    var cats = {vuelo:flightTotal(),transporte:0,entradas:0,comida:0,hotel:0,extras:0}, opt = 0, pre = 0;
+    DAYS.forEach(function(d){
+      d.items.forEach(function(it){
+        if (it.flight || !active(it)) return;
+        var a = amountOf(it);
+        if (!a) return;
+        if (it.o) { opt += a; if (!withOpt) return; }
+        cats[it.k] += a;
+        if (it.pre) pre += a;
+      });
+      if (d.stay) cats.hotel += nightPP(d.stay);
+    });
+    var base = cats.transporte + cats.entradas + cats.comida + cats.hotel;
+    var fixedExtras = 0, pctExtra = 0;
+    EXTRAS.forEach(function(e){ if (e.usd) fixedExtras += e.usd; else pctExtra += e.pct * (base - cats.hotel); });
+    cats.extras = fixedExtras + pctExtra;
+    mon = save;
+    return {cats:cats, opt:opt, local:base, total:base + cats.vuelo + cats.extras, pre:pre, pctExtra:pctExtra, cash: base - cats.hotel - pre};
+  }
+
+  function renderMaps(){
+    var M = DATA.maps, html = "";
+    var defs = [
+      {key:"ruta", title:"La ruta completa", wide:true, col:"--air"},
+      {key:"ubud", title:"Ubud y los alrededores", col:"--ubud", stays:["ub"]},
+      {key:"este", title:"Este de Bali", col:"--ubud", stays:["ub"]},
+      {key:"oeste", title:"Jatiluwih, Tanah Lot y Canggu", col:"--canggu", stays:["ub","cg"]},
+      {key:"penida", title:"Nusa Penida", col:"--penida", stays:["np"]},
+      {key:"uluwatu", title:"Uluwatu y Jimbaran", col:"--uluwatu", stays:["ul"]}
+    ];
+    defs.forEach(function(df){
+      var m = M[df.key], pins = "", leg = "", n = 0, bnbLeg = "";
+      var byId = {};
+      m.pts.forEach(function(p){ byId[p.id] = p; });
+      function pt(id){ return byId[id]; }
+      var routes = ROUTES[df.key], sel = mapDay[df.key] || "all";
+      var shown = routes.filter(function(r){ return sel === "all" || r.d === sel; });
+      var onRoute = {};
+      shown.forEach(function(r){ r.seq.forEach(function(id){ var p = pt(id); if (p) onRoute[p.label] = 1; }); });
+      var dashes = ["", "8 5", "2 5", "12 4 2 4", "6 3", "1 4", "10 6"];
+      var lines = shown.map(function(r, i){
+        var ptsStr = r.seq.map(function(id){ var p = pt(id); return p ? (p.x / 100 * m.w).toFixed(1) + "," + (p.y / 100 * m.h).toFixed(1) : ""; }).filter(Boolean).join(" ");
+        var dash = sel === "all" && df.key !== "ruta" ? dashes[i % dashes.length] : "";
+        return '<polyline points="' + ptsStr + '" fill="none" style="stroke:var(' + df.col + ')" stroke-width="' + (sel === "all" ? 3 : 5) + '" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="' + dash + '" opacity="' + (sel === "all" ? 0.75 : 0.95) + '" marker-mid="url(#ar-' + df.key + ')" marker-end="url(#ar-' + df.key + ')"/>';
+      }).join("");
+      var svg = '<svg class="route" viewBox="0 0 ' + m.w + ' ' + m.h + '" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="ar-' + df.key + '" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M1 1 L9 5 L1 9 Z" style="fill:var(' + df.col + ')"/></marker></defs>' + lines + '</svg>';
+      m.pts.forEach(function(p){
+        var pos = 'left:' + p.x + '%;top:' + p.y + '%';
+        var dim = sel !== "all" && !onRoute[p.label] ? " dim" : "";
+        if (df.key === "ruta") {
+          var col = {air:"--air",ubud:"--ubud",canggu:"--canggu",penida:"--penida",uluwatu:"--uluwatu"}[p.k];
+          pins += '<span class="pin city" style="' + pos + ';--c:var(' + col + ')" aria-hidden="true"></span><span class="citylabel" style="' + pos + '">' + p.label + '</span>';
+        } else if (p.k === "b") {
+          pins += '<button type="button" class="pin bnb' + dim + '" style="' + pos + '" data-label="' + p.label + '" aria-label="' + p.label + '">V</button>';
+          bnbLeg += '<li><span class="k bnb">V</span><span>' + p.label + ' (zona aproximada)</span></li>';
+        } else {
+          n++;
+          pins += '<button type="button" class="pin' + dim + '" style="' + pos + ';--c:var(' + df.col + ')" data-label="' + p.label + '" aria-label="' + p.label + '">' + n + '</button>';
+          leg += '<li style="--c:var(' + df.col + ')"><span class="k">' + n + '</span><span>' + p.label + '</span></li>';
+        }
+      });
+      var chips = "";
+      if (df.key !== "ruta") {
+        chips = '<div class="daychips" role="group" aria-label="Elegir día en el mapa de ' + df.title + '">' +
+          '<button type="button" data-map="' + df.key + '" data-day="all" aria-pressed="' + (sel === "all") + '">Todos</button>' +
+          routes.map(function(r){ return '<button type="button" data-map="' + df.key + '" data-day="' + r.d + '" aria-pressed="' + (sel === r.d) + '">Día ' + r.d + '</button>'; }).join("") + '</div>';
+        if (sel !== "all") {
+          var r = routes.filter(function(x){ return x.d === sel; })[0];
+          chips += '<p class="routetxt">' + r.seq.map(function(id){ var p = pt(id); return p ? (p.k === "b" ? "Villa" : p.label) : ""; }).join(" → ") + '</p>';
+        }
+      }
+      html += '<figure class="map' + (df.wide ? ' wide' : '') + '"><div class="map-frame"><img src="img/maps/' + df.key + '.jpg" width="' + m.w + '" height="' + m.h + '" alt="Mapa de ' + df.title + '">' + svg + pins + '</div>'
+        + (df.wide ? '' : '<div class="map-legend"><h3>' + df.title + '</h3>' + chips + '<ol>' + leg + (bnbLeg ? '<li class="sub">Villa</li>' + bnbLeg : '') + '</ol></div>')
+        + '<figcaption class="attrib">© colaboradores de OpenStreetMap · posiciones aproximadas</figcaption></figure>';
+    });
+    document.getElementById("maps").innerHTML = html;
+  }
+
+  var AREAQ = {ub:"Ubud", cg:"Canggu", np:"Nusa-Penida", ul:"Uluwatu"};
+  function renderStays(){
+    var html = "";
+    ["ub","cg","np","ul"].forEach(function(k){
+      var P = STAYS[k], a = STAYNIGHTS[k], ci = dt(a[0] + 1), co = dt(a[1] + 1);
+      var url = "https://www.airbnb.com/s/" + AREAQ[k] + "--Bali--Indonesia/homes?checkin=" + iso(ci) + "&checkout=" + iso(co) + "&adults=6&min_bedrooms=3&room_types%5B%5D=Entire%20home%2Fapt";
+      html += '<div class="stay-block" style="--c:var('+STAYCOL[k]+')"><div class="stay-head"><h3><span>'+STAYKEYS[k]+'</span>'+STAYSUB[k]+'</h3>'
+        + '<span class="mkt">'+P.nights+(P.nights===1?' noche, ':' noches, ')+dl(ci,true)+' al '+dl(co,true)+' · zona: '+P.area+'</span></div><div class="bnbs">';
+      P.list.forEach(function(b, i){
+        var v = b.m[mon];
+        html += '<article class="bnb-card nophoto'+(i===lvl?' sel':'')+'"><span class="bnb-lvl">'+LV[i]+'</span><div class="bnb-body">'
+          + '<div class="bnb-title">'+b.title+'</div><div class="bnb-sub">'+b.sub+'</div>'
+          + '<div class="bnb-meta"><span>'+b.beds+'</span></div>'
+          + '<div class="bnb-price"><b>'+fmt(v * P.nights)+'</b><small>total '+P.nights+(P.nights===1?' noche':' noches')+' · '+fmt(v)+' la villa por noche · '+fmt(v / 6)+' por persona y noche</small><span class="chip v">consultado 11 nov</span></div>'
+          + '<a class="bnb-link" href="'+url+'" target="_blank" rel="noopener">Buscar villas en Airbnb ↗</a></div></article>';
+      });
+      html += '</div></div>';
+    });
+    document.getElementById("stays").innerHTML = html;
+  }
+
+  function renderDays(){
+    var html = "";
+    DAYS.forEach(function(d, idx){
+      var total = 0, rows = "";
+      d.items.forEach(function(original){
+        var it = Object.assign({}, original);
+        if (idx === 0 && !it.flight && it.t.indexOf("Quito") === 0) it.h = MONTHS[mon].out[0];
+        if (idx === 0 && !it.flight && it.t.indexOf("Europa") === 0) it.h = MONTHS[mon].out[1];
+        if (it.flight) it.d = MONTHS[mon].fdesc;
+        if (!active(it)) return;
+        var amount = amountOf(it), cell = "";
+        if (it.flight) { cell = fmt(amount); total += amount; }
+        else if (it.taxi != null) {
+          var other = mode === "app" ? fmt(it.idr / RATE) : fmt(it.taxi / RATE);
+          cell = fmt(amount) + '<span class="y">' + (mode === "app" ? "con chofer: " : "con app: ") + other + '</span>';
+          total += amount;
+        }
+        else if (it.idr) {
+          cell = fmt(amount) + '<span class="y">' + ifmt(it.idr) + '</span>';
+          if (!it.o || withOpt) total += amount;
+        }
+        var modeTag = it.taxi != null ? ' <span class="chip ' + (mode === "app" ? 'e">2 autos de app' : 'v">chofer') + '</span>' : '';
+        rows += '<tr class="' + (it.o ? 'opt' + (withOpt ? ' on' : '') : '') + '"><td class="h">' + it.h + '</td><td class="what"><b>' + it.t + '</b> ' + chip(it) + modeTag + (it.d ? '<small>' + it.d + '</small>' : '') + '</td><td class="cost">' + cell + '</td></tr>';
+      });
+      var stayHtml = '<span class="stay">Sin hospedaje esta noche</span>';
+      if (d.stay) {
+        var b = STAYS[d.stay].list[lvl], night = nightPP(d.stay);
+        total += night;
+        stayHtml = '<span class="stay">Noche: <b>' + b.title + '</b> · Bali, ' + STAYKEYS[d.stay] + ' · ' + fmt(night) + ' por persona <span class="chip v">consultado 11 nov</span></span>';
+      }
+      var date = idx === 0 ? dl(dt(0), true) + " – " + dl(dt(2), true) : dl(dt(idx + 1), true);
+      var note = d.note && (!d.noteMonths || d.noteMonths.indexOf(mon) > -1) ? '<div class="note">' + d.note + '</div>' : '';
+      html += '<article class="day" style="--c:var(' + d.c + ')" id="dia-' + d.n + '">'
+        + '<div class="day-side">' + stamp(d) + '<div><div class="day-num">Día ' + d.n + '</div><div class="day-date">' + date + '</div></div></div>'
+        + '<div class="day-main">' + gallery(d.photos) + '<div class="day-head"><h3>' + d.title + '</h3><span class="base">' + d.base + '</span></div>'
+        + note + '<div class="tt-wrap"><table class="tt"><tbody>' + rows + '</tbody></table></div>'
+        + '<div class="day-foot">' + stayHtml + '<span class="day-total">' + fmt(total) + '<small>' + (idx === 0 ? 'vuelo, e-VOA y tasa' : 'por persona este día') + '</small></span></div>'
+        + '</div></article>';
+    });
+    document.getElementById("days").innerHTML = html;
+  }
+
+  function renderMoves(){
+    var rows = "", tr = 0, tx = 0;
+    DAYS.forEach(function(d){ d.items.forEach(function(it){
+      if (it.taxi == null) return;
+      var a = (it.idr || 0) / RATE, b = it.taxi / RATE; tr += a; tx += b;
+      rows += '<tr><td>Día ' + d.n + '</td><td>' + it.leg + '</td><td class="' + (mode === "chofer" ? 'cur' : '') + '">' + fmt(a) + '</td><td class="' + (mode === "app" ? 'cur' : '') + '">' + fmt(b) + '</td></tr>';
+    }); });
+    rows += '<tr class="tot"><td></td><td>Total por persona</td><td class="' + (mode === "chofer" ? 'cur' : '') + '">' + fmt(tr) + '</td><td class="' + (mode === "app" ? 'cur' : '') + '">' + fmt(tx) + '</td></tr>';
+    document.getElementById("moves").innerHTML = '<thead><tr><th>Día</th><th>Tramo</th><th class="' + (mode === "chofer" ? 'cur' : '') + '">Chofer con van</th><th class="' + (mode === "app" ? 'cur' : '') + '">2 autos de app</th></tr></thead><tbody>' + rows + '</tbody>';
+    var diff = tx - tr;
+    document.getElementById("moves-diff").textContent = (diff >= 0 ? "ir con apps cuesta " : "ir con apps ahorra ") + fmt(Math.abs(diff)) + " por persona (" + fmt(Math.abs(diff) * 6) + " el grupo)";
+  }
+
+  var MON_ES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+  function plan(m){
+    var c = costs(m), base = c.total, imprev = base * 0.10, grand = base + imprev;
+    var tIdx = {jul:6, ago:7, sep:8}[m];
+    var n = (2027 - 2026) * 12 + tIdx - 10;
+    var saveSt = mon; mon = m; var flight = MONTHS[m].flight.v; mon = saveSt;
+    var ms = [
+      {i:3, t:"Vuelos Quito–Denpasar (comprar 5 a 6 meses antes)", a:flight},
+      {i:n-3, t:"e-VOA y tasa turística de Bali", a:VISAS},
+      {i:n-2, t:"Villas en Airbnb", a:c.cats.hotel},
+      {i:n-2, t:"Reservas con fecha (Batur, lancha, Kecak)", a:c.pre},
+      {i:n-1, t:"Seguro y eSIM", a:EXTRAS[0].usd + EXTRAS[1].usd},
+      {i:n-1, t:"Efectivo para Bali, comisiones e imprevistos (10%)", a:c.cash + c.pctExtra + EXTRAS[2].usd + imprev}
+    ].filter(function(x){ return x.a > 0; });
+    var need1 = Math.max(0, flight - saved);
+    var ph1 = need1 / 4;
+    var remaining = Math.max(0, grand - saved - need1);
+    var ph2 = remaining / (n - 4);
+    return {c:c, grand:grand, n:n, tIdx:tIdx, ms:ms, ph1:ph1, ph2:ph2, flat:Math.max(0, grand - saved) / n};
+  }
+  function mlabel(i){ var mm = 10 + i, y = 2026 + Math.floor(mm / 12); return MON_ES[mm % 12] + " " + y; }
+  function renderSavings(){
+    var P = plan(mon), html = "";
+    var endLabel = mlabel(P.n - 1);
+    html += '<div class="tiles">'
+      + '<div class="tile"><span class="eyebrow">Noviembre 2026 a febrero 2027</span><b>' + fmt(P.ph1) + '</b><small>por persona al mes · grupo ' + fmt(P.ph1 * 6) + '</small><small>Alcanza para comprar el vuelo en febrero</small></div>'
+      + '<div class="tile"><span class="eyebrow">Marzo 2027 a ' + endLabel + '</span><b>' + fmt(P.ph2) + '</b><small>por persona al mes · grupo ' + fmt(P.ph2 * 6) + '</small><small>' + (P.n - 4) + ' meses para el resto</small></div>'
+      + '<div class="tile"><span class="eyebrow">Total a juntar</span><b>' + fmt(P.grand) + '</b><small>por persona, con 10% de imprevistos · grupo ' + fmt(P.grand * 6) + '</small><small>Parejo en ' + P.n + ' meses: ' + fmt(P.flat) + ' al mes</small></div>'
+      + '</div>';
+    var acc = 0, rows = "";
+    P.ms.forEach(function(x){ acc += x.a; rows += '<tr><td>' + mlabel(x.i) + '</td><td>' + x.t + '</td><td>' + fmt(x.a) + '</td><td>' + fmt(acc) + '</td></tr>'; });
+    html += '<div class="box"><table class="sum compact"><thead><tr><th>Mes</th><th>Qué se paga</th><th>Por persona</th><th>Acumulado</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+    var cmp = ["jul","ago","sep"].map(function(m){ var q = plan(m); return '<td class="' + (m === mon ? 'cur' : '') + '">' + fmt(q.ph1) + ' → ' + fmt(q.ph2) + '<small>' + q.n + ' meses · total ' + fmt(q.grand) + '</small></td>'; }).join("");
+    html += '<div class="box"><table class="sum"><thead><tr><th>Si viajan en</th><th class="' + (mon === "jul" ? 'cur' : '') + '">Julio</th><th class="' + (mon === "ago" ? 'cur' : '') + '">Agosto</th><th class="' + (mon === "sep" ? 'cur' : '') + '">Septiembre</th></tr></thead><tbody><tr><td>Ahorro mensual por persona (hasta febrero → después)</td>' + cmp + '</tr></tbody></table></div>';
+    document.getElementById("savings").innerHTML = html;
+  }
+
+  function renderTotals(){
+    var c = costs(mon), M = MONTHS[mon];
+    document.getElementById("t-pp").textContent = fmt(c.total);
+    document.getElementById("t-grp").textContent = "Grupo de 6: " + fmt(c.total * 6);
+    document.getElementById("t-split").textContent = "Vuelo, e-VOA y tasa " + fmt(c.cats.vuelo) + " · en Bali " + fmt(c.local) + " · extras " + fmt(c.cats.extras);
+    document.getElementById("m-dep").textContent = dl(dt(0), true) + " " + M.start[0];
+    document.getElementById("m-jp").textContent = dl(dt(2), false) + " al " + dl(dt(11), false);
+    document.getElementById("m-ret").textContent = dl(dt(12), true);
+    document.getElementById("month-note").innerHTML = M.note;
+    var ln = [[2,6,"4 noches"],[6,7,"1 noche"],[7,8,"1 noche"],[8,11,"3 noches"]];
+    ln.forEach(function(x, i){ document.getElementById("ln-" + i).textContent = x[2] + " · " + dt(x[0]).getUTCDate() + "–" + dl(dt(x[1]), false); });
+
+    var sum = '<thead><tr><th>Rubro</th><th>Por persona</th><th>Grupo de 6</th><th>% del total</th></tr></thead><tbody>';
+    ["vuelo","hotel","entradas","comida","transporte","extras"].forEach(function(k){
+      sum += '<tr><td>' + CAT[k] + '</td><td>' + fmt(c.cats[k]) + '</td><td>' + fmt(c.cats[k] * 6) + '</td><td>' + Math.round(c.cats[k] / c.total * 100) + '%</td></tr>';
+    });
+    sum += '<tr class="tot"><td>Total</td><td>' + fmt(c.total) + '</td><td>' + fmt(c.total * 6) + '</td><td>100%</td></tr>';
+    sum += '<tr><td>Opcionales ' + (withOpt ? '(incluidos)' : '(no incluidos)') + '</td><td>' + fmt(c.opt) + '</td><td>' + fmt(c.opt * 6) + '</td><td></td></tr>';
+    sum += '<tr><td>Fondo sugerido para imprevistos (10%)</td><td>' + fmt(c.total * 0.1) + '</td><td>' + fmt(c.total * 0.6) + '</td><td></td></tr></tbody>';
+    document.getElementById("sum").innerHTML = sum;
+    document.getElementById("sum-sub").textContent = M.name + " · villas de nivel " + LV[lvl].toLowerCase() + " · traslados " + (mode === "app" ? "con 2 autos de app" : "con chofer y van") + " · " + (withOpt ? "con" : "sin") + " opcionales.";
+
+    var ms = ["jul","ago","sep"], cs = ms.map(costs);
+    function td(m, inner){ return '<td class="' + (m === mon ? 'cur' : '') + '">' + inner + '</td>'; }
+    var t = '<thead><tr><th>Por persona</th>' + ms.map(function(m){ return '<th class="' + (m === mon ? 'cur' : '') + '">' + MONTHS[m].name + '</th>'; }).join("") + '</tr></thead><tbody>';
+    t += '<tr><td>Vuelo ida y vuelta</td>' + ms.map(function(m){ var f = MONTHS[m].flight; return td(m, fmt(f.v) + '<small>' + flightLabel(m) + '</small>'); }).join("") + '</tr>';
+    t += '<tr><td>e-VOA y tasa turística</td>' + ms.map(function(m){ return td(m, fmt(VISAS)); }).join("") + '</tr>';
+    t += '<tr><td>Villas nivel ' + LV[lvl].toLowerCase() + ', 9 noches</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.cats.hotel) + '<small>Airbnb · consulta 11 nov</small>'); }).join("") + '</tr>';
+    t += '<tr><td>Chofer, lanchas, entradas y comida</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.local - c.cats.hotel)); }).join("") + '</tr>';
+    t += '<tr><td>Extras (seguro, eSIM, propinas y comisiones)</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.cats.extras)); }).join("") + '</tr>';
+    t += '<tr class="tot"><td>Total por persona</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.total)); }).join("") + '</tr>';
+    t += '<tr><td>Grupo de 6</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.total * 6)); }).join("") + '</tr>';
+    t += '<tr class="txt"><td>Clima y calendario</td>' + td("jul", "~27 °C, seco, temporada alta") + td("ago", "~28 °C, seco, pico de gente; Kuningan 21 ago") + td("sep", "~28 °C, seco, menos gente") + '</tr></tbody>';
+    document.getElementById("months").innerHTML = t;
+  }
+
+  function renderCredits(){
+    var html = "";
+    [DATA.credits, DATA.foodCredits].forEach(function(C, j){
+      Object.keys(C).forEach(function(k){
+        var c = C[k];
+        html += '<li>' + ((j === 0 ? PHOTOS[k] : FOODNAMES[k]) || k) + ': <a href="' + c.page + '" target="_blank" rel="noopener">' + (c.artist || "autor en Commons") + '</a>, ' + c.lic + '</li>';
+      });
+    });
+    document.getElementById("credits").innerHTML = html;
+  }
+
+  var voteDb = null, voteUser = null, voteUid = null, votes = {}, voteCanWrite = true;
+  function choiceText(){
+    var c = costs(mon), P = plan(mon), nm = (document.getElementById("vote-name").value || "").trim();
+    return "Bali 2027" + (nm ? " · " + nm : "") + ": viajo en " + MONTHS[mon].name.toLowerCase() + ", villas " + LV[lvl].toLowerCase() + ", traslados " + (mode === "app" ? "con apps" : "con chofer") + ", " + (withOpt ? "con" : "sin") + " opcionales. Total estimado " + fmt(c.total) + " por persona; ahorro " + fmt(P.ph1) + " al mes hasta febrero y " + fmt(P.ph2) + " después.";
+  }
+  function renderVoteMine(){
+    var mine = document.getElementById("vote-mine");
+    mine.textContent = "";
+    [["Mes", MONTHS[mon].name], ["Villas", LV[lvl]], ["Traslados", mode === "app" ? "Apps" : "Chofer"], ["Opcionales", withOpt ? "Sí" : "No"], ["Total por persona", fmt(costs(mon).total)]].forEach(function(r){
+      var d = document.createElement("div"); var a = document.createElement("span"); a.textContent = r[0]; var b = document.createElement("b"); b.textContent = r[1]; d.appendChild(a); d.appendChild(b); mine.appendChild(d);
+    });
+    var t = choiceText();
+    document.getElementById("vote-text").value = t;
+    document.getElementById("vote-wa").href = "https://wa.me/?text=" + encodeURIComponent(t);
+  }
+  function renderVotes(){
+    var ids = Object.keys(votes), tally = document.getElementById("vote-tally"), list = document.getElementById("vote-list");
+    if (!ids.length) { tally.innerHTML = '<p class="vote-status">Todavía nadie guardó su voto en la página.</p>'; list.textContent = ""; return; }
+    var dims = [["mon","Mes",{jul:"Julio",ago:"Agosto",sep:"Septiembre"}],["lvl","Villas",{0:"Económico",1:"Medio",2:"Alto"}],["mode","Traslados",{chofer:"Chofer",app:"Apps"}]];
+    var html = "";
+    dims.forEach(function(dm){
+      var counts = {}; Object.keys(dm[2]).forEach(function(k){ counts[k] = 0; });
+      ids.forEach(function(id){ var v = votes[id][dm[0]]; if (v != null && counts[String(v)] != null) counts[String(v)]++; });
+      html += '<div class="tally"><span class="eyebrow">' + dm[1] + '</span>' + Object.keys(dm[2]).map(function(k){
+        var pct = Math.round(counts[k] / ids.length * 100);
+        return '<div class="bar"><span>' + dm[2][k] + '</span><i style="--w:' + pct + '%"></i><b>' + counts[k] + '</b></div>';
+      }).join("") + '</div>';
+    });
+    tally.innerHTML = html + '<p class="vote-status">' + ids.length + ' de 6 votaron.</p>';
+    var draw = function(ps){
+      list.textContent = "";
+      ids.forEach(function(id){
+        var v = votes[id], li = document.createElement("li");
+        var nm = document.createElement("b"); nm.textContent = (ps && ps[id] && ps[id].name) || (id === voteUid ? "Vos" : "Alguien del grupo");
+        var tx = document.createElement("span"); tx.textContent = " " + (MONTHS[v.mon] ? MONTHS[v.mon].name : "") + " · " + (LV[v.lvl] || "") + " · " + (v.mode === "app" ? "apps" : "chofer") + " · " + (v.opt ? "con" : "sin") + " opcionales";
+        li.appendChild(nm); li.appendChild(tx); list.appendChild(li);
+      });
+    };
+    draw(null);
+    if (voteUser) voteUser.profiles(ids).then(draw);
+  }
+  (async function initVotes(){
+    if (!window.claude || typeof window.claude.use !== "function") return;
+    try {
+      voteDb = await window.claude.use("db");
+      voteUser = await window.claude.use("user");
+      voteUid = voteUser ? await voteUser.id() : null;
+    } catch(e) { return; }
+    if (!voteDb) return;
+    voteDb.collection("votes").onSnapshot(function(snap){
+      votes = {}; snap.docs.forEach(function(d){ if (d.exists) votes[d.id] = d.data(); }); renderVotes();
+    }, function(){});
+    var st = document.getElementById("vote-status"), btn = document.getElementById("vote-save");
+    if (!voteUid) { st.textContent = "Iniciá sesión en claude.ai para guardar tu voto, o mandalo por WhatsApp."; return; }
+    var cw = voteUser ? await voteUser.can("data.write") : null;
+    btn.hidden = false;
+    st.textContent = "Tu voto usa lo que elegiste arriba. Podés cambiarlo cuando quieras.";
+    btn.addEventListener("click", async function(){
+      if (!voteCanWrite) return;
+      btn.disabled = true; st.textContent = "Guardando…";
+      try {
+        await voteDb.collection("votes").doc(voteUid).set({mon:mon, lvl:lvl, mode:mode, opt:withOpt, at:Date.now()});
+        st.textContent = "Listo, tu voto quedó guardado.";
+      } catch(e) {
+        if (e && e.code === "invalid_argument") { voteCanWrite = false; btn.hidden = true; st.textContent = "Tu acceso a esta página es de solo lectura, así que no podés guardar acá. Mandá tu elección por WhatsApp."; }
+        else st.textContent = "No se pudo guardar. Probá de nuevo en un momento.";
+      }
+      btn.disabled = false;
+    });
+    if (cw === false) { voteCanWrite = false; btn.hidden = true; st.textContent = "Tu acceso a esta página es de solo lectura, así que no podés guardar acá. Mandá tu elección por WhatsApp."; }
+  })();
+  document.getElementById("vote-name").addEventListener("input", renderVoteMine);
+  document.getElementById("vote-copy").addEventListener("click", function(){
+    var ta = document.getElementById("vote-text"), b = this;
+    var done = function(){ b.textContent = "Copiado"; setTimeout(function(){ b.textContent = "Copiar texto"; }, 1500); };
+    try { navigator.clipboard.writeText(ta.value).then(done, function(){ ta.focus(); ta.select(); }); } catch(e) { ta.focus(); ta.select(); }
+  });
+
+  function render(){ renderTotals(); renderSavings(); renderMaps(); renderStays(); renderMoves(); renderDays(); renderVoteMine(); }
+  function save(){ try { localStorage.setItem("bl27c", JSON.stringify({mon:mon, lvl:lvl, opt:withOpt, mode:mode})); } catch(e){} }
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="lvl"]'), function(r){ r.addEventListener("change", function(){ lvl = +r.value; save(); render(); }); });
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="mon"]'), function(r){ r.addEventListener("change", function(){ mon = r.value; save(); render(); }); });
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="mode"]'), function(r){ r.addEventListener("change", function(){ mode = r.value; save(); render(); }); });
+  document.getElementById("opt").addEventListener("change", function(e){ withOpt = e.target.checked; save(); render(); });
+  document.getElementById("maps").addEventListener("click", function(e){
+    var b = e.target.closest("button[data-map]"); if (!b) return;
+    mapDay[b.getAttribute("data-map")] = b.getAttribute("data-day"); renderMaps();
+  });
+  var savedIn = document.getElementById("saved"), savedErr = document.getElementById("saved-err");
+  savedIn.addEventListener("input", function(){
+    var v = savedIn.value.trim() === "" ? 0 : Number(savedIn.value);
+    if (!isFinite(v) || v < 0) { savedErr.textContent = "Ingresá un monto en dólares mayor o igual a 0"; return; }
+    savedErr.textContent = ""; saved = v; renderSavings();
+  });
+  renderCredits();
+  render();
+})();
+</script>
+</body></html>
