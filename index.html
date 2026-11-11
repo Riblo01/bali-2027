@@ -270,6 +270,11 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
 .spot img{width:100%;aspect-ratio:16/10;object-fit:cover}
 .spot>div{padding:12px 14px 14px;display:grid;gap:6px;align-content:start}
 .spot h3{font-size:18px;margin:0}.spot p{margin:0;font-size:14px;line-height:1.5}
+.scen-info{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--ubud);border-radius:0 12px 12px 0;padding:14px 18px;margin:8px 0 28px;display:grid;gap:8px}.scen-info h3{margin:0;font-size:20px}.scen-info p{margin:0;font-size:14px;line-height:1.5}
+.warn{border:1px dashed var(--canggu);border-radius:10px;padding:10px 14px;font-size:14px;line-height:1.5}.warn ul{margin:6px 0 0;padding-left:20px}
+.cmpwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}.cmp{min-width:760px}.cmp th,.cmp td{vertical-align:top;text-align:left;font-size:13.5px;line-height:1.45}.cmp th[scope=row]{font-weight:700;min-width:130px}.cmp small{display:block;color:var(--mute,inherit);opacity:.8}.cmp .tl{margin:0;padding-left:16px}
+td.chg{background:color-mix(in srgb,var(--canggu) 16%,transparent)}.acts{min-width:880px}
+.hotelmap .map-frame{position:relative}#resorts .spotgrid{grid-template-columns:repeat(auto-fill,minmax(225px,1fr))}.spot .btn{margin-top:4px}
 </style>
 </head>
 <body>
@@ -291,17 +296,35 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
   <div class="stub-total" id="t-pp">–</div>
   <div class="stub-sub" id="t-grp"></div>
   <div class="stub-sub" id="t-split"></div>
+  <div class="stub-sub" id="t-scen"></div>
  </div>
 </header>
 
-<section class="controls" aria-label="Ajustes del presupuesto">
+<section class="controls" id="controles" aria-label="Ajustes del presupuesto">
+ <div class="ctl" style="grid-column:1/-1"><span>Escenario de alojamiento</span>
+  <div class="seg" role="radiogroup" aria-label="Escenario de alojamiento">
+   <label><input type="radio" name="scen" id="scen-A" value="A" checked><span>A · Villas</span></label>
+   <label><input type="radio" name="scen" id="scen-B" value="B"><span>B · Grand Mirage</span></label>
+   <label><input type="radio" name="scen" id="scen-C" value="C"><span>C · AYANA</span></label>
+   <label><input type="radio" name="scen" id="scen-D" value="D"><span>D · The Samaya</span></label>
+  </div></div>
+ <div class="ctl" id="ctl-ay" hidden><span>Propiedad AYANA</span>
+  <div class="seg" role="radiogroup" aria-label="Propiedad de AYANA">
+   <label><input type="radio" name="ay" id="ay-rimba" value="rimba" checked><span>RIMBA by AYANA</span></label>
+   <label><input type="radio" name="ay" id="ay-resort" value="resort"><span>AYANA Resort</span></label>
+  </div></div>
+ <div class="ctl" id="ctl-sam" hidden><span>Distribución en The Samaya</span>
+  <div class="seg" role="radiogroup" aria-label="Distribución en The Samaya">
+   <label><input type="radio" name="sam" id="sam-br3" value="br3" checked><span>Villa de 3 dormitorios</span></label>
+   <label><input type="radio" name="sam" id="sam-br1" value="br1"><span>3 villas de 1 dormitorio</span></label>
+  </div><small id="sam-3br-note" class="err" aria-live="polite"></small></div>
  <div class="ctl"><span>Mes del viaje</span>
   <div class="seg" role="radiogroup" aria-label="Mes del viaje">
    <label><input type="radio" name="mon" id="mon-jul" value="jul"><span>Julio</span></label>
    <label><input type="radio" name="mon" id="mon-ago" value="ago"><span>Agosto</span></label>
    <label><input type="radio" name="mon" id="mon-sep" value="sep" checked><span>Septiembre</span></label>
   </div></div>
- <div class="ctl"><span>Villas</span>
+ <div class="ctl"><span>Villas / categoría</span>
   <div class="seg" role="radiogroup" aria-label="Nivel de villa">
    <label><input type="radio" name="lvl" id="lvl-0" value="0"><span>Económico</span></label>
    <label><input type="radio" name="lvl" id="lvl-1" value="1" checked><span>Medio</span></label>
@@ -313,12 +336,14 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
    <label><input type="radio" name="mode" id="mode-app" value="app"><span>2 autos de app</span></label>
   </div></div>
  <label class="check"><input type="checkbox" id="opt"> Incluir opcionales</label>
+ <p class="fine" id="lvl-hint" style="grid-column:1/-1;margin:0"></p>
 </section>
-<div class="legend" style="margin-top:-30px"><span class="chip e">estimado</span> referencia a confirmar <span class="chip e">consultado 11 nov · 1 adulto</span> vuelo cotizado en Google Flights <span class="chip v">consultado 11 nov</span> villa cotizada en Airbnb <span class="chip o">opcional</span> <span class="chip v">fuente oficial</span> <span class="chip e">fuente secundaria</span> <span class="chip o">a confirmar</span> consultado el 11 nov 2026</div>
+<div class="scen-info" id="scen-info" aria-live="polite"></div>
+<div class="legend" style="margin-top:-30px"><span class="chip e">estimado</span> referencia a confirmar <span class="chip e">consultado 11 nov · 1 adulto</span> vuelo cotizado en Google Flights <span class="chip v">consultado 11 nov</span> villa cotizada en Airbnb <span class="chip o">opcional</span> <span class="chip v">fuente oficial</span> <span class="chip e">fuente secundaria</span> <span class="chip o">a confirmar</span> consultado el 11 nov 2026 <span class="chip o">pendiente de cotizar</span> sin precio publicado: no se suma al total</div>
 <div class="month-note" id="month-note" style="margin-top:-24px"></div>
 
 <section id="votar">
- <div class="sec-head"><h2>Votá tus opciones</h2><p>Elegí arriba el mes, las villas y los traslados, escribí tu nombre y mandá tu elección al grupo por WhatsApp.</p></div>
+ <div class="sec-head"><h2>Votá tus opciones</h2><p>Elegí arriba el escenario, el mes, las villas y los traslados, escribí tu nombre y mandá tu elección al grupo por WhatsApp.</p></div>
  <div class="grid2">
   <div class="vote-box">
    <div class="vote-mine" id="vote-mine"></div>
@@ -339,17 +364,12 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
 </section>
 
 <section class="linemap" aria-label="Ruta por Bali">
- <ol class="line" style="grid-template-columns:repeat(4,minmax(96px,1fr))">
-  <li style="--c:var(--ubud)"><span class="st">Ubud</span><span class="lat">Arrozales y templos</span><span class="n" id="ln-0"></span></li>
-  <li style="--c:var(--canggu)"><span class="st">Canggu</span><span class="lat">Tanah Lot</span><span class="n" id="ln-1"></span></li>
-  <li style="--c:var(--penida)"><span class="st">Penida</span><span class="lat">Nusa Penida</span><span class="n" id="ln-2"></span></li>
-  <li style="--c:var(--uluwatu)"><span class="st">Uluwatu</span><span class="lat">Kecak y playas</span><span class="n" id="ln-3"></span></li>
- </ol>
+ <ol class="line" id="line" style="grid-template-columns:repeat(4,minmax(96px,1fr))"></ol>
 </section>
 
 <section>
  <div class="sec-head"><h2>Mapas de la ruta</h2><p>Los círculos numerados son los lugares en el orden en que se visitan; el cuadrado oscuro con una V marca la zona de la villa. Las posiciones son aproximadas. Elegí un día para ver su recorrido.</p></div>
- <div class="fine" style="max-width:none"><p><b>Cómo se armó la ruta.</b> Ubud → Canggu → Nusa Penida → Uluwatu, entrando y saliendo por Denpasar. Cuatro decisiones:</p><ul>
+ <div class="fine" style="max-width:none"><p><b>Cómo se armó la ruta.</b> Ubud → Canggu → Nusa Penida → Uluwatu, entrando y saliendo por Denpasar (escenario A; los escenarios B, C y D cambian solo el alojamiento de uno de los bloques). Cuatro decisiones:</p><ul>
   <li><b>Ubud primero y cuatro noches</b>: ahí están el Batur, Tirta Empul, Tegallalang, Lempuyang y las cascadas, todos a 1–2 h de distancia con el mismo chofer. Así se duerme una vez y se vuelve a la misma villa.</li>
   <li><b>Una noche en Canggu</b> corta el viaje largo hasta la costa y deja Jatiluwih y Tanah Lot (que están camino) en un solo día.</li>
   <li><b>Una noche en Nusa Penida</b>: el oeste (Kelingking, Broken Beach, Crystal Bay) y el este (Diamond Beach) no se ven bien en un solo día y los caminos son angostos. Se sale del puerto de Sanur.</li>
@@ -362,6 +382,96 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
  <div class="sec-head"><h2>Dónde dormir: villas</h2><p>Casas enteras con piscina para 6, de 3 habitaciones o más. Los precios son <b>reales de Airbnb</b>, consultados el 11 nov 2026 para las fechas exactas de cada mes: son totales por noche de toda la villa, con tarifas y limpieza. Cada nivel sale de los primeros resultados de la búsqueda (18 a 24 anuncios por zona): <b>bajo</b> es el 20% más barato, <b>medio</b> la mediana y <b>alto</b> el 15% más caro. No son anuncios puntuales: el botón de cada zona abre la misma búsqueda en Airbnb, con las fechas y 6 adultos.</p></div>
  <div class="stays" id="stays"></div>
  <p class="fine">Las estancias de una sola noche (Canggu y Nusa Penida) salen más caras por noche porque la tarifa de limpieza se reparte en un solo día. En Nusa Penida la búsqueda mezcla casas sencillas con villas, por eso el rango es muy abierto. Las fechas de reserva todavía no abren del todo: los precios pueden cambiar cuando el anfitrión publique su calendario <span class="chip v">consultado 11 nov</span> <span class="chip o">a confirmar</span>.</p>
+</section>
+
+
+<section id="escenarios">
+ <div class="sec-head"><h2>Cuatro escenarios de alojamiento</h2><p>Elegí uno en los ajustes de arriba o con los botones. Todos duran lo mismo: 10 días en Bali y 9 noches. B, C y D cambian <b>un solo bloque</b> por un hotel; las demás noches siguen en villas de Airbnb.</p></div>
+ <div class="fine" style="max-width:none"><p><b>Coherencia de fechas revisada.</b> Los vuelos cotizados salen el viernes (9 jul, 13 ago o 10 sep) y vuelven el martes siguiente a la semana y media (20 jul, 24 ago o 21 sep). El día 1 es el domingo de llegada y el día 10 el martes de regreso: 10 días en Bali con <b>9 noches</b>. Las fechas de cada hotel se consultaron con esas noches exactas y no hay desajustes con los vuelos. Cada escenario suma 9 noches, como muestra el cuadro.</p></div>
+ <div class="box" style="overflow-x:auto"><table class="sum compact" id="scen-nights"></table></div>
+ <div class="grid2" style="margin-top:14px">
+  <div class="fine"><p><b>B · Grand Mirage (3 noches finales)</b></p><ul>
+   <li><b>Sustituye:</b> las 3 noches de Uluwatu (noches 7, 8 y 9).</li>
+   <li><b>Se mantiene:</b> Ubud, Canggu y Nusa Penida sin cambios; Diamond Beach, la lancha de vuelta, el templo de Uluwatu y la danza Kecak.</li>
+   <li><b>Cambia de día:</b> el día 7 es de traslado (Sanur–Tanjung Benoa en ~35–45 min, contra 1 h 30 a Uluwatu); el templo y la Kecak pasan a una salida de tarde el día 8 (~50 min de ida); el día 9 es de resort completo.</li>
+   <li><b>Se elimina:</b> Padang Padang y Bingin, Melasti, el beach club, el masaje y la cena de mariscos en Jimbaran: el resort tiene playa, spa y todas las comidas incluidas.</li></ul></div>
+  <div class="fine"><p><b>C · AYANA Bali (3 noches finales)</b></p><ul>
+   <li><b>Sustituye:</b> las 3 noches de Uluwatu. Se compara RIMBA by AYANA con AYANA Resort, ambos en habitación doble Resort View ×3 y solo alojamiento.</li>
+   <li><b>Se mantiene:</b> todo lo anterior, el templo de Uluwatu, la Kecak y la cena de mariscos en Jimbaran.</li>
+   <li><b>Cambia de día:</b> día 7 de traslado (Sanur–Jimbaran, ~55–60 min); templo y Kecak el día 8 con salida a las 15:30 (~30 min) y cena en Jimbaran de vuelta; día 9 de complejo completo.</li>
+   <li><b>Se elimina:</b> Padang Padang y Bingin, Melasti, el beach club y el masaje externo (el complejo tiene Kubu Beach y spa).</li></ul></div>
+  <div class="fine"><p><b>D · The Samaya Ubud (4 noches iniciales)</b></p><ul>
+   <li><b>Sustituye:</b> las 4 noches de Ubud (noches 1 a 4). No se divide el bloque: partirlo en dos hoteles añade un cambio con valijas sin acercar ninguna excursión, porque todas salen de Ubud.</li>
+   <li><b>Se mantiene:</b> Batur, Tirta Empul, Tegallalang, Lempuyang, Tirta Gangga, Monkey Forest, el Palacio y la danza Legong opcional.</li>
+   <li><b>Cambia de día:</b> Tirta Empul y Tegallalang pasan al día 2 (de tarde); Monkey Forest y el Palacio al día 3 (de tarde, con el shuttle del hotel); el día 2 es de mañana de villa y el día 3, de tarde libre. El único día completo de excursión es el 4.</li>
+   <li><b>Se elimina:</b> Campuhan Ridge (lo cubre la caminata del hotel), Kanto Lampo, Tegenungan y Tukad Cepung, para liberar tiempo de villa.</li></ul></div>
+  <div class="fine"><p><b>¿Sigue valiendo la noche en Canggu?</b></p><ul>
+   <li>Sí, en los cuatro escenarios. Es la única noche en la costa oeste, deja Jatiluwih y Tanah Lot en un solo día y evita volver a Ubud para madrugar a la lancha de Nusa Penida.</li>
+   <li>Los traslados cambian solo en el día 7 y el día 10; la lancha y la noche en Nusa Penida no se tocan.</li>
+   <li>No hay ningún día de resort pegado a un día de traslado: las llegadas a los hoteles son de tarde y la jornada completa cae el día 9 (B y C) o los días 2 y 3 parcialmente (D).</li></ul></div>
+ </div>
+</section>
+
+<section id="resorts">
+ <div class="sec-head"><h2>¿Villa o resort?</h2><p>Los tres hoteles que se evalúan y el plan original. Las fotos son de Wikimedia Commons con su autor; si no hay una foto libre del hotel, se dice. Cada enlace va a la web oficial.</p></div>
+ <div class="spotgrid">
+  <article class="spot" style="--c:var(--ubud)"><img src="img/ubud.jpg" alt="Ubud" loading="lazy"><div><h3>A · Villas de Airbnb</h3><span class="eyebrow">Ubud, Canggu, Nusa Penida y Uluwatu</span>
+   <p>Casas enteras con piscina para los seis: más espacio y autonomía, cada noche distinta. Foto de Ubud, de la ruta del plan.</p>
+   <a class="bnb-link" href="https://www.airbnb.com" target="_blank" rel="noopener">airbnb.com ↗</a> <button type="button" class="btn alt" data-scen="A">Ver escenario A</button></div></article>
+  <article class="spot" style="--c:var(--uluwatu)"><img src="img/hoteles/gm.jpg" alt="Amanecer sobre el océano Índico en la playa de Tanjung Benoa, frente al Grand Mirage" loading="lazy"><div><h3>B · Grand Mirage Resort &amp; Thalasso Bali</h3><span class="eyebrow">Tanjung Benoa, Nusa Dua · 3 noches</span>
+   <p>Resort de playa con todo incluido, seis piscinas, río lento y cenas con shows. Foto del amanecer en la playa de Tanjung Benoa, tomada por su autor en el resort.</p>
+   <a class="bnb-link" href="https://www.grandmirage.com/" target="_blank" rel="noopener">grandmirage.com ↗</a> <a class="bnb-link" href="https://www.grandmirage.com/en/all-inclusive/" target="_blank" rel="noopener">todo incluido ↗</a> <button type="button" class="btn alt" data-scen="B">Ver escenario B</button></div></article>
+  <article class="spot" style="--c:var(--uluwatu)"><img src="img/hoteles/ayana.jpg" alt="AYANA Resort Bali en Jimbaran" loading="lazy"><div><h3>C · AYANA Bali</h3><span class="eyebrow">Jimbaran · 3 noches</span>
+   <p>Complejo con cuatro hoteles (incluidos RIMBA y AYANA Resort), 14 piscinas y playas, Rock Bar y spa. Foto de AYANA Resort Bali. En el escenario se compara RIMBA con AYANA Resort.</p>
+   <a class="bnb-link" href="https://www.ayana.com/bali/" target="_blank" rel="noopener">ayana.com/bali ↗</a> <a class="bnb-link" href="https://www.ayana.com/bali/experiences/" target="_blank" rel="noopener">experiencias ↗</a> <button type="button" class="btn alt" data-scen="C">Ver escenario C</button></div></article>
+  <article class="spot" style="--c:var(--ubud)"><img src="img/hoteles/ayung.jpg" alt="Valle del río Ayung desde Sayan, Ubud" loading="lazy"><div><h3>D · The Samaya Ubud</h3><span class="eyebrow">Sayan, Ubud, junto al río Ayung · 4 noches</span>
+   <p>Villas con piscina privada y mayordomo. <b>No hay una foto libre del hotel</b>: la imagen es el valle del Ayung desde Sayan, la zona donde queda. Las fotos oficiales están en su web.</p>
+   <a class="bnb-link" href="https://thesamaya.com/ubud/" target="_blank" rel="noopener">thesamaya.com/ubud ↗</a> <a class="bnb-link" href="https://thesamaya.com/ubud/what-to-do-act-in" target="_blank" rel="noopener">actividades ↗</a> <button type="button" class="btn alt" data-scen="D">Ver escenario D</button></div></article>
+ </div>
+ <div class="hotelmap" id="hotelmap" style="margin-top:14px"></div>
+ <div class="sec-head" style="margin-top:22px"><h2 style="font-size:22px">Comparativa por escenario</h2><p id="cmp-sub"></p></div>
+ <div class="box cmpwrap"><table class="sum cmp" id="cmp"></table></div>
+ <p class="fine">Los totales del viaje son <b>parciales</b> en B, C y D mientras haya conceptos pendientes de cotizar: no son un precio final. La diferencia del viaje entero incluye las comidas que el todo incluido o el desayuno de The Samaya hacen innecesarias en cada caso.</p>
+</section>
+
+<section id="actividades">
+ <div class="sec-head"><h2>Actividades de cada alojamiento</h2><p>Lo publicado por cada hotel. Donde falta un dato aparece «pendiente de confirmar». Las duraciones son las de la web o aproximadas.</p></div>
+ <div class="box cmpwrap"><table class="sum cmp acts">
+  <thead><tr><th>Hotel</th><th>Actividad</th><th>Duración aprox.</th><th>Dónde</th><th>Reserva</th><th>Costo</th><th>Fuente</th></tr></thead><tbody>
+  <tr><th scope="row" rowspan="9">Grand Mirage</th><td>Seis piscinas y río lento</td><td>libre</td><td>Dentro</td><td>No</td><td>Incluido</td><td><a href="https://www.grandmirage.com/en/all-inclusive/" target="_blank" rel="noopener">todo incluido ↗</a></td></tr>
+  <tr><td>Kayak, windsurf y catamarán (con instructor)</td><td>horario del día; duración pendiente</td><td>Dentro (playa)</td><td>Mostrador Mirage Water Sport; según clima y marea</td><td>Incluido en el todo incluido</td><td><a href="https://www.grandmirage.com/en/all-inclusive/" target="_blank" rel="noopener">todo incluido ↗</a></td></tr>
+  <tr><td>Gimnasio (desde 15 años), sala de juegos, mahjong y karaoke</td><td>libre</td><td>Dentro</td><td>No</td><td>Incluido; gimnasio 06:00–23:00, juegos 08:00–23:00</td><td><a href="https://www.grandmirage.com/en/all-inclusive/" target="_blank" rel="noopener">todo incluido ↗</a></td></tr>
+  <tr><td>Cenas temáticas con shows (Rama Live Entertainment)</td><td>cena; duración pendiente</td><td>Dentro</td><td>No indicado; lun, mar, mié, jue y sáb</td><td>Incluido</td><td><a href="https://www.grandmirage.com/en/all-inclusive/" target="_blank" rel="noopener">todo incluido ↗</a></td></tr>
+  <tr><td>Thalasso Spa</td><td>pendiente de confirmar</td><td>Dentro</td><td>Reservar; voucher con condiciones</td><td>Voucher de IDR 300.000 con 3 noches de reserva directa; tratamiento completo: pendiente de cotizar</td><td><a href="https://www.grandmirage.com/en/all-inclusive/" target="_blank" rel="noopener">todo incluido ↗</a></td></tr>
+  <tr><td>Seawalker</td><td>60–70 min</td><td>Dentro (mar)</td><td>Aviso de 24 h; clima</td><td><b>No incluido en 3 noches</b>: crédito de USD 55 desde 6 noches de reserva directa</td><td><a href="https://www.grandmirage.com/en/all-inclusive/" target="_blank" rel="noopener">todo incluido ↗</a></td></tr>
+  <tr><td>Jet ski (desde 14 años) y banana boat (desde 7)</td><td>jet ski 15 min</td><td>Dentro (mar)</td><td>Jet ski: aviso de 24 h</td><td><b>No incluido en 3 noches</b>: un voucher desde 9 noches de reserva directa; precio suelto: pendiente de cotizar. Condiciones de deportes motorizados: pendiente de aclarar</td><td><a href="https://www.grandmirage.com/en/all-inclusive/" target="_blank" rel="noopener">todo incluido ↗</a></td></tr>
+  <tr><td>Traslado compartido aeropuerto–hotel–aeropuerto</td><td>~20–30 min</td><td>Fuera</td><td>Datos del vuelo 2 días antes</td><td><b>No incluido en 3 noches</b>: lo dan desde 4 noches según una página y desde 5 según otra</td><td><a href="https://www.grandmirage.com/en/room-suites/standard-benefits.php" target="_blank" rel="noopener">beneficios ↗</a></td></tr>
+  <tr><td>Devdan Show (entrada de IDR 500.000)</td><td>pendiente de confirmar</td><td>Fuera del recinto</td><td>Pendiente de confirmar</td><td><b>No incluido en 3 noches</b>: lo regalan desde 6 noches de reserva directa</td><td><a href="https://www.grandmirage.com/en/all-inclusive/" target="_blank" rel="noopener">todo incluido ↗</a></td></tr>
+  <tr><th scope="row" rowspan="7">AYANA Bali</th><td>Piscinas (14 en el complejo) y Kubu Beach</td><td>libre</td><td>Dentro</td><td>No; reglas de Kubu Beach: pendiente de confirmar</td><td>Piscinas: abiertas a huéspedes de los cuatro hoteles. Kubu Beach: pendiente</td><td><a href="https://www.ayana.com/bali/" target="_blank" rel="noopener">ayana.com/bali ↗</a></td></tr>
+  <tr><td>Atardecer en Rock Bar</td><td>pendiente de confirmar</td><td>Dentro</td><td>Reserva según condiciones; pendiente de confirmar</td><td>Acceso prioritario para huéspedes de RIMBA y Resort, según la habitación; consumo: pendiente de cotizar</td><td><a href="https://www.ayana.com/bali/experiences/" target="_blank" rel="noopener">experiencias ↗</a></td></tr>
+  <tr><td>SAKA Museum</td><td>pendiente de confirmar</td><td>Dentro, según la web de la habitación</td><td>Pendiente de confirmar</td><td>Listado como cortesía en la habitación; una guía lo cotiza en IDR 300.000: confirmar</td><td><a href="https://www.ayana.com/bali/experiences/" target="_blank" rel="noopener">experiencias ↗</a></td></tr>
+  <tr><td>AYANA Farm (granja orgánica de 2 hectáreas)</td><td>abre de 9:00 a 18:00</td><td>Dentro</td><td>Pendiente de confirmar</td><td>Listada como cortesía con la habitación: confirmar</td><td><a href="https://www.ayana.com/bali/experiences/" target="_blank" rel="noopener">experiencias ↗</a></td></tr>
+  <tr><td>Yoga aéreo y otras clases de bienestar</td><td>8:30; duración pendiente</td><td>Dentro</td><td>Pendiente de confirmar</td><td>Pendiente de cotizar</td><td><a href="https://www.ayana.com/bali/experiences/" target="_blank" rel="noopener">experiencias ↗</a></td></tr>
+  <tr><td>Spa y talasoterapia (más de 40 tratamientos)</td><td>pendiente de confirmar</td><td>Dentro</td><td>Reservar</td><td>Pendiente de cotizar. El banner de reserva directa lista una sesión de talasoterapia gratis y 10% en spa y comidas como beneficios de socios: confirmar quién los recibe</td><td><a href="https://www.ayana.com/bali/" target="_blank" rel="noopener">ayana.com/bali ↗</a></td></tr>
+  <tr><td>Kampoeng Bali Dinner &amp; Show</td><td>pendiente de confirmar</td><td>Dentro del complejo</td><td>Pendiente de confirmar</td><td>Pendiente de cotizar</td><td><a href="https://www.ayana.com/bali/experiences/" target="_blank" rel="noopener">experiencias ↗</a></td></tr>
+  <tr><th scope="row" rowspan="6">The Samaya Ubud</th><td>Piscina privada en cada villa</td><td>libre</td><td>Dentro</td><td>No</td><td>Incluida en la villa</td><td><a href="https://thesamaya.com/ubud/" target="_blank" rel="noopener">thesamaya.com/ubud ↗</a></td></tr>
+  <tr><td>Caminata matutina por el pueblo y los arrozales</td><td>1,5 a 2 h; sale a las 08:00</td><td>Sale del lobby, recorre el entorno</td><td>Con personal del hotel; sujeta a confirmación</td><td>Gratuita</td><td><a href="https://thesamaya.com/ubud/what-to-do-act-in" target="_blank" rel="noopener">actividades ↗</a></td></tr>
+  <tr><td>Yoga y ciclismo de la tarde</td><td>pendiente de confirmar</td><td>Dentro (yoga); ciclismo fuera</td><td>Según horario del hotel; consultar al mayordomo</td><td>Gratis según los beneficios de la villa: confirmar</td><td><a href="https://thesamaya.com/ubud/accommodation/the-samaya-ubud-three-bedroom-villas.html" target="_blank" rel="noopener">villa 3 dormitorios ↗</a></td></tr>
+  <tr><td>Clase de cocina balinesa</td><td>pendiente de confirmar</td><td>Dentro</td><td>Con el mayordomo, según calendario</td><td>Pendiente de cotizar</td><td><a href="https://thesamaya.com/ubud/what-to-do-act-in/cooking-class.html" target="_blank" rel="noopener">clase de cocina ↗</a></td></tr>
+  <tr><td>Spa (cinco salas, una de pareja junto al río)</td><td>Touch of Balinese: 2 h</td><td>Dentro</td><td>Reservar</td><td>IDR 1.150.000 por persona o 2.100.000 por pareja, más 13,75% de impuesto y 10% de servicio</td><td><a href="https://thesamaya.com/ubud/spa" target="_blank" rel="noopener">spa ↗</a></td></tr>
+  <tr><td>Swept Away, comidas y cenas junto al río Ayung</td><td>almuerzo 11:00–16:00; cena 17:30–22:00</td><td>Dentro</td><td>Reservar en el restaurante</td><td>Precios sin publicar: pendiente de cotizar</td><td><a href="https://thesamaya.com/ubud/dining/swept-away" target="_blank" rel="noopener">Swept Away ↗</a></td></tr>
+  </tbody></table></div>
+ <p class="fine"><b>Dentro o fuera del hotel.</b> Todo lo marcado «Dentro» ocurre en la propiedad. El shuttle a Ubud de The Samaya y el traslado de Grand Mirage a Uluwatu son salidas fuera del recinto y siguen horarios del hotel o del chofer.</p>
+</section>
+
+<section id="fuentes-hoteles">
+ <div class="sec-head"><h2>Fuentes y condiciones de las cotizaciones</h2><p>Todas son tarifas del motor de reservas oficial de cada hotel, consultadas el 11 nov 2026 para 2027, en rupias (IDR) y convertidas a Rp 18.100 por dólar. Ninguna tarifa es una reserva ni una promesa de disponibilidad: pueden cambiar.</p></div>
+ <div class="box cmpwrap"><table class="sum cmp acts">
+  <thead><tr><th>Hotel</th><th>Qué se cotizó</th><th>Impuestos y cargos</th><th>Cancelación</th><th>Mínimo de estancia y beneficios</th></tr></thead><tbody>
+  <tr><th scope="row">Grand Mirage</th><td>Gold All Inclusive, 3 noches, habitación doble por 2 adultos, 17–20 jul, 21–24 ago y 18–21 sep. Septiembre: Garden View IDR 20.784.160 (reembolsable) o 18.935.678 (no reembolsable); Pool View 21.370.265; Ocean View 22.903.153. <a href="https://www.grandmirage.com/en/all-inclusive/" target="_blank" rel="noopener">Fuente oficial ↗</a></td><td>El motor muestra un total sin desglose: <b>a confirmar</b> si incluye impuestos y cargo de servicio</td><td>Tarifa reembolsable con cancelación gratuita hasta unas dos semanas antes (en la consulta de septiembre, antes del 4 sep) y depósito de una noche; la no reembolsable es ~9% más barata</td><td>Sin mínimo para reservar. Beneficios solo por reserva directa: 3 noches, voucher de spa; 4 o 5, traslado; 6, Seawalker y Devdan; 7 y 9, deporte motorizado. Niños de 4 a 11 años: USD 55 por noche; esta cotización es de 6 adultos</td></tr>
+  <tr><th scope="row">AYANA Bali</th><td>RIMBA by AYANA, Resort View Room, solo alojamiento, tarifa pública con cancelación gratuita: IDR 4.317.844 (jul), 4.266.963 (ago) y 3.964.837 (sep) por habitación y noche. AYANA Resort, Resort View Room: 6.386.810, 6.311.549 y 6.006.433. Se suman 3 habitaciones y 3 noches. <a href="https://www.ayana.com/book/en/rooms" target="_blank" rel="noopener">Fuente oficial ↗</a></td><td>El sitio dice que el total <b>excluye impuestos y cargos</b>; se estima 21% (el porcentaje que publica The Samaya) <span class="chip e">estimado</span></td><td>Gratuita antes del 4 sep 2027 para la estancia de septiembre (14 días antes del check-in)</td><td>Sin mínimo visto. Tarifas para socios con 15–20% menos (septiembre: IDR 9.515.610 en vez de 11.894.512 por la habitación, no reembolsable): requisitos de la membresía a confirmar. Desayuno en RIMBA: +IDR 840.000 por habitación y noche (sep); en el Resort: pendiente. Check-in 15:00 y check-out 12:00 en RIMBA</td></tr>
+  <tr><th scope="row">The Samaya Ubud</th><td>Best Available Rate con desayuno, 4 noches, 11–15 jul, 15–19 ago y 12–16 sep. Villa de 3 dormitorios: IDR 123.600.000 (ago y sep; <b>sin disponibilidad en julio</b>). Villa Hillside de 1 dormitorio: IDR 47.200.000 cada una, IDR 141.600.000 las tres, igual en los tres meses. <a href="https://thesamaya.com/ubud/" target="_blank" rel="noopener">Fuente oficial ↗</a></td><td><b>Incluidos</b>: 21% de impuesto y cargo de servicio, según el hotel</td><td>Cancelable con depósito de garantía. Hay una tarifa con anticipación (3 dormitorios IDR 88.992.000; Hillside IDR 33.984.000 cada una) y una oferta no cancelable (IDR 86.520.000 el 3 dormitorios): condiciones a confirmar, no se usan en el total</td><td>Sin mínimo visto. Desayuno diario, té de la tarde, shuttle a Ubud y caminata, ciclismo y yoga según horario. Reserva directa: vino de bienvenida y minibar. Capacidad de la villa de 3 dormitorios: 6 adultos y 3 niños con cama extra (IDR 1.500.000 por noche)</td></tr>
+  </tbody></table></div>
 </section>
 
 <section>
@@ -495,6 +605,7 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
    <li><b>Visa:</b> que Ecuador siga en la lista de Visa on Arrival y e-VOA</li>
    <li><b>Fiebre amarilla:</b> si el certificado es obligatorio para quien sale de Ecuador</li>
    <li><b>Villas:</b> elegir anuncios puntuales; los niveles salen de las primeras páginas de resultados</li>
+   <li><b>Escenarios B, C y D:</b> cotizaciones oficiales para 2027 que pueden cambiar; impuestos de Grand Mirage y AYANA, horarios de check-in y check-out, y los precios de comidas, spa, Rock Bar y Kampoeng Bali siguen pendientes. Mientras tanto, esos totales son parciales</li>
    <li><b>Entradas:</b> las cifras salen de una lista de 2026 de una guía; varias subieron en abril (Monkey Forest, Tanah Lot, Uluwatu) y Jatiluwih aparece con 75.000 en una fuente y 100.000 en otra. Confirmar en cada puerta</li>
    <li>Tipo de cambio: la rupia bajó de ~16.700 a ~18.150 por dólar en 2026. Si se mueve 10%, el gasto en Bali cambia ~$55 por persona</li>
    <li>Precio de la Kecak, la lancha y el Batur con operadores reales</li>
@@ -532,7 +643,7 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
  <ol class="book">
   <li><span class="when">Ya</span><span>Pasaportes con al menos 6 meses de vigencia a la fecha de llegada a Bali. Consultar el certificado de fiebre amarilla y las escalas.</span></li>
   <li><span class="when">5–6 meses antes</span><span>Vuelos Quito–Denpasar. Revisar que las escalas no exijan visa y que el tiempo de conexión alcance.</span></li>
-  <li><span class="when">3–4 meses antes</span><span>Las villas en Airbnb, con cancelación gratuita si es posible. En julio y agosto se agotan las de Ubud y Uluwatu.</span></li>
+  <li><span class="when">3–4 meses antes</span><span>Las villas en Airbnb, con cancelación gratuita si es posible. En julio y agosto se agotan las de Ubud y Uluwatu. Si se elige un hotel (B, C o D), reservar directo en su web: Grand Mirage da los beneficios solo por ese canal y The Samaya, minibar y vino. La cancelación gratuita de Grand Mirage y AYANA cierra 14 días antes.</span></li>
   <li><span class="when">1–2 meses antes</span><span>Chofer con van para los días 1–5 y 8–10, y la lancha rápida Sanur–Nusa Penida con operador registrado. Los 2 autos de Nusa Penida.</span></li>
   <li><span class="when">2–4 semanas antes</span><span>Excursión al Batur y la danza Kecak. En agosto, reservar el horario de la lancha de regreso de Nusa Penida con tiempo.</span></li>
   <li><span class="when">1 mes antes</span><span>Pagar la tasa turística de Bali en lovebali.baliprov.go.id y tramitar la e-VOA en evisa.imigrasi.go.id.</span></li>
@@ -541,7 +652,7 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
 </section>
 
 <section class="fine" aria-label="Supuestos y créditos">
- <p><b>Supuestos.</b> Precios por persona en USD con Rp 18.100 por dólar (el cierre del 29 oct 2026 fue ~18.150). Vuelos (Google Flights, 1 adulto) y villas (Airbnb, 3 o más habitaciones, 6 adultos) consultados el 11 nov 2026; entradas y excursiones, referencias de guías de 2026 a confirmar. Horarios en hora local de Bali (13 horas adelante de Quito). Todo lo marcado como estimado es una referencia a confirmar. Datos consultados entre el 10 y el 11 nov 2026.</p>
+ <p><b>Supuestos.</b> Hoteles (escenarios B, C y D): tarifas del motor oficial de cada hotel consultadas el 11 nov 2026 para 3 habitaciones dobles o la villa elegida, sin promociones ni membresías. Precios por persona en USD con Rp 18.100 por dólar (el cierre del 29 oct 2026 fue ~18.150). Vuelos (Google Flights, 1 adulto) y villas (Airbnb, 3 o más habitaciones, 6 adultos) consultados el 11 nov 2026; entradas y excursiones, referencias de guías de 2026 a confirmar. Horarios en hora local de Bali (13 horas adelante de Quito). Todo lo marcado como estimado es una referencia a confirmar. Datos consultados entre el 10 y el 11 nov 2026.</p>
  <p><b>No incluye</b> compras, recuerdos ni los opcionales no tildados.</p>
  <p><b>Fotos de lugares y comida</b> de Wikimedia Commons:</p>
  <ul id="credits"></ul>
@@ -551,7 +662,7 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
 
 <script>
 (function(){
-  var DATA = {"maps": {"ruta": {"w": 835, "h": 641, "pts": [{"id": "dps", "label": "Denpasar (aeropuerto)", "x": 24.28, "y": 68.13, "k": "air"}, {"id": "ubud", "label": "Ubud", "x": 40.97, "y": 13.02, "k": "ubud"}, {"id": "cg", "label": "Canggu", "x": 19.26, "y": 47.28, "k": "canggu"}, {"id": "sanur", "label": "Sanur (puerto)", "x": 41.24, "y": 52.39, "k": "air"}, {"id": "penida", "label": "Nusa Penida", "x": 90.07, "y": 63.6, "k": "penida"}, {"id": "ul", "label": "Uluwatu", "x": 10.0, "y": 87.07, "k": "uluwatu"}]}, "ubud": {"w": 481, "h": 903, "pts": [{"id": "dps", "label": "Aeropuerto", "x": 18.33, "y": 90.31, "k": "p"}, {"id": "campuhan", "label": "Campuhan Ridge", "x": 43.62, "y": 50.83, "k": "p"}, {"id": "monkey", "label": "Sacred Monkey Forest", "x": 46.16, "y": 53.13, "k": "p"}, {"id": "palace", "label": "Palacio y mercado de Ubud", "x": 47.31, "y": 51.19, "k": "p"}, {"id": "kanto", "label": "Kanto Lampo", "x": 54.97, "y": 64.19, "k": "p"}, {"id": "tegenungan", "label": "Cascada Tegenungan", "x": 55.21, "y": 62.36, "k": "p"}, {"id": "batur", "label": "Monte Batur (sendero)", "x": 81.76, "y": 9.77, "k": "p"}, {"id": "tirtaempul", "label": "Tirta Empul", "x": 63.3, "y": 36.29, "k": "p"}, {"id": "tegallalang", "label": "Terrazas de Tegallalang", "x": 52.4, "y": 38.85, "k": "p"}, {"id": "villa:ub", "label": "Villa en Ubud", "x": 43.52, "y": 51.69, "k": "b"}]}, "este": {"w": 725, "h": 333, "pts": [{"id": "lempuyang", "label": "Pura Lempuyang", "x": 89.55, "y": 22.78, "k": "p"}, {"id": "tirtagangga", "label": "Tirta Gangga", "x": 78.3, "y": 31.58, "k": "p"}, {"id": "tukad", "label": "Tukad Cepung", "x": 39.73, "y": 77.48, "k": "p"}, {"id": "villa:ub", "label": "Villa en Ubud", "x": 10.46, "y": 75.0, "k": "b"}]}, "oeste": {"w": 665, "h": 1003, "pts": [{"id": "jatiluwih", "label": "Jatiluwih", "x": 32.6, "y": 9.48, "k": "p"}, {"id": "tanahlot", "label": "Tanah Lot", "x": 14.29, "y": 82.68, "k": "p"}, {"id": "villa:ub", "label": "Villa en Ubud", "x": 85.78, "y": 50.02, "k": "b"}, {"id": "villa:cg", "label": "Villa en Canggu", "x": 33.65, "y": 90.55, "k": "b"}]}, "penida": {"w": 1104, "h": 436, "pts": [{"id": "sanur", "label": "Puerto de Sanur", "x": 9.24, "y": 26.37, "k": "p"}, {"id": "buyuk", "label": "Puerto de Nusa Penida (Buyuk)", "x": 75.99, "y": 28.6, "k": "p"}, {"id": "kelingking", "label": "Kelingking Beach", "x": 64.59, "y": 76.72, "k": "p"}, {"id": "broken", "label": "Broken Beach y Angel's Billabong", "x": 59.05, "y": 63.13, "k": "p"}, {"id": "crystal", "label": "Crystal Bay", "x": 57.52, "y": 51.91, "k": "p"}, {"id": "diamond", "label": "Diamond Beach y Atuh", "x": 90.76, "y": 74.49, "k": "p"}, {"id": "villa:np", "label": "Villa en Nusa Penida", "x": 59.9, "y": 23.4, "k": "b"}]}, "uluwatu": {"w": 665, "h": 641, "pts": [{"id": "sanur", "label": "Puerto de Sanur", "x": 89.23, "y": 11.19, "k": "p"}, {"id": "padang", "label": "Padang Padang", "x": 17.75, "y": 72.34, "k": "p"}, {"id": "singlefin", "label": "Single Fin y Bingin", "x": 12.14, "y": 74.54, "k": "p"}, {"id": "ulutemple", "label": "Templo de Uluwatu y Kecak", "x": 10.79, "y": 80.57, "k": "p"}, {"id": "melasti", "label": "Melasti Beach", "x": 28.0, "y": 88.94, "k": "p"}, {"id": "jimbaran", "label": "Jimbaran (mariscos)", "x": 46.09, "y": 60.61, "k": "p"}, {"id": "villa:ul", "label": "Villa en Uluwatu", "x": 15.65, "y": 76.38, "k": "b"}]}}, "credits": {"airport": {"title": "Ngurah Rai Internasional Airport Welcome Sign.jpg", "page": "https://commons.wikimedia.org/wiki/File:Ngurah_Rai_Internasional_Airport_Welcome_Sign.jpg", "artist": "Softwarestatistik", "lic": "CC BY-SA 4.0"}, "campuhan": {"title": "Campuhan Ridge Walk, Ubud, Bali, 20220822 1422 0140.jpg", "page": "https://commons.wikimedia.org/wiki/File:Campuhan_Ridge_Walk,_Ubud,_Bali,_20220822_1422_0140.jpg", "artist": "Jakub Hałun", "lic": "CC BY-SA 4.0"}, "monkey": {"title": "Macaca fascicularis, Ubud Monkey Forest, Bali, 20220822 1014 9940.jpg", "page": "https://commons.wikimedia.org/wiki/File:Macaca_fascicularis,_Ubud_Monkey_Forest,_Bali,_20220822_1014_9940.jpg", "artist": "Jakub Hałun", "lic": "CC BY-SA 4.0"}, "ubud": {"title": "Ubud (49818456887).jpg", "page": "https://commons.wikimedia.org/wiki/File:Ubud_(49818456887).jpg", "artist": "Jorge Franganillo", "lic": "CC BY 2.0"}, "tegallalang": {"title": "Rice terraces, Bali.jpg", "page": "https://commons.wikimedia.org/wiki/File:Rice_terraces,_Bali.jpg", "artist": "Vyacheslav Argenberg", "lic": "CC BY 4.0"}, "tirtaempul": {"title": "Bali - bathing (Melukat) at Pura Tirta Empul (2025) - img 07.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bali_-_bathing_(Melukat)_at_Pura_Tirta_Empul_(2025)_-_img_07.jpg", "artist": "Chainwit.", "lic": "CC BY 4.0"}, "batur": {"title": "View Of Mt.Batur on April 8th 2026.jpg", "page": "https://commons.wikimedia.org/wiki/File:View_Of_Mt.Batur_on_April_8th_2026.jpg", "artist": "WikiSantaClaus", "lic": "CC BY 4.0"}, "lempuyang": {"title": "Bali Pura Lempuyang Luhur.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bali_Pura_Lempuyang_Luhur.jpg", "artist": "Flickr user: yeowatzup https://www.flickr.com/photos/yeowatzup/", "lic": "CC BY 2.0"}, "tirtagangga": {"title": "Tirta Gangga water palace, Bali, Indonesia.JPG", "page": "https://commons.wikimedia.org/wiki/File:Tirta_Gangga_water_palace,_Bali,_Indonesia.JPG", "artist": "Bair175", "lic": "CC BY-SA 3.0"}, "jatiluwih": {"title": "Jatiluwih rice terraces SF0002.jpg", "page": "https://commons.wikimedia.org/wiki/File:Jatiluwih_rice_terraces_SF0002.jpg", "artist": "Stefan Fussan", "lic": "CC BY-SA 3.0"}, "tanahlot": {"title": "TanahLot 2014.JPG", "page": "https://commons.wikimedia.org/wiki/File:TanahLot_2014.JPG", "artist": "Grayswoodsurrey", "lic": "CC BY-SA 4.0"}, "kelingking": {"title": "Kelingking Beach (T-Rex Bay) of Nusa Penida, Bali (2025) - img 08.jpg", "page": "https://commons.wikimedia.org/wiki/File:Kelingking_Beach_(T-Rex_Bay)_of_Nusa_Penida,_Bali_(2025)_-_img_08.jpg", "artist": "Chainwit.", "lic": "CC BY 4.0"}, "brokenbeach": {"title": "Broken Beach.jpg", "page": "https://commons.wikimedia.org/wiki/File:Broken_Beach.jpg", "artist": "Aaron Rentfrew", "lic": "CC BY-SA 4.0"}, "diamond": {"title": "Diamond Beach in Nusa Penida, Bali.jpg", "page": "https://commons.wikimedia.org/wiki/File:Diamond_Beach_in_Nusa_Penida,_Bali.jpg", "artist": "Stryn", "lic": "CC BY-SA 4.0"}, "crystalbay": {"title": "Crystal Bay, Nusa Penida 2017-08-20 (12).jpg", "page": "https://commons.wikimedia.org/wiki/File:Crystal_Bay,_Nusa_Penida_2017-08-20_(12).jpg", "artist": "Panina Manina", "lic": "CC BY-SA 4.0"}, "uluwatu": {"title": "Pura Luhur Uluwatu 2017-08-17 (34).jpg", "page": "https://commons.wikimedia.org/wiki/File:Pura_Luhur_Uluwatu_2017-08-17_(34).jpg", "artist": "Paskuu", "lic": "CC BY-SA 4.0"}, "kecak": {"title": "Kecak dancers cliffside Uluwatu.jpg", "page": "https://commons.wikimedia.org/wiki/File:Kecak_dancers_cliffside_Uluwatu.jpg", "artist": "Rollan Budi from Kuta, Bali,, Indonesia", "lic": "CC BY-SA 2.0"}, "padang": {"title": "Padang Padang Beach Bali.jpg", "page": "https://commons.wikimedia.org/wiki/File:Padang_Padang_Beach_Bali.jpg", "artist": "TMFalkner", "lic": "CC BY-SA 4.0"}, "jimbaran": {"title": "Jimbaran200507-1.jpg", "page": "https://commons.wikimedia.org/wiki/File:Jimbaran200507-1.jpg", "artist": "autor en Commons", "lic": "CC BY-SA 3.0"}, "tegenungan": {"title": "Tegenungan Waterfall sideview.jpg", "page": "https://commons.wikimedia.org/wiki/File:Tegenungan_Waterfall_sideview.jpg", "artist": "Karter873", "lic": "CC BY-SA 4.0"}, "nusapenida": {"title": "Broken Bay, Nusa Penida.jpg", "page": "https://commons.wikimedia.org/wiki/File:Broken_Bay,_Nusa_Penida.jpg", "artist": "Georgi Kovachev", "lic": "CC BY-SA 4.0"}, "bingin": {"title": "The Perfect Sunset.jpg", "page": "https://commons.wikimedia.org/wiki/File:The_Perfect_Sunset.jpg", "artist": "Tuwuh", "lic": "CC BY-SA 4.0"}}, "foodCredits": {"nasigoreng": {"title": "Nasi Goreng Kampung (11967588375).jpg", "page": "https://commons.wikimedia.org/wiki/File:Nasi_Goreng_Kampung_(11967588375).jpg", "artist": "shankar s. from Dubai, united arab emirates", "lic": "CC BY 2.0"}, "babiguling": {"title": "Panggang 1.JPG", "page": "https://commons.wikimedia.org/wiki/File:Panggang_1.JPG", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}, "bebek": {"title": "Bebek Betutu.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bebek_Betutu.jpg", "artist": "The man from Gianyar", "lic": "CC BY-SA 4.0"}, "satelilit": {"title": "Sate lilit.jpg", "page": "https://commons.wikimedia.org/wiki/File:Sate_lilit.jpg", "artist": "lifestyle.okezone.com", "lic": "CC BY-SA 4.0"}, "nasicampur": {"title": "Plate of nasi campur (Mandarin Oriental Hotel Mahapahit, Surabaya, Indonesia).png", "page": "https://commons.wikimedia.org/wiki/File:Plate_of_nasi_campur_(Mandarin_Oriental_Hotel_Mahapahit,_Surabaya,_Indonesia).png", "artist": "autor en Commons", "lic": "Public domain"}, "miegoreng": {"title": "Mi Goreng GM.jpg", "page": "https://commons.wikimedia.org/wiki/File:Mi_Goreng_GM.jpg", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}, "lawar": {"title": "Lawar babi guling.jpg", "page": "https://commons.wikimedia.org/wiki/File:Lawar_babi_guling.jpg", "artist": "ybs from Jakarta, Indonesia", "lic": "CC BY 2.0"}, "klepon": {"title": "Klepon Khas Tulungagung.jpg", "page": "https://commons.wikimedia.org/wiki/File:Klepon_Khas_Tulungagung.jpg", "artist": "Robijuniarta", "lic": "CC BY-SA 4.0"}, "escampur": {"title": "Es Campur 2.JPG", "page": "https://commons.wikimedia.org/wiki/File:Es_Campur_2.JPG", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}, "soto": {"title": "Soto Ayam home-made.JPG", "page": "https://commons.wikimedia.org/wiki/File:Soto_Ayam_home-made.JPG", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}, "gadogado": {"title": "Gado gado jakarta.jpg", "page": "https://commons.wikimedia.org/wiki/File:Gado_gado_jakarta.jpg", "artist": "Piknikdong", "lic": "CC BY-SA 4.0"}, "pisang": {"title": "Banana Fritters and tea.jpg", "page": "https://commons.wikimedia.org/wiki/File:Banana_Fritters_and_tea.jpg", "artist": "Iloveporotta", "lic": "CC BY-SA 4.0"}, "satay": {"title": "Sate Udang.JPG", "page": "https://commons.wikimedia.org/wiki/File:Sate_Udang.JPG", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 4.0"}, "bakso": {"title": "Bakso mi bihun.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bakso_mi_bihun.jpg", "artist": "christian r from Singapore", "lic": "CC BY-SA 2.0"}, "tempeh": {"title": "Tempeh (8681605421).jpg", "page": "https://commons.wikimedia.org/wiki/File:Tempeh_(8681605421).jpg", "artist": "Veganbaking.net from USA", "lic": "CC BY-SA 2.0"}, "bubur": {"title": "Bubuh Injin Bali 1.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bubuh_Injin_Bali_1.jpg", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 4.0"}, "esteler": {"title": "Es Teller 77.jpg", "page": "https://commons.wikimedia.org/wiki/File:Es_Teller_77.jpg", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}}};
+  var DATA = {"maps": {"ruta": {"w": 835, "h": 641, "pts": [{"id": "dps", "label": "Denpasar (aeropuerto)", "x": 24.28, "y": 68.13, "k": "air"}, {"id": "ubud", "label": "Ubud", "x": 40.97, "y": 13.02, "k": "ubud"}, {"id": "cg", "label": "Canggu", "x": 19.26, "y": 47.28, "k": "canggu"}, {"id": "sanur", "label": "Sanur (puerto)", "x": 41.24, "y": 52.39, "k": "air"}, {"id": "penida", "label": "Nusa Penida", "x": 90.07, "y": 63.6, "k": "penida"}, {"id": "ul", "label": "Uluwatu", "x": 10.0, "y": 87.07, "k": "uluwatu"}, {"id": "gm", "label": "Nusa Dua (Grand Mirage)", "x": 33.38, "y": 70.38, "k": "uluwatu"}, {"id": "ay", "label": "Jimbaran (AYANA)", "x": 19.47, "y": 77.12, "k": "uluwatu"}, {"id": "h-sam", "label": "The Samaya (Sayan)", "x": 36.45, "y": 14.45, "k": "h"}, {"id": "h-gm", "label": "Grand Mirage", "x": 33.38, "y": 70.38, "k": "h"}, {"id": "h-ay", "label": "AYANA Bali", "x": 19.47, "y": 77.12, "k": "h"}]}, "ubud": {"w": 481, "h": 903, "pts": [{"id": "dps", "label": "Aeropuerto", "x": 18.33, "y": 90.31, "k": "p"}, {"id": "campuhan", "label": "Campuhan Ridge", "x": 43.62, "y": 50.83, "k": "p"}, {"id": "monkey", "label": "Sacred Monkey Forest", "x": 46.16, "y": 53.13, "k": "p"}, {"id": "palace", "label": "Palacio y mercado de Ubud", "x": 47.31, "y": 51.19, "k": "p"}, {"id": "kanto", "label": "Kanto Lampo", "x": 54.97, "y": 64.19, "k": "p"}, {"id": "tegenungan", "label": "Cascada Tegenungan", "x": 55.21, "y": 62.36, "k": "p"}, {"id": "batur", "label": "Monte Batur (sendero)", "x": 81.76, "y": 9.77, "k": "p"}, {"id": "tirtaempul", "label": "Tirta Empul", "x": 63.3, "y": 36.29, "k": "p"}, {"id": "tegallalang", "label": "Terrazas de Tegallalang", "x": 52.4, "y": 38.85, "k": "p"}, {"id": "villa:ub", "label": "Villa en Ubud", "x": 43.52, "y": 51.69, "k": "b"}, {"id": "villa:sam", "label": "The Samaya Ubud (Sayan)", "x": 39.47, "y": 52.2, "k": "b"}]}, "este": {"w": 725, "h": 333, "pts": [{"id": "lempuyang", "label": "Pura Lempuyang", "x": 89.55, "y": 22.78, "k": "p"}, {"id": "tirtagangga", "label": "Tirta Gangga", "x": 78.3, "y": 31.58, "k": "p"}, {"id": "tukad", "label": "Tukad Cepung", "x": 39.73, "y": 77.48, "k": "p"}, {"id": "villa:ub", "label": "Villa en Ubud", "x": 10.46, "y": 75.0, "k": "b"}, {"id": "villa:sam", "label": "The Samaya Ubud (Sayan)", "x": 7.77, "y": 76.37, "k": "b"}]}, "oeste": {"w": 665, "h": 1003, "pts": [{"id": "jatiluwih", "label": "Jatiluwih", "x": 32.6, "y": 9.48, "k": "p"}, {"id": "tanahlot", "label": "Tanah Lot", "x": 14.29, "y": 82.68, "k": "p"}, {"id": "villa:ub", "label": "Villa en Ubud", "x": 85.78, "y": 50.02, "k": "b"}, {"id": "villa:cg", "label": "Villa en Canggu", "x": 33.65, "y": 90.55, "k": "b"}, {"id": "villa:sam", "label": "The Samaya Ubud (Sayan)", "x": 79.9, "y": 50.93, "k": "b"}]}, "penida": {"w": 1104, "h": 436, "pts": [{"id": "sanur", "label": "Puerto de Sanur", "x": 9.24, "y": 26.37, "k": "p"}, {"id": "buyuk", "label": "Puerto de Nusa Penida (Buyuk)", "x": 75.99, "y": 28.6, "k": "p"}, {"id": "kelingking", "label": "Kelingking Beach", "x": 64.59, "y": 76.72, "k": "p"}, {"id": "broken", "label": "Broken Beach y Angel's Billabong", "x": 59.05, "y": 63.13, "k": "p"}, {"id": "crystal", "label": "Crystal Bay", "x": 57.52, "y": 51.91, "k": "p"}, {"id": "diamond", "label": "Diamond Beach y Atuh", "x": 90.76, "y": 74.49, "k": "p"}, {"id": "villa:np", "label": "Villa en Nusa Penida", "x": 59.9, "y": 23.4, "k": "b"}]}, "uluwatu": {"w": 665, "h": 641, "pts": [{"id": "sanur", "label": "Puerto de Sanur", "x": 89.23, "y": 11.19, "k": "p"}, {"id": "padang", "label": "Padang Padang", "x": 17.75, "y": 72.34, "k": "p"}, {"id": "singlefin", "label": "Single Fin y Bingin", "x": 12.14, "y": 74.54, "k": "p"}, {"id": "ulutemple", "label": "Templo de Uluwatu y Kecak", "x": 10.79, "y": 80.57, "k": "p"}, {"id": "melasti", "label": "Melasti Beach", "x": 28.0, "y": 88.94, "k": "p"}, {"id": "jimbaran", "label": "Jimbaran (mariscos)", "x": 46.09, "y": 60.61, "k": "p"}, {"id": "villa:ul", "label": "Villa en Uluwatu", "x": 15.65, "y": 76.38, "k": "b"}, {"id": "villa:gm", "label": "Grand Mirage Resort & Thalasso", "x": 69.52, "y": 47.19, "k": "b"}, {"id": "villa:ay", "label": "AYANA Bali", "x": 34.57, "y": 60.66, "k": "b"}]}}, "credits": {"airport": {"title": "Ngurah Rai Internasional Airport Welcome Sign.jpg", "page": "https://commons.wikimedia.org/wiki/File:Ngurah_Rai_Internasional_Airport_Welcome_Sign.jpg", "artist": "Softwarestatistik", "lic": "CC BY-SA 4.0"}, "campuhan": {"title": "Campuhan Ridge Walk, Ubud, Bali, 20220822 1422 0140.jpg", "page": "https://commons.wikimedia.org/wiki/File:Campuhan_Ridge_Walk,_Ubud,_Bali,_20220822_1422_0140.jpg", "artist": "Jakub Hałun", "lic": "CC BY-SA 4.0"}, "monkey": {"title": "Macaca fascicularis, Ubud Monkey Forest, Bali, 20220822 1014 9940.jpg", "page": "https://commons.wikimedia.org/wiki/File:Macaca_fascicularis,_Ubud_Monkey_Forest,_Bali,_20220822_1014_9940.jpg", "artist": "Jakub Hałun", "lic": "CC BY-SA 4.0"}, "ubud": {"title": "Ubud (49818456887).jpg", "page": "https://commons.wikimedia.org/wiki/File:Ubud_(49818456887).jpg", "artist": "Jorge Franganillo", "lic": "CC BY 2.0"}, "tegallalang": {"title": "Rice terraces, Bali.jpg", "page": "https://commons.wikimedia.org/wiki/File:Rice_terraces,_Bali.jpg", "artist": "Vyacheslav Argenberg", "lic": "CC BY 4.0"}, "tirtaempul": {"title": "Bali - bathing (Melukat) at Pura Tirta Empul (2025) - img 07.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bali_-_bathing_(Melukat)_at_Pura_Tirta_Empul_(2025)_-_img_07.jpg", "artist": "Chainwit.", "lic": "CC BY 4.0"}, "batur": {"title": "View Of Mt.Batur on April 8th 2026.jpg", "page": "https://commons.wikimedia.org/wiki/File:View_Of_Mt.Batur_on_April_8th_2026.jpg", "artist": "WikiSantaClaus", "lic": "CC BY 4.0"}, "lempuyang": {"title": "Bali Pura Lempuyang Luhur.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bali_Pura_Lempuyang_Luhur.jpg", "artist": "Flickr user: yeowatzup https://www.flickr.com/photos/yeowatzup/", "lic": "CC BY 2.0"}, "tirtagangga": {"title": "Tirta Gangga water palace, Bali, Indonesia.JPG", "page": "https://commons.wikimedia.org/wiki/File:Tirta_Gangga_water_palace,_Bali,_Indonesia.JPG", "artist": "Bair175", "lic": "CC BY-SA 3.0"}, "jatiluwih": {"title": "Jatiluwih rice terraces SF0002.jpg", "page": "https://commons.wikimedia.org/wiki/File:Jatiluwih_rice_terraces_SF0002.jpg", "artist": "Stefan Fussan", "lic": "CC BY-SA 3.0"}, "tanahlot": {"title": "TanahLot 2014.JPG", "page": "https://commons.wikimedia.org/wiki/File:TanahLot_2014.JPG", "artist": "Grayswoodsurrey", "lic": "CC BY-SA 4.0"}, "kelingking": {"title": "Kelingking Beach (T-Rex Bay) of Nusa Penida, Bali (2025) - img 08.jpg", "page": "https://commons.wikimedia.org/wiki/File:Kelingking_Beach_(T-Rex_Bay)_of_Nusa_Penida,_Bali_(2025)_-_img_08.jpg", "artist": "Chainwit.", "lic": "CC BY 4.0"}, "brokenbeach": {"title": "Broken Beach.jpg", "page": "https://commons.wikimedia.org/wiki/File:Broken_Beach.jpg", "artist": "Aaron Rentfrew", "lic": "CC BY-SA 4.0"}, "diamond": {"title": "Diamond Beach in Nusa Penida, Bali.jpg", "page": "https://commons.wikimedia.org/wiki/File:Diamond_Beach_in_Nusa_Penida,_Bali.jpg", "artist": "Stryn", "lic": "CC BY-SA 4.0"}, "crystalbay": {"title": "Crystal Bay, Nusa Penida 2017-08-20 (12).jpg", "page": "https://commons.wikimedia.org/wiki/File:Crystal_Bay,_Nusa_Penida_2017-08-20_(12).jpg", "artist": "Panina Manina", "lic": "CC BY-SA 4.0"}, "uluwatu": {"title": "Pura Luhur Uluwatu 2017-08-17 (34).jpg", "page": "https://commons.wikimedia.org/wiki/File:Pura_Luhur_Uluwatu_2017-08-17_(34).jpg", "artist": "Paskuu", "lic": "CC BY-SA 4.0"}, "kecak": {"title": "Kecak dancers cliffside Uluwatu.jpg", "page": "https://commons.wikimedia.org/wiki/File:Kecak_dancers_cliffside_Uluwatu.jpg", "artist": "Rollan Budi from Kuta, Bali,, Indonesia", "lic": "CC BY-SA 2.0"}, "padang": {"title": "Padang Padang Beach Bali.jpg", "page": "https://commons.wikimedia.org/wiki/File:Padang_Padang_Beach_Bali.jpg", "artist": "TMFalkner", "lic": "CC BY-SA 4.0"}, "jimbaran": {"title": "Jimbaran200507-1.jpg", "page": "https://commons.wikimedia.org/wiki/File:Jimbaran200507-1.jpg", "artist": "autor en Commons", "lic": "CC BY-SA 3.0"}, "tegenungan": {"title": "Tegenungan Waterfall sideview.jpg", "page": "https://commons.wikimedia.org/wiki/File:Tegenungan_Waterfall_sideview.jpg", "artist": "Karter873", "lic": "CC BY-SA 4.0"}, "nusapenida": {"title": "Broken Bay, Nusa Penida.jpg", "page": "https://commons.wikimedia.org/wiki/File:Broken_Bay,_Nusa_Penida.jpg", "artist": "Georgi Kovachev", "lic": "CC BY-SA 4.0"}, "bingin": {"title": "The Perfect Sunset.jpg", "page": "https://commons.wikimedia.org/wiki/File:The_Perfect_Sunset.jpg", "artist": "Tuwuh", "lic": "CC BY-SA 4.0"}}, "foodCredits": {"nasigoreng": {"title": "Nasi Goreng Kampung (11967588375).jpg", "page": "https://commons.wikimedia.org/wiki/File:Nasi_Goreng_Kampung_(11967588375).jpg", "artist": "shankar s. from Dubai, united arab emirates", "lic": "CC BY 2.0"}, "babiguling": {"title": "Panggang 1.JPG", "page": "https://commons.wikimedia.org/wiki/File:Panggang_1.JPG", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}, "bebek": {"title": "Bebek Betutu.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bebek_Betutu.jpg", "artist": "The man from Gianyar", "lic": "CC BY-SA 4.0"}, "satelilit": {"title": "Sate lilit.jpg", "page": "https://commons.wikimedia.org/wiki/File:Sate_lilit.jpg", "artist": "lifestyle.okezone.com", "lic": "CC BY-SA 4.0"}, "nasicampur": {"title": "Plate of nasi campur (Mandarin Oriental Hotel Mahapahit, Surabaya, Indonesia).png", "page": "https://commons.wikimedia.org/wiki/File:Plate_of_nasi_campur_(Mandarin_Oriental_Hotel_Mahapahit,_Surabaya,_Indonesia).png", "artist": "autor en Commons", "lic": "Public domain"}, "miegoreng": {"title": "Mi Goreng GM.jpg", "page": "https://commons.wikimedia.org/wiki/File:Mi_Goreng_GM.jpg", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}, "lawar": {"title": "Lawar babi guling.jpg", "page": "https://commons.wikimedia.org/wiki/File:Lawar_babi_guling.jpg", "artist": "ybs from Jakarta, Indonesia", "lic": "CC BY 2.0"}, "klepon": {"title": "Klepon Khas Tulungagung.jpg", "page": "https://commons.wikimedia.org/wiki/File:Klepon_Khas_Tulungagung.jpg", "artist": "Robijuniarta", "lic": "CC BY-SA 4.0"}, "escampur": {"title": "Es Campur 2.JPG", "page": "https://commons.wikimedia.org/wiki/File:Es_Campur_2.JPG", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}, "soto": {"title": "Soto Ayam home-made.JPG", "page": "https://commons.wikimedia.org/wiki/File:Soto_Ayam_home-made.JPG", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}, "gadogado": {"title": "Gado gado jakarta.jpg", "page": "https://commons.wikimedia.org/wiki/File:Gado_gado_jakarta.jpg", "artist": "Piknikdong", "lic": "CC BY-SA 4.0"}, "pisang": {"title": "Banana Fritters and tea.jpg", "page": "https://commons.wikimedia.org/wiki/File:Banana_Fritters_and_tea.jpg", "artist": "Iloveporotta", "lic": "CC BY-SA 4.0"}, "satay": {"title": "Sate Udang.JPG", "page": "https://commons.wikimedia.org/wiki/File:Sate_Udang.JPG", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 4.0"}, "bakso": {"title": "Bakso mi bihun.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bakso_mi_bihun.jpg", "artist": "christian r from Singapore", "lic": "CC BY-SA 2.0"}, "tempeh": {"title": "Tempeh (8681605421).jpg", "page": "https://commons.wikimedia.org/wiki/File:Tempeh_(8681605421).jpg", "artist": "Veganbaking.net from USA", "lic": "CC BY-SA 2.0"}, "bubur": {"title": "Bubuh Injin Bali 1.jpg", "page": "https://commons.wikimedia.org/wiki/File:Bubuh_Injin_Bali_1.jpg", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 4.0"}, "esteler": {"title": "Es Teller 77.jpg", "page": "https://commons.wikimedia.org/wiki/File:Es_Teller_77.jpg", "artist": "Gunawan Kartapranata", "lic": "CC BY-SA 3.0"}}, "hotelCredits": {"ayana": {"title": "Ayana Resort Bali (52538352591).jpg", "page": "https://commons.wikimedia.org/wiki/File:Ayana_Resort_Bali_(52538352591).jpg", "artist": "Thank You (25 Millions ) views from Fresno, USA", "lic": "CC BY 2.0"}, "ayung": {"title": "Ayung Valley River, Ubud (15194218371).jpg", "page": "https://commons.wikimedia.org/wiki/File:Ayung_Valley_River,_Ubud_(15194218371).jpg", "artist": "Fabio Achilli from Milano, Italy", "lic": "CC BY 2.0"}, "gm": {"title": "Bali Paradise (1358737169).jpg", "page": "https://commons.wikimedia.org/wiki/File:Bali_Paradise_(1358737169).jpg", "artist": "Sean McGrath from Saint John, NB, Canada", "lic": "CC BY 2.0"}}};
   var RATE = 18100;
   var MONTHS = {
     jul:{name:"Julio", start:[2027,6,9], flight:{v:2366, src:"r"},
@@ -716,6 +827,171 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
   };
   var CAT = {vuelo:"Vuelo, e-VOA y tasa turística", transporte:"Chofer, lanchas y traslados", entradas:"Entradas y actividades", comida:"Comidas", hotel:"Villas (hospedaje)", extras:"Seguro, eSIM, propinas y comisiones"};
   var FOODNAMES = {nasigoreng:"Nasi goreng", babiguling:"Babi guling", bebek:"Bebek betutu", satelilit:"Sate lilit", nasicampur:"Nasi campur", miegoreng:"Mie goreng", lawar:"Lawar", klepon:"Klepon", escampur:"Es campur", soto:"Soto ayam", gadogado:"Gado-gado", pisang:"Pisang goreng", satay:"Satay", bakso:"Bakso", tempeh:"Tempeh", bubur:"Bubur ketan hitam", esteler:"Es teler"};
+  /* ===== Escenarios de alojamiento (consultas del 11 nov 2026, ver "Fuentes y condiciones") ===== */
+  var TAXAY = 0.21;
+  var HOT = {
+    gm:{name:"Grand Mirage Resort & Thalasso Bali", short:"Grand Mirage", area:"Tanjung Benoa, junto a Nusa Dua", nights:3, col:"--uluwatu", url:"https://www.grandmirage.com/", host:"grandmirage.com", pin:"Grand Mirage Resort & Thalasso"},
+    ay:{name:"AYANA Bali", short:"AYANA", area:"Jimbaran, suroeste de Bali", nights:3, col:"--uluwatu", url:"https://www.ayana.com/bali/", host:"ayana.com/bali", pin:"AYANA Bali (RIMBA / Resort)"},
+    sam:{name:"The Samaya Ubud", short:"The Samaya", area:"Sayan, Ubud, junto al río Ayung", nights:4, col:"--ubud", url:"https://thesamaya.com/ubud/", host:"thesamaya.com/ubud", pin:"The Samaya Ubud (Sayan)"}
+  };
+  /* Grand Mirage: precio por habitación doble (2 adultos), 3 noches, Gold All Inclusive reembolsable; motor oficial de reservas, IDR.
+     Niveles: 0 Premiere Garden View, 1 Premiere Pool View, 2 Premiere Ocean View. Fechas: 17-20 jul, 21-24 ago, 18-21 sep de 2027. */
+  var GMQ = {cats:["New Premiere Garden View","New Premiere Pool View","New Premiere Ocean View"],
+    ref:{jul:[21821114,22407218,23940107], ago:[21280095,21866199,23399087], sep:[20784160,21370265,22903153]},
+    nr:{jul:[19837377,20333311,21595689], ago:[19386527,19882461,21144840], sep:[18935678,19431612,20693990]},
+    dates:{jul:"17–20 jul", ago:"21–24 ago", sep:"18–21 sep"}};
+  /* AYANA: tarifa pública por noche, habitación Resort View, solo alojamiento, cancelación gratuita; el sitio indica "total excluye impuestos y cargos". */
+  var AYQ = {rimba:{name:"RIMBA by AYANA", room:"Resort View Room (42 m², king o twin, máx. 3 adultos)", night:{jul:4317844, ago:4266963, sep:3964837}, bf:840000},
+    resort:{name:"AYANA Resort", room:"Resort View Room (king o twin, máx. 3 adultos)", night:{jul:6386810, ago:6311549, sep:6006433}, bf:null}};
+  /* The Samaya Ubud: tarifa Best Available Rate (cancelable, desayuno incluido, impuestos y cargo de servicio incluidos), 4 noches, IDR.
+     Fechas: 11-15 jul, 15-19 ago, 12-16 sep de 2027. La villa de 3 dormitorios no apareció disponible el 11-15 jul. */
+  var SAMQ = {br3:{jul:null, ago:123600000, sep:123600000}, br1:{jul:47200000, ago:47200000, sep:47200000},
+    early3:{ago:88992000, sep:88992000}, early1:{jul:33984000, ago:33984000, sep:33984000},
+    dates:{jul:"11–15 jul", ago:"15–19 ago", sep:"12–16 sep"}};
+  var SCEN = {
+    A:{key:"A", short:"A · Villas", name:"Plan original con villas", hotel:null, blk:"ul",
+      desc:"Las nueve noches en villas de Airbnb: 4 en Ubud, 1 en Canggu, 1 en Nusa Penida y 3 en Uluwatu."},
+    B:{key:"B", short:"B · Grand Mirage", name:"Plan con Grand Mirage", hotel:"gm", blk:"ul",
+      desc:"Cambia solo las 3 noches finales de Uluwatu por 3 noches en Grand Mirage, con todo incluido. El día 9 es de resort completo, sin excursiones."},
+    C:{key:"C", short:"C · AYANA", name:"Plan con AYANA", hotel:"ay", blk:"ul",
+      desc:"Cambia solo las 3 noches finales de Uluwatu por 3 noches en AYANA Bali (Jimbaran), solo alojamiento. El día 9 es de complejo completo, sin excursiones."},
+    D:{key:"D", short:"D · The Samaya", name:"Plan con The Samaya Ubud", hotel:"sam", blk:"ub",
+      desc:"Cambia solo las 4 noches de Ubud por 4 noches en The Samaya (Sayan). Los días 2 y 3 se aligeran para disfrutar la villa; el resto del viaje no cambia."}
+  };
+  var PENDING = {
+    A:[],
+    B:["impuestos y cargo de servicio (el motor oficial muestra un total sin desglose)","tratamientos del Thalasso Spa más allá del voucher de IDR 300.000","horarios de check-in, check-out y cierre de cenas","aclaración de los deportes motorizados (no aplican a 3 noches)"],
+    C:["impuestos y cargos: se estiman en 21%, porque el sitio los excluye del precio","desayuno, almuerzo y cena: precios del complejo sin publicar (se usan las estimaciones del plan)","consumo y reserva en Rock Bar, spa y talasoterapia, y Kampoeng Bali Dinner & Show"],
+    D:["clase de cocina, spa y consumos en Swept Away: precios sin publicar","disponibilidad de la villa de 3 dormitorios en las fechas elegidas","horarios de check-in y check-out","cena en Swept Away: se usan las estimaciones del plan"]
+  };
+
+  /* ----- días de cada escenario ----- */
+  function P(d, pre){ var r = DAYS[d].items.filter(function(i){ return i.t.indexOf(pre) === 0; })[0]; if (!r) throw new Error("falta " + d + " " + pre); return Object.assign({}, r); }
+  function dayWith(d, over){ return Object.assign({}, DAYS[d], over); }
+  var SD = {};
+  function buildScen(sc){
+    if (sc === "A") return DAYS;
+    var out = DAYS.slice(), W = sc === "B" ? "gm" : "ay";
+    if (sc === "B" || sc === "C") {
+      var B = sc === "B";
+      var tr7 = B ? {idr:50000, taxi:70000, d:"~35–45 min (Google Maps marca 35 min entre Sanur y Tanjung Benoa). Precio estimado en proporción al tiempo del tramo a Uluwatu"}
+                  : {idr:78000, taxi:111000, d:"~55–60 min entre Sanur y Jimbaran. Precio estimado en proporción al tiempo del tramo a Uluwatu"};
+      out[7] = dayWith(7, {title:"Este de Nusa Penida y a " + (B ? "Tanjung Benoa" : "Jimbaran"), base:"Base: " + (B ? "Grand Mirage (Tanjung Benoa)" : "AYANA Bali (Jimbaran)"), stay:W,
+        note:"<b>Día de traslado, sin día de resort:</b> se ve el este de Nusa Penida de mañana, se cruza en lancha a las 14:30 y se llega al " + (B ? "hotel" : "complejo") + " a media tarde. " + (B ? "Los sábados hay cena temática dentro del todo incluido." : "El check-in de RIMBA figura a las 15:00 en su página oficial; el del AYANA Resort está pendiente de confirmar."),
+        items:[P(7,"Diamond Beach"), P(7,"Mirador de Raja"), P(7,"Nadar con"), P(7,"Almuerzo"), P(7,"Lancha Nusa"),
+          {h:"16:30", t:"Sanur → " + (B ? "Grand Mirage" : "AYANA Bali") + " con valijas", d:tr7.d, idr:tr7.idr, taxi:tr7.taxi, k:"transporte", leg:"Sanur → " + (B ? "Tanjung Benoa" : "Jimbaran")},
+          B ? {h:"17:30", t:"Check-in en Grand Mirage", d:"Horario de check-in pendiente de confirmar: no figura en las páginas consultadas. Al llegar entregan la pulsera del todo incluido"}
+            : {h:"17:30", t:"Check-in en AYANA Bali (3 habitaciones dobles)", d:"15:00 según la página oficial de RIMBA; el Resort, a confirmar. Hay tranvía interno del complejo para moverse"},
+          B ? {h:"19:00", t:"Cena del todo incluido: buffet temático de los sábados", d:"Mongolian BBQ con banda y danza aérea en Rama Live Entertainment, según la web. Incluida en el paquete", cov:1}
+            : {h:"19:30", t:"Cena en el complejo", d:"Los precios de los restaurantes de AYANA no están publicados: se usa la estimación del plan", idr:160000, k:"comida", pend:1},
+          P(7,"2 autos")]});
+      if (B) {
+        out[8] = dayWith(8, {title:"Uluwatu: templo y danza Kecak, con base en el resort", base:"Base: Grand Mirage", stay:"gm", stamp:"wave", kanji:"Kecak", photos:["uluwatu","kecak"],
+          note:"<b>Mañana de resort, tarde de cultura:</b> se conserva el templo y la Kecak, pero con salida a las 14:30 y regreso a las 20:30. Padang Padang y Bingin salen del plan para no sobrecargar el día.",
+          items:[{h:"08:30", t:"Desayuno buffet en Grand Café", d:"Incluido en el todo incluido", cov:1},
+            {h:"10:00", t:"Mañana en el resort", d:"Piscinas, río lento, kayak o windsurf: los deportes no motorizados están incluidos y dependen del clima y la marea. El catamarán va siempre con instructor", cov:1},
+            {h:"12:30", t:"Almuerzo en el resort", d:"Incluido: buffet en Grand Café o la carta de mariscos de Jukung", cov:1},
+            {h:"14:30", t:"Salida hacia Uluwatu con chofer", d:"~50 min desde Tanjung Benoa según Google Maps; por la tarde suma tráfico. El chofer espera en el templo", idr:100000, taxi:133000, k:"transporte", leg:"Tanjung Benoa → Uluwatu → Tanjung Benoa"},
+            P(8,"Templo de Uluwatu"), P(8,"Danza Kecak"),
+            {h:"19:30", t:"Regreso a Tanjung Benoa", d:"~50 min con tráfico: llegan alrededor de las 20:30"},
+            {h:"20:30", t:"Cena en el resort", d:"Incluida, pero el horario de cierre del buffet no figura en la web: confirmar con el hotel. El room service de 24 h sí está en el paquete; las bebidas pedidas por room service no", cov:1, pend:1}]});
+        out[9] = dayWith(9, {title:"Día completo en Grand Mirage, sin excursiones", base:"Base: Grand Mirage", stay:"gm", stamp:"wave", kanji:"Pantai", photos:["jimbaran"],
+          note:"<b>Día de resort completo:</b> no hay traslados ni salidas. Es el día para aprovechar el todo incluido.",
+          items:[{h:"08:00", t:"Desayuno buffet", d:"Incluido", cov:1},
+            {h:"09:30", t:"Kayak, windsurf y catamarán", d:"Deportes no motorizados incluidos, sujetos a clima y marea. Jet ski, banana boat y seawalker no entran en una estancia de 3 noches: la web los da desde 6, 7 o 9 noches", cov:1},
+            {h:"11:00", t:"Piscinas y río lento", d:"Seis piscinas en el resort, incluido el río lento", cov:1},
+            {h:"13:00", t:"Almuerzo", d:"Incluido: buffet, mariscos de Jukung o la carta de Mahi-Mahi frente al mar", cov:1},
+            {h:"15:00", t:"Thalasso Spa", d:"Por 3 noches la web da un voucher de IDR 300.000 (reserva directa, con condiciones). El precio de un tratamiento completo está pendiente de cotizar", o:1, pend:1},
+            {h:"17:30", t:"Cóctel al atardecer en Jukung Bar", d:"Bebidas por copa incluidas en los bares del resort, de 11:00 a medianoche. El resto de la carta premium es aparte", cov:1},
+            {h:"19:30", t:"Cena temática de los lunes", d:"Bali Around the World, con banda y cabaret en Rama Live Entertainment, según la web", cov:1}]});
+        out[10] = dayWith(10, {items:[{h:"Mañana", t:"Grand Mirage → aeropuerto con valijas", d:"~20–30 min. Salir 4 h antes del vuelo internacional. Hora de check-out y uso de las instalaciones después de la salida: pendiente de confirmar", idr:45000, taxi:67000, k:"transporte", leg:"Tanjung Benoa → aeropuerto"}].concat(DAYS[10].items.slice(1))});
+      } else {
+        out[8] = dayWith(8, {title:"Uluwatu: templo y Kecak, y mariscos de vuelta en Jimbaran", base:"Base: AYANA Bali", stay:"ay", stamp:"wave", kanji:"Kecak", photos:["uluwatu","kecak"],
+          note:"<b>Mañana de complejo, tarde de cultura:</b> Uluwatu queda a unos 30 min de Jimbaran, así que la salida es a las 15:30. La cena de despedida en Jimbaran pasa a este día, de camino a casa.",
+          items:[{h:"08:30", t:"Desayuno en el complejo", d:"El precio de la habitación es solo alojamiento; precio del desayuno pendiente. En RIMBA, el plan con desayuno costó IDR 840.000 más por habitación y noche en la consulta de septiembre", idr:70000, k:"comida", pend:1},
+            {h:"10:00", t:"Piscinas y Kubu Beach", d:"Los huéspedes de cualquier hotel de AYANA pueden usar las piscinas de los cuatro hoteles. Reglas de acceso a Kubu Beach: pendiente de confirmar"},
+            {h:"12:30", t:"Almuerzo en el complejo", d:"Precios sin publicar: se usa la estimación del plan", idr:170000, k:"comida", pend:1},
+            {h:"15:30", t:"Salida hacia Uluwatu con chofer", d:"~30 min desde Jimbaran", idr:100000, taxi:133000, k:"transporte", leg:"Jimbaran → Uluwatu → Jimbaran"},
+            P(8,"Templo de Uluwatu"), P(8,"Danza Kecak"),
+            Object.assign(P(9,"Cena de despedida"), {h:"19:45", t:"Mariscos a la parrilla en Jimbaran", d:"De camino de vuelta, con las mesas sobre la arena. Reservar mesa con antelación"})]});
+        out[9] = dayWith(9, {title:"Día completo en AYANA, sin excursiones", base:"Base: AYANA Bali", stay:"ay", stamp:"wave", kanji:"Pantai", photos:["jimbaran"],
+          note:"<b>Día de complejo completo:</b> sin traslados ni salidas. Rock Bar y Kampoeng Bali son opcionales y sus precios no están publicados.",
+          items:[{h:"08:30", t:"Desayuno en el complejo", d:"Precio pendiente: se usa la estimación del plan", idr:70000, k:"comida", pend:1},
+            {h:"09:30", t:"AYANA Farm y SAKA Museum", d:"La página de las habitaciones los lista como experiencias en el complejo sin costo. La granja abre de 9:00 a 18:00. Confirmar al reservar"},
+            {h:"11:30", t:"Piscinas, Kubu Beach y yoga aéreo", d:"El yoga aéreo figura a las 8:30; el costo está pendiente. Se puede cambiar por la talasoterapia o el spa, también pendientes", o:1, pend:1},
+            {h:"13:00", t:"Almuerzo", d:"Precio pendiente: se usa la estimación del plan", idr:170000, k:"comida", pend:1},
+            {h:"17:15", t:"Atardecer en Rock Bar", d:"La web de la habitación da acceso prioritario a Rock Bar a los huéspedes. El consumo mínimo y la reserva están pendientes de confirmar", o:1, pend:1},
+            {h:"19:30", t:"Cena en el complejo", d:"Precio pendiente: se usa la estimación del plan", idr:150000, k:"comida", pend:1},
+            {h:"20:00", t:"Kampoeng Bali Dinner & Show", d:"Cena y danza tradicional, como alternativa a la cena. Precio, día y reserva: pendientes", o:1, pend:1}]});
+        out[10] = dayWith(10, {items:[{h:"Mañana", t:"AYANA Bali → aeropuerto con valijas", d:"~25–30 min. Salir 4 h antes del vuelo internacional. En RIMBA el check-out figura a las 12:00; el uso de instalaciones después: pendiente de confirmar", idr:45000, taxi:67000, k:"transporte", leg:"Jimbaran → aeropuerto"}].concat(DAYS[10].items.slice(1))});
+      }
+    }
+    if (sc === "D") {
+      out[1] = dayWith(1, {title:"Llegada a Bali y primera noche en The Samaya", base:"Base: The Samaya Ubud (Sayan)", stay:"sam",
+        items:[P(1,"Aterrizaje"), Object.assign(P(1,"Aeropuerto"), {t:"Aeropuerto → The Samaya (Sayan) con valijas", d:"~1 h 30 min en van privada de 6 plazas, unos minutos más que a Ubud centro. Llegada de tarde: no se programa nada más"}),
+          {h:"Noche", t:"Check-in en la villa", d:"Horario de check-in pendiente de confirmar. Bienvenida con bebida y mayordomo de 24 h, según la web"},
+          {h:"Noche", t:"Cena en Swept Away, junto al río", d:"Abre de 17:30 a 22:00. Precios sin publicar: se usa la estimación del plan", idr:120000, k:"comida", pend:1}]});
+      out[2] = dayWith(2, {title:"The Samaya: caminata, villa y Tirta Empul", base:"Base: The Samaya Ubud", stay:"sam", stamp:"terrace", kanji:"Sayan", photos:["tirtaempul","tegallalang"],
+        note:"<b>Mañana de villa, tarde de templo:</b> la caminata sale del lobby del hotel. Campuhan, las cascadas de Tegenungan y Kanto Lampo quedan fuera para liberar el día; Tirta Empul y Tegallalang pasan del día 3 al día 2.",
+        items:[{h:"07:30", t:"Desayuno en el hotel", d:"Incluido en las tarifas consultadas (desayuno diario)", cov:1},
+          {h:"08:00", t:"Caminata matutina por el pueblo y los arrozales", d:"Gratuita, con personal del hotel, de 1,5 a 2 h, desde el lobby. Sujeta a confirmación al llegar"},
+          {h:"10:30", t:"Piscina privada y descanso", d:"Cada villa tiene su piscina"},
+          {h:"12:30", t:"Almuerzo en Swept Away", d:"Abre de 11:00 a 16:00 junto al río. Precios sin publicar: se usa la estimación del plan", idr:100000, k:"comida", pend:1},
+          P(3,"Tirta Empul"), P(3,"Terrazas de arroz"), P(3,"Columpio"),
+          {h:"19:30", t:"Cena en Swept Away", d:"Precio pendiente: se usa la estimación del plan", idr:130000, k:"comida", pend:1},
+          {h:"Día", t:"Chofer privado de la tarde (van para 6)", d:"Medio día: 14:00 a 18:30", idr:100000, taxi:133000, k:"transporte", leg:"Ubud: Tirta Empul y Tegallalang"}]});
+      out[3] = dayWith(3, {title:"Amanecer en el Batur y tarde libre en la villa", base:"Base: The Samaya Ubud", stay:"sam", stamp:"mountain", kanji:"Batur", photos:["batur","ubud"],
+        note:"<b>Día largo al principio, tranquilo después:</b> tras el Batur se vuelve a la villa. Por la tarde hay clase de cocina opcional y salida corta a Ubud con el shuttle gratuito del hotel, según su horario.",
+        items:[P(3,"Salida hacia"), P(3,"Ascenso"), P(3,"Amanecer"),
+          {h:"09:30", t:"Regreso a la villa y desayuno", d:"El desayuno se sirve en la villa; hora de cierre pendiente de confirmar por si se llega tarde"},
+          {h:"11:00", t:"Piscina privada y descanso", d:"Siesta después del amanecer"},
+          {h:"14:00", t:"Clase de cocina balinesa", d:"Se reserva con el mayordomo, según el calendario del hotel. Costo y duración: pendientes", o:1, pend:1},
+          {h:"17:00", t:"Palacio de Ubud y Sacred Monkey Forest", d:"Con el shuttle gratuito a Ubud centro, según el horario del hotel (confirmar)", idr:130000, k:"entradas"},
+          P(2,"Danza Legong"),
+          {h:"20:00", t:"Cena en Ubud o en la villa", d:"En Ubud centro o servicio a la villa, a elección", idr:130000, k:"comida"}]});
+      out[4] = dayWith(4, {title:"Este de Bali: la Puerta del Cielo y Tirta Gangga", base:"Base: The Samaya Ubud", stay:"sam",
+        note:"<b>Salir a las 05:30:</b> es el único día completo de excursión en la estancia. Tukad Cepung queda fuera; se vuelve a la villa antes de la cena para la piscina y el atardecer. El efecto del lago en la foto lo hace una persona del templo con un espejo o un teléfono.",
+        items:[P(4,"Salida"), P(4,"Pura Lempuyang"), P(4,"Tirta Gangga"), P(4,"Almuerzo"),
+          {h:"18:00", t:"Cena en Swept Away", d:"Precio pendiente: se usa la estimación del plan", idr:130000, k:"comida", pend:1}, P(4,"Chofer")]});
+      out[5] = dayWith(5, {items:[Object.assign(P(5,"Check-out"), {d:"Hora de check-out pendiente de confirmar; el chofer carga todo en la van"})].concat(DAYS[5].items.slice(1))});
+    }
+    return out;
+  }
+  function daysFor(sc){ if (!SD[sc]) SD[sc] = buildScen(sc); return SD[sc]; }
+
+  /* ----- rutas de los mapas por escenario ----- */
+  function routesFor(sc){
+    var U = sc === "D" ? "sam" : "ub", W = sc === "B" ? "gm" : sc === "C" ? "ay" : "ul";
+    var ub = sc === "D"
+      ? [{d:"1", seq:["dps","villa:sam"]},{d:"2", seq:["villa:sam","tirtaempul","tegallalang","villa:sam"]},{d:"3", seq:["villa:sam","batur","villa:sam","palace","monkey","villa:sam"]}]
+      : [{d:"1", seq:["dps","villa:ub"]},{d:"2", seq:["villa:ub","campuhan","monkey","palace","kanto","tegenungan","villa:ub"]},{d:"3", seq:["villa:ub","batur","tirtaempul","tegallalang","villa:ub"]}];
+    var ul = sc === "B" ? [{d:"7", seq:["sanur","villa:gm"]},{d:"8", seq:["villa:gm","ulutemple","villa:gm"]}]
+      : sc === "C" ? [{d:"7", seq:["sanur","villa:ay"]},{d:"8", seq:["villa:ay","ulutemple","jimbaran","villa:ay"]}]
+      : [{d:"7", seq:["sanur","villa:ul"]},{d:"8", seq:["villa:ul","padang","singlefin","ulutemple","villa:ul"]},{d:"9", seq:["villa:ul","melasti","jimbaran","villa:ul"]}];
+    return {
+      ruta:[{d:"Ruta", seq:["dps","ubud","cg","sanur","penida", W,"dps"]}],
+      ubud:ub, este:[{d:"4", seq:["villa:" + U,"lempuyang","tirtagangga"].concat(sc === "D" ? [] : ["tukad"]).concat(["villa:" + U])}],
+      oeste:[{d:"5", seq:["villa:" + U,"jatiluwih","tanahlot","villa:cg"]}],
+      penida:ROUTES.penida, uluwatu:ul
+    };
+  }
+
+  /* ----- cotización de cada hotel con las opciones elegidas ----- */
+  function samEff(){ return (samOpt === "br3" && SAMQ.br3[mon] == null) ? "br1" : samOpt; }
+  function hq(key, opt){
+    var m = mon;
+    if (key === "gm") {
+      var li = opt == null ? lvl : opt, per = GMQ.ref[m][li];
+      return {idr:per * 3, rooms:"3 habitaciones dobles, " + GMQ.cats[li], plan:"Todo incluido (Gold All Inclusive), tarifa reembolsable", note:"Total del motor oficial; impuestos y cargo de servicio: a confirmar si están incluidos", dates:GMQ.dates[m], tax:"a confirmar"};
+    }
+    if (key === "ay") {
+      var a = AYQ[opt || ayOpt], base = a.night[m] * 3 * 3;
+      return {idr:base * (1 + TAXAY), base:base, rooms:"3 habitaciones dobles, " + a.name + " · " + a.room, plan:"Solo alojamiento, tarifa pública con cancelación gratuita", note:"El sitio indica que el total excluye impuestos y cargos; se suma 21% como estimación", dates:GMQ.dates[m], tax:"estimado 21%"};
+    }
+    var eff = opt ? ((opt === "br3" && SAMQ.br3[m] == null) ? "br1" : opt) : samEff();
+    return {idr:eff === "br3" ? SAMQ.br3[m] : SAMQ.br1[m] * 3, rooms:eff === "br3" ? "1 villa de 3 dormitorios con piscina privada (3 camas king, 6 adultos)" : "3 villas Hillside de 1 dormitorio, con piscina privada cada una", plan:"Desayuno diario incluido; tarifa Best Available Rate, cancelable", note:"Total del motor oficial, con 21% de impuestos y cargo de servicio incluidos", dates:SAMQ.dates[m], tax:"incluidos"};
+  }
+  function hotelNightPP(key){ return hq(key).idr / RATE / HOT[key].nights / 6; }
   var WD = ["dom","lun","mar","mié","jue","vie","sáb"], MO = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
   function fmt(n){ return "$" + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
   function ifmt(n){ return "Rp " + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
@@ -724,7 +1000,7 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
   function iso(d){ return d.toISOString().slice(0,10); }
   function flightTotal(){ return MONTHS[mon].flight.v + VISAS; }
   function villaNight(stay){ return STAYS[stay].list[lvl].m[mon]; }
-  function nightPP(stay){ return villaNight(stay) / 6; }
+  function nightPP(stay){ return HOT[stay] ? hotelNightPP(stay) : villaNight(stay) / 6; }
   function active(it){ return !it.months || it.months.indexOf(mon) > -1; }
 
   var S = 'fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"';
@@ -751,24 +1027,30 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
   }
   function flightLabel(m){ return "consultado 11 nov · 1 adulto"; }
   function chip(it){
+    if (it.cov) return '<span class="chip v">incluido en el paquete</span>' + (it.pend ? ' <span class="chip o">a confirmar</span>' : '');
+    if (it.pend && !it.idr) return (it.o ? '<span class="chip o">opcional</span> ' : '') + '<span class="chip o">pendiente de cotizar</span>';
+    if (it.pend && it.o) return '<span class="chip o">opcional</span> <span class="chip e">estimado</span>';
     if (it.o) return '<span class="chip o">opcional</span>';
     if (it.flight) return '<span class="chip e">' + flightLabel(mon) + '</span>';
     if (!it.idr) return '';
     return '<span class="chip e">estimado</span>';
   }
 
-  var mon = "sep", lvl = 1, withOpt = false, mode = "chofer", saved = 0, mapDay = {};
-  try { var st = JSON.parse(localStorage.getItem("bl27c") || "null"); if (st) { mon = MONTHS[st.mon] ? st.mon : mon; lvl = st.lvl == null ? lvl : st.lvl; withOpt = !!st.opt; mode = st.mode || mode; } } catch(e){}
+  var mon = "sep", lvl = 1, withOpt = false, mode = "chofer", saved = 0, mapDay = {}, scen = "A", ayOpt = "rimba", samOpt = "br3";
+  try { var st = JSON.parse(localStorage.getItem("bl27c") || "null"); if (st) { mon = MONTHS[st.mon] ? st.mon : mon; lvl = st.lvl == null ? lvl : st.lvl; withOpt = !!st.opt; mode = st.mode || mode; scen = SCEN[st.scen] ? st.scen : scen; ayOpt = AYQ[st.ay] ? st.ay : ayOpt; samOpt = (st.sam === "br1" || st.sam === "br3") ? st.sam : samOpt; } } catch(e){}
   document.getElementById("mode-" + mode).checked = true;
   document.getElementById("mon-"+mon).checked = true;
   document.getElementById("lvl-"+lvl).checked = true;
   document.getElementById("opt").checked = withOpt;
+  document.getElementById("scen-" + scen).checked = true;
+  document.getElementById("ay-" + ayOpt).checked = true;
+  document.getElementById("sam-" + samOpt).checked = true;
 
   function amountOf(it){ if (it.flight) return flightTotal(); if (mode === "app" && it.taxi != null) return it.taxi / RATE; return (it.idr || 0) / RATE; }
-  function costs(m){
-    var save = mon; mon = m;
+  function costs(m, sc){
+    var save = mon, saveS = scen; mon = m; if (sc) scen = sc;
     var cats = {vuelo:flightTotal(),transporte:0,entradas:0,comida:0,hotel:0,extras:0}, opt = 0, pre = 0;
-    DAYS.forEach(function(d){
+    daysFor(scen).forEach(function(d){
       d.items.forEach(function(it){
         if (it.flight || !active(it)) return;
         var a = amountOf(it);
@@ -783,7 +1065,7 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
     var fixedExtras = 0, pctExtra = 0;
     EXTRAS.forEach(function(e){ if (e.usd) fixedExtras += e.usd; else pctExtra += e.pct * (base - cats.hotel); });
     cats.extras = fixedExtras + pctExtra;
-    mon = save;
+    mon = save; scen = saveS;
     return {cats:cats, opt:opt, local:base, total:base + cats.vuelo + cats.extras, pre:pre, pctExtra:pctExtra, cash: base - cats.hotel - pre};
   }
 
@@ -798,11 +1080,11 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
       {key:"uluwatu", title:"Uluwatu y Jimbaran", col:"--uluwatu", stays:["ul"]}
     ];
     defs.forEach(function(df){
-      var m = M[df.key], pins = "", leg = "", n = 0, bnbLeg = "";
+      var m = M[df.key], pins = "", leg = "", n = 0, bnbLeg = "", Uid = scen === "D" ? "villa:sam" : "villa:ub", Wid = scen === "B" ? "gm" : scen === "C" ? "ay" : "ul";
       var byId = {};
       m.pts.forEach(function(p){ byId[p.id] = p; });
       function pt(id){ return byId[id]; }
-      var routes = ROUTES[df.key], sel = mapDay[df.key] || "all";
+      var routes = routesFor(scen)[df.key], sel = mapDay[df.key] || "all";
       var shown = routes.filter(function(r){ return sel === "all" || r.d === sel; });
       var onRoute = {};
       shown.forEach(function(r){ r.seq.forEach(function(id){ var p = pt(id); if (p) onRoute[p.label] = 1; }); });
@@ -813,7 +1095,13 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
         return '<polyline points="' + ptsStr + '" fill="none" style="stroke:var(' + df.col + ')" stroke-width="' + (sel === "all" ? 3 : 5) + '" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="' + dash + '" opacity="' + (sel === "all" ? 0.75 : 0.95) + '" marker-mid="url(#ar-' + df.key + ')" marker-end="url(#ar-' + df.key + ')"/>';
       }).join("");
       var svg = '<svg class="route" viewBox="0 0 ' + m.w + ' ' + m.h + '" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="ar-' + df.key + '" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M1 1 L9 5 L1 9 Z" style="fill:var(' + df.col + ')"/></marker></defs>' + lines + '</svg>';
+      var usedAll = {};
+      routes.forEach(function(r){ r.seq.forEach(function(id){ usedAll[id] = 1; }); });
       m.pts.forEach(function(p){
+        if (p.k === "h") return;
+        if (df.key !== "ruta" && p.k !== "b" && !usedAll[p.id]) return;
+        if (df.key === "ruta" && ["ul","gm","ay"].indexOf(p.id) > -1 && p.id !== Wid) return;
+        if (p.k === "b" && ((p.id === "villa:ub" || p.id === "villa:sam") ? p.id !== Uid : (p.id === "villa:ul" || p.id === "villa:gm" || p.id === "villa:ay") ? p.id !== "villa:" + Wid : false)) return;
         var pos = 'left:' + p.x + '%;top:' + p.y + '%';
         var dim = sel !== "all" && !onRoute[p.label] ? " dim" : "";
         if (df.key === "ruta") {
@@ -835,21 +1123,45 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
           routes.map(function(r){ return '<button type="button" data-map="' + df.key + '" data-day="' + r.d + '" aria-pressed="' + (sel === r.d) + '">Día ' + r.d + '</button>'; }).join("") + '</div>';
         if (sel !== "all") {
           var r = routes.filter(function(x){ return x.d === sel; })[0];
-          chips += '<p class="routetxt">' + r.seq.map(function(id){ var p = pt(id); return p ? (p.k === "b" ? "Villa" : p.label) : ""; }).join(" → ") + '</p>';
+          chips += '<p class="routetxt">' + r.seq.map(function(id){ var p = pt(id); return p ? (p.id === "villa:ub" || p.id === "villa:ul" || p.id === "villa:cg" || p.id === "villa:np" ? "Villa" : p.label) : ""; }).join(" → ") + '</p>';
         }
       }
       html += '<figure class="map' + (df.wide ? ' wide' : '') + '"><div class="map-frame"><img src="img/maps/' + df.key + '.jpg" width="' + m.w + '" height="' + m.h + '" alt="Mapa de ' + df.title + '">' + svg + pins + '</div>'
-        + (df.wide ? '' : '<div class="map-legend"><h3>' + df.title + '</h3>' + chips + '<ol>' + leg + (bnbLeg ? '<li class="sub">Villa</li>' + bnbLeg : '') + '</ol></div>')
+        + (df.wide ? '' : '<div class="map-legend"><h3>' + df.title + '</h3>' + chips + '<ol>' + leg + (bnbLeg ? '<li class="sub">Alojamiento</li>' + bnbLeg : '') + '</ol></div>')
         + '<figcaption class="attrib">© colaboradores de OpenStreetMap · posiciones aproximadas</figcaption></figure>';
     });
     document.getElementById("maps").innerHTML = html;
   }
 
   var AREAQ = {ub:"Ubud", cg:"Canggu", np:"Nusa-Penida", ul:"Uluwatu"};
+  function usd(idr){ return idr / RATE; }
+  function hotelCards(key){
+    var cards = [];
+    if (key === "gm") { for (var i = 0; i < 3; i++) cards.push({sel:i === lvl, tag:LV[i], title:GMQ.cats[i], opt:i, sub:"Habitación doble, 42 m², cama king o dos individuales, en el edificio principal"}); }
+    if (key === "ay") { ["rimba","resort"].forEach(function(o){ cards.push({sel:o === ayOpt, tag:AYQ[o].name, title:AYQ[o].name + " · Resort View Room", opt:o, sub:AYQ[o].room + (AYQ[o].bf ? ". Con desayuno: +IDR " + String(AYQ[o].bf).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " por habitación y noche (consulta de sep)" : ". Régimen con desayuno: pendiente de cotizar")}); }); }
+    if (key === "sam") { [["br3","Villa de 3 dormitorios"],["br1","3 villas Hillside de 1 dormitorio"]].forEach(function(o){ cards.push({sel:o[0] === samEff(), tag:o[0] === "br3" ? "3 dormitorios" : "1 + 1 + 1", title:o[1], opt:o[0], sub:o[0] === "br3" ? "700 m², tres dormitorios con cama king y piscina privada; capacidad 6 adultos" : "392 m² cada una, cama king, piscina de largo privada; una por pareja. Disponibilidad de tres iguales: a confirmar"}); }); }
+    return cards;
+  }
+  function hotelBlock(key, k, ci, co){
+    var H = HOT[key], html = '<div class="stay-block" style="--c:var(' + H.col + ')"><div class="stay-head"><h3><span>' + H.short + '</span>' + H.area + '</h3>'
+      + '<span class="mkt">' + H.nights + ' noches, ' + dl(ci, true) + ' al ' + dl(co, true) + ' · reemplaza a ' + STAYKEYS[k] + '</span></div><div class="bnbs">';
+    hotelCards(key).forEach(function(c){
+      var q = hq(key, c.opt), unavail = key === "sam" && c.opt === "br3" && SAMQ.br3[mon] == null;
+      html += '<article class="bnb-card nophoto' + (c.sel ? ' sel' : '') + '"><span class="bnb-lvl">' + c.tag + '</span><div class="bnb-body">'
+        + '<div class="bnb-title">' + c.title + '</div><div class="bnb-sub">' + c.sub + '</div>'
+        + '<div class="bnb-meta"><span>' + q.rooms + '</span></div>';
+      if (unavail) html += '<div class="bnb-price"><b>sin disponibilidad</b><small>La consulta del ' + SAMQ.dates[mon] + ' no mostró la villa de 3 dormitorios; se cotizan tres villas de 1 dormitorio</small></div>';
+      else html += '<div class="bnb-price"><b>' + fmt(usd(q.idr)) + '</b><small>total grupo, ' + H.nights + ' noches · ' + fmt(usd(q.idr) / 3) + ' por pareja · ' + fmt(usd(q.idr) / 6) + ' por persona · IDR ' + String(Math.round(q.idr)).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + '</small><span class="chip v">fuente oficial · consultado 11 nov</span></div>'
+        + '<div class="bnb-sub">' + q.plan + '. Impuestos y cargos: ' + q.tax + '. ' + q.note + '.</div>';
+      html += '<a class="bnb-link" href="' + H.url + '" target="_blank" rel="noopener">Sitio oficial ' + H.host + ' ↗</a></div></article>';
+    });
+    return html + '</div></div>';
+  }
   function renderStays(){
-    var html = "";
+    var html = "", rep = SCEN[scen].hotel ? SCEN[scen].blk : null;
     ["ub","cg","np","ul"].forEach(function(k){
       var P = STAYS[k], a = STAYNIGHTS[k], ci = dt(a[0] + 1), co = dt(a[1] + 1);
+      if (rep === k) { html += hotelBlock(SCEN[scen].hotel, k, ci, co); return; }
       var url = "https://www.airbnb.com/s/" + AREAQ[k] + "--Bali--Indonesia/homes?checkin=" + iso(ci) + "&checkout=" + iso(co) + "&adults=6&min_bedrooms=3&room_types%5B%5D=Entire%20home%2Fapt";
       html += '<div class="stay-block" style="--c:var('+STAYCOL[k]+')"><div class="stay-head"><h3><span>'+STAYKEYS[k]+'</span>'+STAYSUB[k]+'</h3>'
         + '<span class="mkt">'+P.nights+(P.nights===1?' noche, ':' noches, ')+dl(ci,true)+' al '+dl(co,true)+' · zona: '+P.area+'</span></div><div class="bnbs">';
@@ -868,7 +1180,7 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
 
   function renderDays(){
     var html = "";
-    DAYS.forEach(function(d, idx){
+    daysFor(scen).forEach(function(d, idx){
       var total = 0, rows = "";
       d.items.forEach(function(original){
         var it = Object.assign({}, original);
@@ -892,9 +1204,10 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
       });
       var stayHtml = '<span class="stay">Sin hospedaje esta noche</span>';
       if (d.stay) {
-        var b = STAYS[d.stay].list[lvl], night = nightPP(d.stay);
+        var night = nightPP(d.stay);
         total += night;
-        stayHtml = '<span class="stay">Noche: <b>' + b.title + '</b> · Bali, ' + STAYKEYS[d.stay] + ' · ' + fmt(night) + ' por persona <span class="chip v">consultado 11 nov</span></span>';
+        if (HOT[d.stay]) stayHtml = '<span class="stay">Noche: <b>' + HOT[d.stay].name + '</b> · ' + HOT[d.stay].area + ' · ' + fmt(night) + ' por persona <span class="chip v">fuente oficial · consultado 11 nov</span></span>';
+        else { var b = STAYS[d.stay].list[lvl]; stayHtml = '<span class="stay">Noche: <b>' + b.title + '</b> · Bali, ' + STAYKEYS[d.stay] + ' · ' + fmt(night) + ' por persona <span class="chip v">consultado 11 nov</span></span>'; }
       }
       var date = idx === 0 ? dl(dt(0), true) + " – " + dl(dt(2), true) : dl(dt(idx + 1), true);
       var note = d.note && (!d.noteMonths || d.noteMonths.indexOf(mon) > -1) ? '<div class="note">' + d.note + '</div>' : '';
@@ -910,7 +1223,7 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
 
   function renderMoves(){
     var rows = "", tr = 0, tx = 0;
-    DAYS.forEach(function(d){ d.items.forEach(function(it){
+    daysFor(scen).forEach(function(d){ d.items.forEach(function(it){
       if (it.taxi == null) return;
       var a = (it.idr || 0) / RATE, b = it.taxi / RATE; tr += a; tx += b;
       rows += '<tr><td>Día ' + d.n + '</td><td>' + it.leg + '</td><td class="' + (mode === "chofer" ? 'cur' : '') + '">' + fmt(a) + '</td><td class="' + (mode === "app" ? 'cur' : '') + '">' + fmt(b) + '</td></tr>';
@@ -930,7 +1243,7 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
     var ms = [
       {i:3, t:"Vuelos Quito–Denpasar (comprar 5 a 6 meses antes)", a:flight},
       {i:n-3, t:"e-VOA y tasa turística de Bali", a:VISAS},
-      {i:n-2, t:"Villas en Airbnb", a:c.cats.hotel},
+      {i:n-2, t:SCEN[scen].hotel ? "Alojamiento (villas y " + HOT[SCEN[scen].hotel].short + ")" : "Villas en Airbnb", a:c.cats.hotel},
       {i:n-2, t:"Reservas con fecha (Batur, lancha, Kecak)", a:c.pre},
       {i:n-1, t:"Seguro y eSIM", a:EXTRAS[0].usd + EXTRAS[1].usd},
       {i:n-1, t:"Efectivo para Bali, comisiones e imprevistos (10%)", a:c.cash + c.pctExtra + EXTRAS[2].usd + imprev}
@@ -963,12 +1276,12 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
     document.getElementById("t-pp").textContent = fmt(c.total);
     document.getElementById("t-grp").textContent = "Grupo de 6: " + fmt(c.total * 6);
     document.getElementById("t-split").textContent = "Vuelo, e-VOA y tasa " + fmt(c.cats.vuelo) + " · en Bali " + fmt(c.local) + " · extras " + fmt(c.cats.extras);
+    document.getElementById("t-scen").textContent = "Escenario " + SCEN[scen].short + (PENDING[scen].length ? " · total parcial, con conceptos por cotizar" : " · estimado");
     document.getElementById("m-dep").textContent = dl(dt(0), true) + " " + M.start[0];
     document.getElementById("m-jp").textContent = dl(dt(2), false) + " al " + dl(dt(11), false);
     document.getElementById("m-ret").textContent = dl(dt(12), true);
     document.getElementById("month-note").innerHTML = M.note;
-    var ln = [[2,6,"4 noches"],[6,7,"1 noche"],[7,8,"1 noche"],[8,11,"3 noches"]];
-    ln.forEach(function(x, i){ document.getElementById("ln-" + i).textContent = x[2] + " · " + dt(x[0]).getUTCDate() + "–" + dl(dt(x[1]), false); });
+    renderLine();
 
     var sum = '<thead><tr><th>Rubro</th><th>Por persona</th><th>Grupo de 6</th><th>% del total</th></tr></thead><tbody>';
     ["vuelo","hotel","entradas","comida","transporte","extras"].forEach(function(k){
@@ -978,14 +1291,14 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
     sum += '<tr><td>Opcionales ' + (withOpt ? '(incluidos)' : '(no incluidos)') + '</td><td>' + fmt(c.opt) + '</td><td>' + fmt(c.opt * 6) + '</td><td></td></tr>';
     sum += '<tr><td>Fondo sugerido para imprevistos (10%)</td><td>' + fmt(c.total * 0.1) + '</td><td>' + fmt(c.total * 0.6) + '</td><td></td></tr></tbody>';
     document.getElementById("sum").innerHTML = sum;
-    document.getElementById("sum-sub").textContent = M.name + " · villas de nivel " + LV[lvl].toLowerCase() + " · traslados " + (mode === "app" ? "con 2 autos de app" : "con chofer y van") + " · " + (withOpt ? "con" : "sin") + " opcionales.";
+    document.getElementById("sum-sub").textContent = SCEN[scen].name + " · " + M.name + " · " + (SCEN[scen].hotel ? (scen === "B" ? "habitaciones " + GMQ.cats[lvl] + " · " : scen === "C" ? AYQ[ayOpt].name + " · " : (samEff() === "br3" ? "villa de 3 dormitorios · " : "3 villas de 1 dormitorio · ")) : "") + "villas de nivel " + LV[lvl].toLowerCase() + (SCEN[scen].hotel ? " en las demás noches" : "") + " · traslados " + (mode === "app" ? "con 2 autos de app" : "con chofer y van") + " · " + (withOpt ? "con" : "sin") + " opcionales.";
 
-    var ms = ["jul","ago","sep"], cs = ms.map(costs);
+    var ms = ["jul","ago","sep"], cs = ms.map(function(m){ return costs(m); });
     function td(m, inner){ return '<td class="' + (m === mon ? 'cur' : '') + '">' + inner + '</td>'; }
     var t = '<thead><tr><th>Por persona</th>' + ms.map(function(m){ return '<th class="' + (m === mon ? 'cur' : '') + '">' + MONTHS[m].name + '</th>'; }).join("") + '</tr></thead><tbody>';
     t += '<tr><td>Vuelo ida y vuelta</td>' + ms.map(function(m){ var f = MONTHS[m].flight; return td(m, fmt(f.v) + '<small>' + flightLabel(m) + '</small>'); }).join("") + '</tr>';
     t += '<tr><td>e-VOA y tasa turística</td>' + ms.map(function(m){ return td(m, fmt(VISAS)); }).join("") + '</tr>';
-    t += '<tr><td>Villas nivel ' + LV[lvl].toLowerCase() + ', 9 noches</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.cats.hotel) + '<small>Airbnb · consulta 11 nov</small>'); }).join("") + '</tr>';
+    t += '<tr><td>Alojamiento, 9 noches (' + SCEN[scen].short + ')</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.cats.hotel) + '<small>' + (SCEN[scen].hotel ? 'Airbnb y hotel · consulta 11 nov' : 'Airbnb · consulta 11 nov') + '</small>'); }).join("") + '</tr>';
     t += '<tr><td>Chofer, lanchas, entradas y comida</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.local - c.cats.hotel)); }).join("") + '</tr>';
     t += '<tr><td>Extras (seguro, eSIM, propinas y comisiones)</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.cats.extras)); }).join("") + '</tr>';
     t += '<tr class="tot"><td>Total por persona</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.total)); }).join("") + '</tr>';
@@ -994,12 +1307,74 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
     document.getElementById("months").innerHTML = t;
   }
 
+
+  function renderLine(){
+    var S = SCEN[scen], lat = {ub:"Arrozales y templos", cg:"Tanah Lot", np:"Nusa Penida", ul:"Kecak y playas"};
+    var its = [["ub",4,2,6],["cg",1,6,7],["np",1,7,8],["ul",3,8,11]];
+    document.getElementById("line").innerHTML = its.map(function(x){
+      var h = S.hotel && S.blk === x[0] ? HOT[S.hotel] : null;
+      var nm = h ? h.short : STAYKEYS[x[0]], lt = h ? (S.hotel === "gm" ? "Todo incluido" : S.hotel === "ay" ? "Jimbaran, Rock Bar" : "Sayan, río Ayung") : lat[x[0]];
+      return '<li style="--c:var(' + (h ? h.col : STAYCOL[x[0]]) + ')"><span class="st">' + nm + '</span><span class="lat">' + lt + '</span><span class="n">' + x[1] + (x[1] === 1 ? " noche" : " noches") + ' · ' + dt(x[2]).getUTCDate() + "–" + dl(dt(x[3]), false) + '</span></li>';
+    }).join("");
+  }
+  function baseLabel(sc, n){
+    var d = daysFor(sc)[n], k = d.stay;
+    return HOT[k] ? HOT[k].short : STAYKEYS[k];
+  }
+  function renderScen(){
+    var S = SCEN[scen], c = costs(mon), pend = PENDING[scen];
+    var h = '<h3>' + S.name + '</h3><p>' + S.desc + '</p>';
+    if (S.hotel) { var q = hq(S.hotel); h += '<p class="fine" style="max-width:none"><b>Cotizado:</b> ' + q.rooms + ' · ' + q.plan + ' · ' + q.dates + ' de 2027 · ' + fmt(usd(q.idr)) + ' el grupo (' + fmt(usd(q.idr) / 6) + ' por persona). Fuente oficial del hotel, consultada el 11 nov 2026, en IDR a Rp ' + String(RATE).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' por dólar.</p>'; }
+    if (pend.length) h += '<div class="warn"><b>Total parcial, no es un precio final.</b> Falta cotizar o confirmar: <ul>' + pend.map(function(x){ return '<li>' + x + '</li>'; }).join("") + '</ul></div>';
+    document.getElementById("scen-info").innerHTML = h;
+    var seg = document.getElementById("ctl-ay"), sg = document.getElementById("ctl-sam");
+    seg.hidden = scen !== "C"; sg.hidden = scen !== "D";
+    document.getElementById("lvl-hint").textContent = scen === "B" ? "En el escenario B, el nivel elige la categoría de habitación de Grand Mirage (Garden, Pool u Ocean View) y también las villas de las demás noches." : scen === "A" ? "" : "El nivel solo cambia las villas de las demás noches; AYANA y The Samaya se cotizan con una categoría concreta.";
+    var sr = document.getElementById("sam-3br-note"); if (sr) sr.textContent = (scen === "D" && samOpt === "br3" && SAMQ.br3[mon] == null) ? "La villa de 3 dormitorios no tuvo disponibilidad en la consulta de julio: se usan tres villas de 1 dormitorio." : "";
+  }
+  function renderNights(){
+    var rows = "";
+    for (var n = 1; n <= 9; n++) {
+      var a = baseLabel("A", n);
+      rows += '<tr><td>Día ' + n + '</td><td>' + dl(dt(n + 1), true) + '</td>' + ["A","B","C","D"].map(function(sc){ var b = baseLabel(sc, n); return '<td class="' + (sc === scen ? 'cur ' : '') + (b !== a ? 'chg' : '') + '">' + b + '</td>'; }).join("") + '</tr>';
+    }
+    document.getElementById("scen-nights").innerHTML = '<thead><tr><th>Noche</th><th>Fecha</th>' + ["A","B","C","D"].map(function(sc){ return '<th class="' + (sc === scen ? 'cur' : '') + '">' + SCEN[sc].short + '</th>'; }).join("") + '</tr></thead><tbody>' + rows + '<tr class="tot"><td colspan="2">Noches</td>' + ["A","B","C","D"].map(function(sc){ var h = SCEN[sc].hotel; return '<td class="' + (sc === scen ? 'cur' : '') + '">' + (h ? HOT[h].nights + ' en ' + HOT[h].short + ' + ' + (9 - HOT[h].nights) + ' en villas = 9' : '9 en villas') + '</td>'; }).join("") + '</tr></tbody>';
+  }
+  function renderCompare(){
+    var sc4 = ["A","B","C","D"], C = {}, base = costs(mon, "A");
+    sc4.forEach(function(sc){ C[sc] = costs(mon, sc); });
+    function row(label, fn, cls){ return '<tr class="' + (cls || '') + '"><th scope="row">' + label + '</th>' + sc4.map(function(sc){ return '<td class="' + (sc === scen ? 'cur' : '') + '">' + fn(sc) + '</td>'; }).join("") + '</tr>'; }
+    function blkIdr(sc){ var h = SCEN[sc].hotel; return h ? hq(h).idr : 0; }
+    function villaBlk(sc){ var S = SCEN[sc]; return S.hotel ? villaNight(S.blk) * STAYS[S.blk].nights : 0; }
+    function dash(sc, f){ return SCEN[sc].hotel ? f(sc) : '<span class="y">plan base</span>'; }
+    var t = '<thead><tr><th>Concepto</th>' + sc4.map(function(sc){ return '<th class="' + (sc === scen ? 'cur' : '') + '">' + SCEN[sc].short + '</th>'; }).join("") + '</tr></thead><tbody>';
+    t += row("Alojamiento y zona", function(sc){ var h = SCEN[sc].hotel; return h ? '<b>' + HOT[h].name + '</b><small>' + HOT[h].area + '</small>' : 'Villas de Airbnb en Ubud, Canggu, Nusa Penida y Uluwatu'; });
+    t += row("Tipo de experiencia", function(sc){ return {A:"Villas con piscina, autonomía y cocina propia; la ruta ordena el viaje", B:"Resort de playa familiar con todo incluido, río lento y espectáculos", C:"Complejo de 4 hoteles sobre el acantilado, con Rock Bar, spa y talasoterapia", D:"Villas privadas con mayordomo junto al río Ayung, en el corazón cultural"}[sc]; });
+    t += row("Habitaciones o villa para los seis", function(sc){ var h = SCEN[sc].hotel; return h ? hq(h).rooms : 'Villa de 3 habitaciones o más en cada zona'; });
+    t += row("Noches", function(sc){ var h = SCEN[sc].hotel; return h ? HOT[h].nights + ' en el hotel + ' + (9 - HOT[h].nights) + ' en villas' : '9 en 4 villas (4 + 1 + 1 + 3)'; });
+    t += row("Régimen alimenticio", function(sc){ return {A:"Sin comidas incluidas", B:"Todo incluido: desayuno, almuerzo, cena y bebidas por copa (en bares del resort)", C:"Solo alojamiento; desayuno con suplemento, sin precio publicado en el resort", D:"Desayuno diario incluido; el resto aparte"}[sc]; });
+    t += row("Actividades incluidas confirmadas", function(sc){ return {A:"—", B:"Piscinas y río lento, kayak, windsurf y catamarán (no motorizados), gimnasio, sala de juegos y karaoke, cenas temáticas con shows", C:"Uso de las piscinas de los cuatro hoteles; la página de la habitación lista Rock Bar (acceso prioritario), SAKA Museum y AYANA Farm como cortesías: confirmar", D:"Piscina privada, caminata matutina por el pueblo y los arrozales, ciclismo y yoga según horario, té de la tarde y shuttle a Ubud (según la tarifa)"}[sc]; });
+    t += row("Actividades con suplemento", function(sc){ return {A:"Las del plan: Batur, Kecak, lancha, columpios", B:"Thalasso Spa más allá del voucher de IDR 300.000; premium (langosta, wagyu) con 30% de descuento. Jet ski, banana boat y seawalker no entran en 3 noches", C:"Rock Bar (consumo), spa y talasoterapia, yoga aéreo, Kampoeng Bali Dinner & Show, comidas", D:"Spa (Touch of Balinese, 2 h: IDR 1.150.000 por persona o 2.100.000 por pareja, más impuestos), clase de cocina, cenas en Swept Away"}[sc]; });
+    t += row("Condiciones pendientes", function(sc){ return PENDING[sc].length ? '<ul class="tl">' + PENDING[sc].map(function(x){ return '<li>' + x + '</li>'; }).join("") + '</ul>' : 'Las generales del viaje'; });
+    t += row("Alojamiento del bloque, grupo de 6", function(sc){ return dash(sc, function(){ return '<b>' + fmt(usd(blkIdr(sc))) + '</b>'; }); });
+    t += row("Por pareja", function(sc){ return dash(sc, function(){ return fmt(usd(blkIdr(sc)) / 3); }); });
+    t += row("Por persona", function(sc){ return dash(sc, function(){ return fmt(usd(blkIdr(sc)) / 6); }); });
+    t += row("El mismo bloque en villas de Airbnb (nivel " + LV[lvl].toLowerCase() + ")", function(sc){ return dash(sc, function(){ return fmt(villaBlk(sc)); }); });
+    t += row("Diferencia de alojamiento frente al plan original", function(sc){ return dash(sc, function(){ var d = usd(blkIdr(sc)) - villaBlk(sc); return (d >= 0 ? "+" : "−") + fmt(Math.abs(d)) + ' el grupo'; }); });
+    t += row("Total del viaje por persona", function(sc){ return '<b>' + fmt(C[sc].total) + '</b>' + (PENDING[sc].length ? '<small>parcial: faltan conceptos</small>' : ''); }, "tot");
+    t += row("Total del viaje, grupo de 6", function(sc){ return fmt(C[sc].total * 6); });
+    t += row("Diferencia de todo el viaje frente al plan original", function(sc){ if (sc === "A") return '<span class="y">plan base</span>'; var d = (C[sc].total - base.total); return (d >= 0 ? "+" : "−") + fmt(Math.abs(d)) + ' por persona<small>' + (d >= 0 ? "+" : "−") + fmt(Math.abs(d) * 6) + ' el grupo; incluye las comidas que ya no se pagan aparte</small>'; });
+    document.getElementById("cmp").innerHTML = t + '</tbody>';
+    document.getElementById("cmp-sub").textContent = "Cifras para " + MONTHS[mon].name.toLowerCase() + ", categoría o nivel elegido arriba y la distribución de cada hotel que esté seleccionada. Las fechas de cada consulta están en la tabla de fuentes.";
+  }
+
   function renderCredits(){
     var html = "";
-    [DATA.credits, DATA.foodCredits].forEach(function(C, j){
+    var HOTPH = {gm:"Playa de Tanjung Benoa, frente a Grand Mirage (foto del autor, tomada en el resort)", ayana:"AYANA Resort Bali, Jimbaran", rockbar:"Rock Bar de AYANA, Jimbaran", ayung:"Valle del Ayung desde Sayan, Ubud (la zona de The Samaya; no es una foto del hotel)"};
+    [DATA.credits, DATA.foodCredits, DATA.hotelCredits].forEach(function(C, j){
       Object.keys(C).forEach(function(k){
         var c = C[k];
-        html += '<li>' + ((j === 0 ? PHOTOS[k] : FOODNAMES[k]) || k) + ': <a href="' + c.page + '" target="_blank" rel="noopener">' + (c.artist || "autor en Commons") + '</a>, ' + c.lic + '</li>';
+        html += '<li>' + ((j === 0 ? PHOTOS[k] : j === 1 ? FOODNAMES[k] : HOTPH[k]) || k) + ': <a href="' + c.page + '" target="_blank" rel="noopener">' + (c.artist || "autor en Commons") + '</a>, ' + c.lic + '</li>';
       });
     });
     document.getElementById("credits").innerHTML = html;
@@ -1008,12 +1383,12 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
   var voteDb = null, voteUser = null, voteUid = null, votes = {}, voteCanWrite = true;
   function choiceText(){
     var c = costs(mon), P = plan(mon), nm = (document.getElementById("vote-name").value || "").trim();
-    return "Bali 2027" + (nm ? " · " + nm : "") + ": viajo en " + MONTHS[mon].name.toLowerCase() + ", villas " + LV[lvl].toLowerCase() + ", traslados " + (mode === "app" ? "con apps" : "con chofer") + ", " + (withOpt ? "con" : "sin") + " opcionales. Total estimado " + fmt(c.total) + " por persona; ahorro " + fmt(P.ph1) + " al mes hasta febrero y " + fmt(P.ph2) + " después.";
+    return "Bali 2027" + (nm ? " · " + nm : "") + ": escenario " + SCEN[scen].short + ", viajo en " + MONTHS[mon].name.toLowerCase() + ", villas " + LV[lvl].toLowerCase() + ", traslados " + (mode === "app" ? "con apps" : "con chofer") + ", " + (withOpt ? "con" : "sin") + " opcionales. Total estimado " + fmt(c.total) + " por persona; ahorro " + fmt(P.ph1) + " al mes hasta febrero y " + fmt(P.ph2) + " después.";
   }
   function renderVoteMine(){
     var mine = document.getElementById("vote-mine");
     mine.textContent = "";
-    [["Mes", MONTHS[mon].name], ["Villas", LV[lvl]], ["Traslados", mode === "app" ? "Apps" : "Chofer"], ["Opcionales", withOpt ? "Sí" : "No"], ["Total por persona", fmt(costs(mon).total)]].forEach(function(r){
+    [["Escenario", SCEN[scen].short], ["Mes", MONTHS[mon].name], ["Villas", LV[lvl]], ["Traslados", mode === "app" ? "Apps" : "Chofer"], ["Opcionales", withOpt ? "Sí" : "No"], ["Total por persona", fmt(costs(mon).total)]].forEach(function(r){
       var d = document.createElement("div"); var a = document.createElement("span"); a.textContent = r[0]; var b = document.createElement("b"); b.textContent = r[1]; d.appendChild(a); d.appendChild(b); mine.appendChild(d);
     });
     var t = choiceText();
@@ -1023,7 +1398,7 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
   function renderVotes(){
     var ids = Object.keys(votes), tally = document.getElementById("vote-tally"), list = document.getElementById("vote-list");
     if (!ids.length) { tally.innerHTML = '<p class="vote-status">Todavía nadie guardó su voto en la página.</p>'; list.textContent = ""; return; }
-    var dims = [["mon","Mes",{jul:"Julio",ago:"Agosto",sep:"Septiembre"}],["lvl","Villas",{0:"Económico",1:"Medio",2:"Alto"}],["mode","Traslados",{chofer:"Chofer",app:"Apps"}]];
+    var dims = [["scen","Escenario",{A:"A · Villas",B:"B · Grand Mirage",C:"C · AYANA",D:"D · The Samaya"}],["mon","Mes",{jul:"Julio",ago:"Agosto",sep:"Septiembre"}],["lvl","Villas",{0:"Económico",1:"Medio",2:"Alto"}],["mode","Traslados",{chofer:"Chofer",app:"Apps"}]];
     var html = "";
     dims.forEach(function(dm){
       var counts = {}; Object.keys(dm[2]).forEach(function(k){ counts[k] = 0; });
@@ -1039,7 +1414,7 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
       ids.forEach(function(id){
         var v = votes[id], li = document.createElement("li");
         var nm = document.createElement("b"); nm.textContent = (ps && ps[id] && ps[id].name) || (id === voteUid ? "Vos" : "Alguien del grupo");
-        var tx = document.createElement("span"); tx.textContent = " " + (MONTHS[v.mon] ? MONTHS[v.mon].name : "") + " · " + (LV[v.lvl] || "") + " · " + (v.mode === "app" ? "apps" : "chofer") + " · " + (v.opt ? "con" : "sin") + " opcionales";
+        var tx = document.createElement("span"); tx.textContent = " " + (SCEN[v.scen] ? SCEN[v.scen].short + " · " : "") + (MONTHS[v.mon] ? MONTHS[v.mon].name : "") + " · " + (LV[v.lvl] || "") + " · " + (v.mode === "app" ? "apps" : "chofer") + " · " + (v.opt ? "con" : "sin") + " opcionales";
         li.appendChild(nm); li.appendChild(tx); list.appendChild(li);
       });
     };
@@ -1066,7 +1441,7 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
       if (!voteCanWrite) return;
       btn.disabled = true; st.textContent = "Guardando…";
       try {
-        await voteDb.collection("votes").doc(voteUid).set({mon:mon, lvl:lvl, mode:mode, opt:withOpt, at:Date.now()});
+        await voteDb.collection("votes").doc(voteUid).set({scen:scen, ay:ayOpt, sam:samOpt, mon:mon, lvl:lvl, mode:mode, opt:withOpt, at:Date.now()});
         st.textContent = "Listo, tu voto quedó guardado.";
       } catch(e) {
         if (e && e.code === "invalid_argument") { voteCanWrite = false; btn.hidden = true; st.textContent = "Tu acceso a esta página es de solo lectura, así que no podés guardar acá. Mandá tu elección por WhatsApp."; }
@@ -1083,8 +1458,12 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
     try { navigator.clipboard.writeText(ta.value).then(done, function(){ ta.focus(); ta.select(); }); } catch(e) { ta.focus(); ta.select(); }
   });
 
-  function render(){ renderTotals(); renderSavings(); renderMaps(); renderStays(); renderMoves(); renderDays(); renderVoteMine(); }
-  function save(){ try { localStorage.setItem("bl27c", JSON.stringify({mon:mon, lvl:lvl, opt:withOpt, mode:mode})); } catch(e){} }
+  function render(){ renderScen(); renderTotals(); renderSavings(); renderMaps(); renderStays(); renderMoves(); renderDays(); renderNights(); renderCompare(); renderVoteMine(); }
+  function save(){ try { localStorage.setItem("bl27c", JSON.stringify({mon:mon, lvl:lvl, opt:withOpt, mode:mode, scen:scen, ay:ayOpt, sam:samOpt})); } catch(e){} }
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="scen"]'), function(r){ r.addEventListener("change", function(){ scen = r.value; mapDay = {}; save(); render(); }); });
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="ay"]'), function(r){ r.addEventListener("change", function(){ ayOpt = r.value; save(); render(); }); });
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="sam"]'), function(r){ r.addEventListener("change", function(){ samOpt = r.value; save(); render(); }); });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-scen]'), function(b){ b.addEventListener("click", function(){ scen = b.getAttribute("data-scen"); document.getElementById("scen-" + scen).checked = true; mapDay = {}; save(); render(); document.getElementById("controles").scrollIntoView({behavior:"smooth", block:"start"}); }); });
   Array.prototype.forEach.call(document.querySelectorAll('input[name="lvl"]'), function(r){ r.addEventListener("change", function(){ lvl = +r.value; save(); render(); }); });
   Array.prototype.forEach.call(document.querySelectorAll('input[name="mon"]'), function(r){ r.addEventListener("change", function(){ mon = r.value; save(); render(); }); });
   Array.prototype.forEach.call(document.querySelectorAll('input[name="mode"]'), function(r){ r.addEventListener("change", function(){ mode = r.value; save(); render(); }); });
@@ -1099,7 +1478,18 @@ textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
     if (!isFinite(v) || v < 0) { savedErr.textContent = "Ingresá un monto en dólares mayor o igual a 0"; return; }
     savedErr.textContent = ""; saved = v; renderSavings();
   });
+  function renderHotelMap(){
+    var m = DATA.maps.ruta, pins = "", leg = "", n = 0;
+    m.pts.forEach(function(p){
+      if (p.k !== "h") return; n++;
+      var key = {"h-sam":"sam","h-gm":"gm","h-ay":"ay"}[p.id], col = HOT[key].col;
+      pins += '<span class="pin" style="left:' + p.x + '%;top:' + p.y + '%;--c:var(' + col + ')" aria-hidden="true">' + n + '</span>';
+      leg += '<li style="--c:var(' + col + ')"><span class="k">' + n + '</span><span>' + HOT[key].name + ', ' + HOT[key].area + '</span></li>';
+    });
+    document.getElementById("hotelmap").innerHTML = '<figure class="map wide"><div class="map-frame"><img src="img/maps/ruta.jpg" width="' + m.w + '" height="' + m.h + '" alt="Mapa con la ubicación de The Samaya Ubud, Grand Mirage y AYANA Bali">' + pins + '</div><div class="map-legend"><h3>Dónde queda cada hotel</h3><ol>' + leg + '</ol></div><figcaption class="attrib">© colaboradores de OpenStreetMap · posiciones aproximadas</figcaption></figure>';
+  }
   renderCredits();
+  renderHotelMap();
   render();
 })();
 </script>
